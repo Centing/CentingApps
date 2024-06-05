@@ -11,11 +11,12 @@
         android:layout_height="match_parent"
         android:layout_above="@id/divBottom"
         android:layout_marginHorizontal="25dp">
+
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/welcome_page"/>
+            android:src="@drawable/welcome_page" />
     </RelativeLayout>
     <LinearLayout
         android:id="@+id/divBottom"

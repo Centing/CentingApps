@@ -20,6 +20,17 @@
     <string name="title_login_page">Selamat datang,</string>
     <string name="message_login_page">Log in untuk melanjutkan!</string>
 
+    <!--    Onboarding-->
+    <string name="back">Kembali</string>
+    <string name="next">Lanjut</string>
+    <string name="finish">Mulai</string>
+    <string name="title_onboarding1">Deteksi Stunting Pada Anak</string>
+    <string name="desc_onboarding1">Mendeteksi stunting pada anak merupakan langkah penting dalam memastikan pertumbuhan dan perkembangan optimal.</string>
+    <string name="title_onboarding2">Memberikan Informasi Pada Anak</string>
+    <string name="desc_onboarding2">Memberikan informasi pada anak secara tepat dan sesuai usia adalah kunci untuk mendukung pembelajaran dan perkembangan anak.</string>
+    <string name="title_onboarding3">History Data Anak Dipantau</string>
+    <string name="desc_onboarding3">Memantau history data anak melibatkan pencatatan dan analisis perkembangan fisik, kesehatan, serta akademis mereka dari waktu ke waktu.</string>
+
     <!--    Dashboard-->
     <string name="hi_welcoming">Halo,</string>
     <string name="dummy_name">Ryandhika Bintang A</string>

@@ -18,6 +18,17 @@
     <string name="title_login_page">Welcome,</string>
     <string name="message_login_page">Sign in to continue!</string>
 
+<!--    Onboarding-->
+    <string name="back">Back</string>
+    <string name="next">Next</string>
+    <string name="finish">Finish</string>
+    <string name="title_onboarding1">Stunting Detection in Children</string>
+    <string name="desc_onboarding1">Detecting stunting in children is an important step in ensuring optimal growth and development.</string>
+    <string name="title_onboarding2">Providing Information to Children</string>
+    <string name="desc_onboarding2">Providing children with information that is appropriate and age appropriate is key to supporting childrens learning and development.</string>
+    <string name="title_onboarding3">Children Data History Monitored</string>
+    <string name="desc_onboarding3">Monitoring childrens history data involves recording and analyzing their physical, health and academic development over time.</string>
+
     <!--    Dashboard-->
     <string name="hi_welcoming">Hi,</string>
     <string name="dummy_name">Ryandhika Bintang A</string>

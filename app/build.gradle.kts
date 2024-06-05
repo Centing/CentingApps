@@ -101,4 +101,10 @@ dependencies {
 //    Circle Image
     implementation ("de.hdodenhof:circleimageview:3.1.0")
 
+    //viewPager2 library
+    implementation ("androidx.viewpager2:viewpager2:1.1.0-beta02")
+
+    //stepper library
+    implementation ("com.tbuonomo:dotsindicator:5.0")
+
 }
