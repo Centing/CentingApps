@@ -164,7 +164,8 @@
                     app:cardElevation="5dp"
                     app:cardPreventCornerOverlap="true"
                     android:layout_marginHorizontal="20dp"
-                    android:layout_marginVertical="10dp">
+                    android:layout_marginVertical="10dp"
+                    android:visibility="gone">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

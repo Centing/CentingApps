@@ -10,26 +10,36 @@ import androidx.core.view.WindowInsetsCompat
 import com.c241ps220.centingapps.R
 import com.c241ps220.centingapps.databinding.ActivityDetectionGuestBinding
 import com.c241ps220.centingapps.databinding.ActivityZoomImageBinding
+import java.nio.ByteBuffer
+import java.nio.ByteOrder
+import org.tensorflow.lite.DataType
+import org.tensorflow.lite.Interpreter
+import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 
 class DetectionGuestActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetectionGuestBinding
 
+    private lateinit var interpreter: Interpreter
+
     private val stepSize = 0.1f
 //    private var currentValue = 0f
 //     Value Selectected
-    private var isSelectedGender = "Laki-Laki"
+    private var isSelectedGender = 0f // 0 Laki, 1 Perempuan
     private var isSelectedSusu = "ASI"
-    private var isSelectedHeightBirth = 0
-    private var isSelectedHeightLatest = 0
+    private var isSelectedHeightBirth = 0f
+    private var isSelectedHeightLatest = 0f
     private var isSelectedWeightBirth = 2.4f
     private var isSelectedWeightLatest = 4f
-    private var isSelectedAge = 0
+    private var isSelectedAge = 0f
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityDetectionGuestBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // Inisialisasi model
+        interpreter = Interpreter(loadModelFile("testing2.tflite"))
 
         setupToolbar()
         setupGender()
@@ -49,12 +59,12 @@ class DetectionGuestActivity : AppCompatActivity() {
     private fun setupGender(){
         with(binding){
             divGenderLaki.setOnClickListener {
-                isSelectedGender = "Laki-Laki"
+                isSelectedGender = 0f // "Laki-Laki"
                 divGenderLaki.setBackgroundResource(R.drawable.rectangle_stroke2)
                 divGenderPerempuan.setBackgroundResource(R.drawable.rectangle_stroke_transparent)
             }
             divGenderPerempuan.setOnClickListener {
-                isSelectedGender = "Perempuan"
+                isSelectedGender = 1f // "Perempuan"
                 divGenderLaki.setBackgroundResource(R.drawable.rectangle_stroke_transparent)
                 divGenderPerempuan.setBackgroundResource(R.drawable.rectangle_stroke2)
             }
@@ -83,7 +93,7 @@ class DetectionGuestActivity : AppCompatActivity() {
             sbHeightBirth.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
                 override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                     tvValueHeightBirth.setText("$progress Cm")
-                    isSelectedHeightBirth = progress
+                    isSelectedHeightBirth = progress.toFloat()
                 }
 
                 override fun onStartTrackingTouch(seekBar: SeekBar) {
@@ -92,14 +102,14 @@ class DetectionGuestActivity : AppCompatActivity() {
                 override fun onStopTrackingTouch(seekBar: SeekBar) {
                     var progress = seekBar.progress
                     tvValueHeightBirth.setText("$progress Cm")
-                    isSelectedHeightBirth = progress
+                    isSelectedHeightBirth = progress.toFloat()
                 }
             })
 
             sbHeightLatest.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
                 override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                     tvValueHeightLatest.setText("$progress Cm")
-                    isSelectedHeightLatest = progress
+                    isSelectedHeightLatest = progress.toFloat()
                 }
 
                 override fun onStartTrackingTouch(seekBar: SeekBar) {
@@ -108,7 +118,7 @@ class DetectionGuestActivity : AppCompatActivity() {
                 override fun onStopTrackingTouch(seekBar: SeekBar) {
                     var progress = seekBar.progress
                     tvValueHeightLatest.setText("$progress Cm")
-                    isSelectedHeightLatest = progress
+                    isSelectedHeightLatest = progress.toFloat()
                 }
             })
         }
@@ -144,12 +154,12 @@ class DetectionGuestActivity : AppCompatActivity() {
             var textUmur = getString(R.string.age)
             ivRemoveAge.setOnClickListener {
                 isSelectedAge -= 1
-                isSelectedAge = Math.max(isSelectedAge, 0)
+                isSelectedAge = Math.max(isSelectedAge, 0f)
                 tvValueAge.text = "$isSelectedAge $textUmur"
             }
             ivAddAge.setOnClickListener {
                 isSelectedAge += 1
-                isSelectedAge = Math.max(isSelectedAge, 0)
+                isSelectedAge = Math.max(isSelectedAge, 0f)
                 tvValueAge.text = "$isSelectedAge $textUmur"
             }
         }
@@ -158,9 +168,50 @@ class DetectionGuestActivity : AppCompatActivity() {
     private fun detectionHere(){
         with(binding){
             btDetectionNow.setOnClickListener {
+//                val input = floatArrayOf(gender, age, birthWeight, birthHeight, weight, height)
+                if (isSelectedAge <= 0){
+                    Toast.makeText(this@DetectionGuestActivity, "Opps Data Belum Lengkap,\nHarap lengkapi inputan yang tersedia!", Toast.LENGTH_SHORT).show()
+                }else{
+                    val input = floatArrayOf(isSelectedGender, isSelectedAge, isSelectedWeightBirth, isSelectedHeightBirth, isSelectedWeightLatest, isSelectedHeightLatest)
+                    val result = doInference(input)
+
+                    val statusStunting = if (result >= 0.5f) "Stunting" else "Tidak Stunting"
+                    Toast.makeText(this@DetectionGuestActivity, "Status Stunting: $statusStunting", Toast.LENGTH_SHORT).show()
+                }
 
             }
         }
 
+    }
+
+    private fun loadModelFile(filename: String): ByteBuffer {
+        val fileDescriptor = assets.openFd(filename)
+        val inputStream = fileDescriptor.createInputStream()
+        val byteArray = ByteArray(fileDescriptor.length.toInt())
+        inputStream.read(byteArray)
+        inputStream.close()
+        val byteBuffer = ByteBuffer.allocateDirect(byteArray.size)
+        byteBuffer.order(ByteOrder.nativeOrder())
+        byteBuffer.put(byteArray)
+        return byteBuffer
+    }
+
+    private fun doInference(input: FloatArray): Float {
+        val byteBuffer = ByteBuffer.allocateDirect(6 * 4).apply {
+            order(ByteOrder.nativeOrder())
+            for (value in input) {
+                putFloat(value)
+            }
+        }
+
+        val output = TensorBuffer.createFixedSize(intArrayOf(1, 1), DataType.FLOAT32)
+        interpreter.run(byteBuffer, output.buffer.rewind())
+
+        return output.floatArray[0]
+    }
+
+    override fun onDestroy() {
+        interpreter.close()
+        super.onDestroy()
     }
 }
