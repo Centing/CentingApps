@@ -52,16 +52,9 @@
 
                         <ImageView
                             android:id="@+id/ivUser"
-                            android:layout_width="28dp"
-                            android:layout_height="28dp"
-                            android:layout_marginRight="13dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             android:src="@drawable/ic_person_circle" />
-
-                        <ImageView
-                            android:id="@+id/ivSetting"
-                            android:layout_width="28dp"
-                            android:layout_height="28dp"
-                            android:src="@drawable/ic_setting_circle" />
                     </LinearLayout>
 
                 </RelativeLayout>

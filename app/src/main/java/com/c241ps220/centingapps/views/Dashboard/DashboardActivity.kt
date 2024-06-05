@@ -14,6 +14,7 @@ import com.c241ps220.centingapps.databinding.ActivityDashboardBinding
 import com.c241ps220.centingapps.views.Deteksi.Guest.DetectionGuestActivity
 import com.c241ps220.centingapps.views.WelcomeScreen.WelcomingActivity
 import com.c241ps220.centingapps.views.ZoomImage.ZoomImageActivity
+import com.c241ps220.centingapps.views.profile.ProfileActivity
 import com.denzcoskun.imageslider.constants.ActionTypes
 import com.denzcoskun.imageslider.constants.AnimationTypes
 import com.denzcoskun.imageslider.constants.ScaleTypes
@@ -139,12 +140,18 @@ class DashboardActivity : AppCompatActivity() {
         with(binding){
             ivUser.setOnClickListener {
 //            showConfirmationLogoutDialog()
-                onDevelopment()
+//                onDevelopment()
+                startActivity(
+                    Intent(
+                        this@DashboardActivity,
+                        ProfileActivity::class.java
+                    )
+                )
             }
-            ivSetting.setOnClickListener {
-//            showConfirmationSettingDialog()
-                onDevelopment()
-            }
+//            ivSetting.setOnClickListener {
+////            showConfirmationSettingDialog()
+//                onDevelopment()
+//            }
             btDetect.setOnClickListener {
 //                onDevelopment()
                 startActivity(
