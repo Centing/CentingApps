@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".views.result.ResultActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:padding="10dp"
+        android:text="DATA ANAK"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- NAMA -->
+    <TextView
+        android:id="@+id/namaLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="24dp"
+        android:text="NAMA  :"
+        android:textColor="@android:color/black"
+        android:fontFamily="@font/poppins_regular"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <!-- USIA -->
+    <TextView
+        android:id="@+id/namaData"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="24dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="  Dummy"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/namaLabel"
+        app:layout_constraintTop_toTopOf="@+id/namaLabel" />
+
+    <TextView
+        android:id="@+id/usiaLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="USIA  :"
+        android:layout_marginLeft="24dp"
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/namaLabel" />
+
+    <TextView
+        android:id="@+id/usiaData"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="24dp"
+        android:text="  Dummy"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/usiaLabel"
+        app:layout_constraintTop_toTopOf="@+id/usiaLabel" />
+
+    <!-- JENIS KELAMIN -->
+    <TextView
+        android:id="@+id/jenisKelaminLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="24dp"
+        android:text="JENIS KELAMIN :"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usiaLabel" />
+
+    <TextView
+        android:id="@+id/jenisKelaminData"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="24dp"
+        android:text="  Dummy"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/jenisKelaminLabel"
+        app:layout_constraintTop_toTopOf="@+id/jenisKelaminLabel" />
+
+    <!-- TINGGI BADAN -->
+    <TextView
+        android:id="@+id/tinggiBadanLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="TINGGI BADAN  :"
+        android:layout_marginLeft="24dp"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/jenisKelaminLabel" />
+
+    <TextView
+        android:id="@+id/tinggiBadanData"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="24dp"
+        android:text="  Dummy"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tinggiBadanLabel"
+        app:layout_constraintTop_toTopOf="@+id/tinggiBadanLabel" />
+
+    <!-- BERAT BADAN -->
+    <TextView
+        android:id="@+id/beratBadanLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="BERAT BADAN   :"
+        android:layout_marginLeft="24dp"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tinggiBadanLabel" />
+
+    <TextView
+        android:id="@+id/beratBadanData"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="24dp"
+        android:text="  Dummy"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/beratBadanLabel"
+        app:layout_constraintTop_toTopOf="@+id/beratBadanLabel" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationSad"
+        android:layout_width="225dp"
+        android:layout_height="225dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/beratBadanData"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/stunting"
+        app:lottie_renderMode="hardware"
+        app:lottie_speed="1" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:text="anda terindikasi stunting"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/animationSad" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Anda memiliki nilai Index Massa Tubuh (IMT) 15 yang menandakan sangat kurus dan berdasarkan tinggi badan anda dengan usia 13 tahun memiliki nilai TB/U 0.71 masuk kedalam kategori pendek"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

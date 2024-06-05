@@ -34,7 +34,7 @@
     <string name="dummyLongText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mattis fringilla ipsum. Nam pharetra dapibus justo et pretium. Integer a semper augue, quis ultrices ante. Vestibulum sed massa nec ex vulputate consectetur sed at quam. Cras vestibulum dui non cursus semper. Quisque eleifend sit amet nisl vulputate imperdiet. Suspendisse in molestie ipsum, ac consectetur orci. Sed ante dolor, finibus dapibus pharetra sed, consectetur quis lacus.</string>
     <string name="title_okei">Oke</string>
 
-<!--    DETECTION-->
+    <!--    DETECTION-->
     <string name="title_detection">Stunting Detection</string>
     <string name="jenis_kelamin">Gender</string>
     <string name="laki_laki">Male</string>
@@ -49,8 +49,6 @@
     <string name="detection_now">Detection Now</string>
     <string name="age">Month</string>
     <string name="default_age">0 Month</string>
-
-
 
 
     <!--FAQ STUNTING-->
