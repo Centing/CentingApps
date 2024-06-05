@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">CentingApps</string>
+
+    <string name="custom_login">Login</string>
+    <string name="custom_signup">Signup</string>
+    <string name="guest_mode"><u>Guest Mode</u></string>
+    <string name="message_welcome_page">Lets prevent stunting together and ensure a healthier future for Indonesian children!</string>
+    <string name="tittle_welcome_page">Welcome to Centing</string>
+
+    <string name="text_dont_have_account">Dont have an account?</string>
+    <string name="error_invalid_email">Invalid email</string>
+    <string name="error_short_password">Password cannot be less than 8 characters</string>
+
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="name">Name</string>
+
+    <string name="title_login_page">Welcome,</string>
+    <string name="message_login_page">Sign in to continue!</string>
+
+    <!--    Dashboard-->
+    <string name="hi_welcoming">Hi,</string>
+    <string name="dummy_name">Ryandhika Bintang A</string>
+    <string name="riwayat_deteksi">History Detection</string>
+    <string name="tips_trik">Tips and Trik</string>
+    <string name="artikel">Article</string>
+    <string name="faq">Frequently Asked Questions</string>
+    <string name="share_app">Share this application, lets prevent stunting together and ensure a healthier future for Indonesian children!</string>
+    <string name="share_app_action">Share</string>
+
+    <!-- GENERAL-->
+    <string name="title_development">Under Feature Development</string>
+    <string name="message_development">Sorry, the feature is currently under development, look forward to the latest update, Thank you</string>
+    <string name="dummyLongText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mattis fringilla ipsum. Nam pharetra dapibus justo et pretium. Integer a semper augue, quis ultrices ante. Vestibulum sed massa nec ex vulputate consectetur sed at quam. Cras vestibulum dui non cursus semper. Quisque eleifend sit amet nisl vulputate imperdiet. Suspendisse in molestie ipsum, ac consectetur orci. Sed ante dolor, finibus dapibus pharetra sed, consectetur quis lacus.</string>
+    <string name="title_okei">Oke</string>
+
+<!--    DETECTION-->
+    <string name="title_detection">Stunting Detection</string>
+    <string name="jenis_kelamin">Gender</string>
+    <string name="laki_laki">Male</string>
+    <string name="perempuan">Female</string>
+    <string name="milk">Type of Milk</string>
+    <string name="asi_ibu">ASI</string>
+    <string name="asi_formula">Formula</string>
+    <string name="height_birth">Birth Height</string>
+    <string name="height_latest">Latest Height</string>
+    <string name="weight_birth">Birth Weight</string>">
+    <string name="weight_latest">Latest Weight</string>
+    <string name="detection_now">Detection Now</string>
+    <string name="age">Month</string>
+    <string name="default_age">0 Month</string>
+
+
+
+
+    <!--FAQ STUNTING-->
+    <string name="expand1">What is Stunting ?</string>
+    <string name="faq1">Stunting is a condition of failure to thrive in children under five years of age (toddlers) due to chronic lack of nutritional intake and recurrent infections, especially during the First 1,000 Days of Life (HPK), namely from the fetus to the child aged 23 months. Stunting is determined by an anthropometric index that uses body length data based on age (PB/U) for children under 2 years of age and uses height based on age data (TB/U) for children aged 2 years and over.</string>
+
+    <string name="expand2">What are the characteristics of stunting?</string>
+    <string name="faq2">- Growth slows down, Face looks younger than children his age, Delayed tooth growth, Poor performance in focus ability and learning memory, Age 8-10 years children become quieter , dont make much eye contact with people around them, The toddlers weight does not increase and even tends to decrease, The childs body development is hampered, such as late menarche (a girls first menstruation). The child is easily attacked by various infectious diseases. </string>
+
+    <string name="expand3">What are the impacts of stunting?</string>
+    <string name="faq3">There are many losses that children experience if they experience stunting. The short-term impacts of stunting on children aged 0-5 are: (1) The child gets sick easily, (2) The childs growth and development is hampered, for example the child is late in talking or walking. Apart from that, stunting also has long-term impacts, namely (1) When you go to school, your learning ability decreases, which has a negative impact on learning achievement; (2) Obesity/overweight; (3) When you grow up, your chances of getting a decent job are reduced; (4) Have a higher risk of developing non-communicable diseases, such as diabetes mellitus, heart disease, etc..</string>
+
+    <string name="expand4">Can stunting be prevented or corrected?</string>
+    <string name="faq4">Stunting can be prevented or corrected if done before or during the golden period. Therefore, various important interventions are carried out from an early age, starting from preparing the nutritional and health conditions of the expectant mother to ensuring good health and adequate nutrition, especially in the first 1000 days of life, namely from the time the child is in the womb until the age of 2 years.</string>
+</resources>
