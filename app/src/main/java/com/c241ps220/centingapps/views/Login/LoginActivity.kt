@@ -25,7 +25,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setupView()
-        playAnimation()
+//        playAnimation()
         setupAction()
 
     }

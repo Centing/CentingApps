@@ -11,7 +11,6 @@ import androidx.lifecycle.lifecycleScope
 import com.c241ps220.centingapps.R
 import com.c241ps220.centingapps.databinding.ActivitySplashScreenBinding
 import com.c241ps220.centingapps.views.Onboarding.OnBoardingActivity
-import com.c241ps220.centingapps.views.WelcomeScreen.WelcomingActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -31,9 +30,9 @@ class SplashScreenActivity : AppCompatActivity() {
 
         with(binding) {
 
-            val fadeIn = AnimationUtils.loadAnimation(this@SplashScreenActivity, R.anim.fade_in)
-
-            imageView.startAnimation(fadeIn)
+//            val fadeIn = AnimationUtils.loadAnimation(this@SplashScreenActivity, R.anim.fade_in)
+//
+//            imageView.startAnimation(fadeIn)
 
             lifecycleScope.launch {
                 delay(2000L)
