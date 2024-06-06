@@ -20,6 +20,16 @@
     <string name="title_login_page">Selamat datang,</string>
     <string name="message_login_page">Log in untuk melanjutkan!</string>
 
+<!--    BottomNavbar -->
+    <string name="bn_home">Beranda</string>
+    <string name="bn_history">Riwayat</string>
+    <string name="bn_faq">FAQ</string>
+    <string name="bn_profile">Profil</string>
+
+<!--    Ketuk Dua Kali keluar -->
+    <string name="confirm_close">Tekan kembali lagi untuk keluar</string>
+
+
     <!--    Onboarding-->
     <string name="back">Kembali</string>
     <string name="next">Lanjut</string>

@@ -107,4 +107,8 @@ dependencies {
     //stepper library
     implementation ("com.tbuonomo:dotsindicator:5.0")
 
+//    Bottom NavBar
+//    implementation ("com.github.ismaeldivita:chip-navigation-bar:1.4.0")
+    implementation ("com.github.ertugrulkaragoz:SuperBottomBar:0.4")
+
 }

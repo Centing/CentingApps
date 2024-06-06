@@ -18,7 +18,16 @@
     <string name="title_login_page">Welcome,</string>
     <string name="message_login_page">Sign in to continue!</string>
 
-<!--    Onboarding-->
+    <!--    Bottom Navbar-->
+    <string name="bn_home">Home</string>
+    <string name="bn_history">History</string>
+    <string name="bn_faq">FAQ</string>
+    <string name="bn_profile">Profile</string>
+
+    <!--    Ketuk Dua Kali keluar -->
+    <string name="confirm_close">Press again to exit</string>
+
+    <!--    Onboarding-->
     <string name="back">Back</string>
     <string name="next">Next</string>
     <string name="finish">Finish</string>
@@ -74,4 +83,6 @@
 
     <string name="expand4">Can stunting be prevented or corrected?</string>
     <string name="faq4">Stunting can be prevented or corrected if done before or during the golden period. Therefore, various important interventions are carried out from an early age, starting from preparing the nutritional and health conditions of the expectant mother to ensuring good health and adequate nutrition, especially in the first 1000 days of life, namely from the time the child is in the womb until the age of 2 years.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
