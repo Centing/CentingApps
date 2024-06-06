@@ -147,7 +147,7 @@
                         <com.denzcoskun.imageslider.ImageSlider
                             android:id="@+id/image_slider"
                             android:layout_width="match_parent"
-                            android:layout_height="250dp"
+                            android:layout_height="200dp"
                             app:iss_auto_cycle="true"
                             app:iss_corner_radius="10"
                             app:iss_delay="1000"
@@ -169,7 +169,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:layout_marginTop="5dp">
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="10dp">
                         <include layout="@layout/item_row_article"/>
                         <include layout="@layout/item_row_article"/>
                         <include layout="@layout/item_row_article"/>
