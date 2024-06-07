@@ -12,6 +12,7 @@ import androidx.appcompat.app.AlertDialog
 import com.c241ps220.centingapps.R
 import com.c241ps220.centingapps.databinding.FragmentFaqBinding
 import com.c241ps220.centingapps.databinding.FragmentProfileBinding
+import com.c241ps220.centingapps.utils.CustomFunction
 import com.c241ps220.centingapps.views.ResetPassword.ResetPasswordActivity
 import com.c241ps220.centingapps.views.profile.ProfileActivity
 
@@ -38,6 +39,8 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         with(binding){
+            tvInisial.text = CustomFunction.getInitials(getString(R.string.dummy_name))
+
             divProfile.setOnClickListener{
                 startActivity(
                     Intent(

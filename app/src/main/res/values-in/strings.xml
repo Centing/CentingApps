@@ -47,6 +47,8 @@
     <!--    FAQ Fragment-->
     <string name="faq">Pertanyaan yang Sering Diajukan</string>
     <string name="faq_question">Tanya Centing</string>
+    <string name="faq_desc_gpt">Anda masih bingung tentang stunting? Yuk mari tanya Centing</string>
+    <string name="faq_desc_gpt_btn">Tanyakan Sekarang Dengan Centing</string>
 
 <!--    Profile Fragment -->
     <string name="descProfile">Informasi Kamu</string>
@@ -75,15 +77,18 @@
 
     <!--    Dashboard-->
     <string name="hi_welcoming">Halo,</string>
-    <string name="dummy_name">Ryandhika Bintang A</string>
+    <string name="dummy_name">Dummy Name Lorem</string>
     <string name="dummy_email">emaildummy@gmail.com</string>
     <string name="riwayat_deteksi">Riwayat Deteksi</string>
     <string name="invitation_check">Yuk Deteksi Stunting!</string>
     <string name="check_now">Cek Sekarang</string>
+    <string name="check_now2">Cek\nSekarang</string>
     <string name="tips_trik">Tips dan Trik</string>
     <string name="artikel">Artikel</string>
     <string name="share_app">Share Aplikasi ini, Mari bersama-sama cegah stunting dan pastikan masa depan yang lebih sehat bagi anak-anak Indonesia!</string>
     <string name="share_app_action">Bagikan</string>
+    <string name="male">Laki-Laki</string>
+    <string name="female">Perempuan</string>
 
     <!-- GENERAL-->
     <string name="title_development">Sedang Dalam Pengembangan</string>
