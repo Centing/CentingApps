@@ -38,6 +38,16 @@
     <string name="title_onboarding3">Children Data History Monitored</string>
     <string name="desc_onboarding3">Monitoring childrens history data involves recording and analyzing their physical, health and academic development over time.</string>
 
+    <!-- History Fragment -->
+    <string name="descHistory">Child Stunting Detection History</string>
+
+    <!--    FAQ Fragment-->
+    <string name="faq">Frequently Asked Questions</string>
+    <string name="faq_question">Ask Centing</string>
+
+    <!--    Profile Fragment -->
+    <string name="descProfile">Your Information</string>
+
     <!--    Dashboard-->
     <string name="hi_welcoming">Hi,</string>
     <string name="dummy_name">Ryandhika Bintang A</string>
@@ -46,7 +56,6 @@
     <string name="check_now">Check Now</string>
     <string name="tips_trik">Tips and Trik</string>
     <string name="artikel">Article</string>
-    <string name="faq">Frequently Asked Questions</string>
     <string name="share_app">Share this application, lets prevent stunting together and ensure a healthier future for Indonesian children!</string>
     <string name="share_app_action">Share</string>
 

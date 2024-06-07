@@ -3,12 +3,289 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".views.Fragment.FaqFragment.FaqFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="FAQ Fragment" />
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:id="@+id/divTop"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="@drawable/gradient_transparent">
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvTitleToolbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/bn_faq"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvDescToolbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvTitleToolbar"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="7dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="@string/faq"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/tvDescToolbar"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="180dp"
+                        android:layout_height="130dp"
+                        android:src="@drawable/faq_header"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="10dp"/>
+
+                    <!--                FAQ SECTION -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/rectangle_stroke2"
+                        android:paddingHorizontal="15dp"
+                        android:paddingVertical="5dp"
+                        android:layout_marginTop="5dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:text="@string/expand1"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:layout_centerVertical="true"
+                                android:layout_toLeftOf="@id/ivExpand1"/>
+                            <ImageView
+                                android:id="@+id/ivExpand1"
+                                android:layout_alignParentRight="true"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/baseline_keyboard_arrow_down_24"
+                                android:tint="@color/colorPrimaryDark"
+                                android:layout_centerVertical="true" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/tvFAQ1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/faq1"
+                            android:layout_centerVertical="true"
+                            android:layout_toLeftOf="@id/ivExpand1"
+                            android:justificationMode="inter_word"
+                            android:visibility="gone"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/rectangle_stroke2"
+                        android:paddingHorizontal="15dp"
+                        android:paddingVertical="5dp"
+                        android:layout_marginTop="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:text="@string/expand2"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:layout_centerVertical="true"
+                                android:layout_toLeftOf="@id/ivExpand2"/>
+                            <ImageView
+                                android:id="@+id/ivExpand2"
+                                android:layout_alignParentRight="true"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/baseline_keyboard_arrow_down_24"
+                                android:tint="@color/colorPrimaryDark"
+                                android:layout_centerVertical="true" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/tvFAQ2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/faq2"
+                            android:layout_centerVertical="true"
+                            android:layout_toLeftOf="@id/ivExpand1"
+                            android:justificationMode="inter_word"
+                            android:visibility="gone"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/rectangle_stroke2"
+                        android:paddingHorizontal="15dp"
+                        android:paddingVertical="5dp"
+                        android:layout_marginTop="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:text="@string/expand3"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:layout_centerVertical="true"
+                                android:layout_toLeftOf="@id/ivExpand3"/>
+                            <ImageView
+                                android:id="@+id/ivExpand3"
+                                android:layout_alignParentRight="true"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/baseline_keyboard_arrow_down_24"
+                                android:tint="@color/colorPrimaryDark"
+                                android:layout_centerVertical="true" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/tvFAQ3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/faq3"
+                            android:layout_centerVertical="true"
+                            android:layout_toLeftOf="@id/ivExpand1"
+                            android:justificationMode="inter_word"
+                            android:visibility="gone"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/rectangle_stroke2"
+                        android:paddingHorizontal="15dp"
+                        android:paddingVertical="5dp"
+                        android:layout_marginTop="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:text="@string/expand4"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:layout_centerVertical="true"
+                                android:layout_toLeftOf="@id/ivExpand4"/>
+                            <ImageView
+                                android:id="@+id/ivExpand4"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/baseline_keyboard_arrow_down_24"
+                                android:tint="@color/colorPrimaryDark"/>
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/tvFAQ4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/faq4"
+                            android:layout_centerVertical="true"
+                            android:layout_toLeftOf="@id/ivExpand1"
+                            android:justificationMode="inter_word"
+                            android:visibility="gone"/>
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/inputQuestionLayout"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/faq_question"
+                            android:layout_toLeftOf="@+id/divSend"
+                            android:layout_marginRight="10dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etQuestion"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:ems="10"
+                                android:inputType="textEmailAddress"
+                                android:textSize="12sp"
+                                tools:ignore="SpeakableTextPresentCheck" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <LinearLayout
+                            android:id="@+id/divSend"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:background="@drawable/rectangle_rounded"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginTop="10dp">
+                            <ImageView
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/baseline_send_24"
+                                android:tint="@color/white"/>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+    </RelativeLayout>
 
 </FrameLayout>

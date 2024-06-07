@@ -71,7 +71,7 @@
     <color name="qr_code_finder_frame">#A46C6C6C</color>
     <color name="qr_code_finder_laser">#ef8394</color>
 
-    <color name="colorTransparent">#9A000000</color>
+    <color name="colorTransparent">#00000000</color>
 
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>

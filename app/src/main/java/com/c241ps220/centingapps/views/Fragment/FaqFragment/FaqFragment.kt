@@ -6,55 +6,78 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.c241ps220.centingapps.R
+import com.c241ps220.centingapps.databinding.FragmentBerandaBinding
+import com.c241ps220.centingapps.databinding.FragmentFaqBinding
+import com.c241ps220.centingapps.utils.CustomFunction
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [FaqFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class FaqFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    private var _binding: FragmentFaqBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_faq, container, false)
+        _binding = FragmentFaqBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment FaqFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            FaqFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        with(binding){
+            setupFAQ()
+        }
+    }
+
+    private fun setupFAQ(){
+        with(binding){
+            ivExpand1.setOnClickListener {
+                if (tvFAQ1.visibility == View.GONE){
+                    tvFAQ1.visibility = View.VISIBLE
+                    ivExpand1.setImageResource(R.drawable.baseline_keyboard_arrow_up_24)
+                }else{
+                    tvFAQ1.visibility = View.GONE
+                    ivExpand1.setImageResource(R.drawable.baseline_keyboard_arrow_down_24)
                 }
             }
+
+            ivExpand2.setOnClickListener {
+                if (tvFAQ2.visibility == View.GONE){
+                    tvFAQ2.visibility = View.VISIBLE
+                    ivExpand2.setImageResource(R.drawable.baseline_keyboard_arrow_up_24)
+                }else{
+                    tvFAQ2.visibility = View.GONE
+                    ivExpand2.setImageResource(R.drawable.baseline_keyboard_arrow_down_24)
+                }
+            }
+
+            ivExpand3.setOnClickListener {
+                if (tvFAQ3.visibility == View.GONE){
+                    tvFAQ3.visibility = View.VISIBLE
+                    ivExpand3.setImageResource(R.drawable.baseline_keyboard_arrow_up_24)
+                }else{
+                    tvFAQ3.visibility = View.GONE
+                    ivExpand3.setImageResource(R.drawable.baseline_keyboard_arrow_down_24)
+                }
+            }
+
+            ivExpand4.setOnClickListener {
+                if (tvFAQ4.visibility == View.GONE){
+                    tvFAQ4.visibility = View.VISIBLE
+                    ivExpand4.setImageResource(R.drawable.baseline_keyboard_arrow_up_24)
+                }else{
+                    tvFAQ4.visibility = View.GONE
+                    ivExpand4.setImageResource(R.drawable.baseline_keyboard_arrow_down_24)
+                }
+            }
+        }
     }
+
 }

@@ -20,13 +20,13 @@
     <string name="title_login_page">Selamat datang,</string>
     <string name="message_login_page">Log in untuk melanjutkan!</string>
 
-<!--    BottomNavbar -->
+    <!--    BottomNavbar -->
     <string name="bn_home">Beranda</string>
     <string name="bn_history">Riwayat</string>
     <string name="bn_faq">FAQ</string>
     <string name="bn_profile">Profil</string>
 
-<!--    Ketuk Dua Kali keluar -->
+    <!--    Ketuk Dua Kali keluar -->
     <string name="confirm_close">Tekan kembali lagi untuk keluar</string>
 
 
@@ -41,6 +41,17 @@
     <string name="title_onboarding3">History Data Anak Dipantau</string>
     <string name="desc_onboarding3">Memantau history data anak melibatkan pencatatan dan analisis perkembangan fisik, kesehatan, serta akademis mereka dari waktu ke waktu.</string>
 
+    <!--    History Fragment -->
+    <string name="descHistory">Riwayat Deteksi Stunting Anak</string>
+
+    <!--    FAQ Fragment-->
+    <string name="faq">Pertanyaan yang Sering Diajukan</string>
+
+<!--    Profile Fragment -->
+    <string name="descProfile">Informasi Kamu</string>
+    <string name="faq_question">Tanya Centing</string>
+
+
     <!--    Dashboard-->
     <string name="hi_welcoming">Halo,</string>
     <string name="dummy_name">Ryandhika Bintang A</string>
@@ -49,17 +60,16 @@
     <string name="check_now">Cek Sekarang</string>
     <string name="tips_trik">Tips dan Trik</string>
     <string name="artikel">Artikel</string>
-    <string name="faq">Pertanyaan yang Sering Diajukan</string>
     <string name="share_app">Share Aplikasi ini, Mari bersama-sama cegah stunting dan pastikan masa depan yang lebih sehat bagi anak-anak Indonesia!</string>
     <string name="share_app_action">Bagikan</string>
 
-<!-- GENERAL-->
+    <!-- GENERAL-->
     <string name="title_development">Sedang Dalam Pengembangan</string>
     <string name="message_development">Maaf saat ini fitur dalam pengembangan, nantikan update terbaru, Terimakasih</string>
     <string name="dummyLongText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mattis fringilla ipsum. Nam pharetra dapibus justo et pretium. Integer a semper augue, quis ultrices ante. Vestibulum sed massa nec ex vulputate consectetur sed at quam. Cras vestibulum dui non cursus semper. Quisque eleifend sit amet nisl vulputate imperdiet. Suspendisse in molestie ipsum, ac consectetur orci. Sed ante dolor, finibus dapibus pharetra sed, consectetur quis lacus.</string>
     <string name="title_okei">Baik</string>
 
-<!--    DETECTION-->
+    <!--    DETECTION-->
     <string name="title_detection">Deteksi Stunting</string>
     <string name="jenis_kelamin">Jenis Kelamin</string>
     <string name="laki_laki">Laki - laki</string>
@@ -76,9 +86,7 @@
     <string name="default_age">0 Bulan</string>
 
 
-
-
-<!--FAQ STUNTING-->
+    <!--FAQ STUNTING-->
     <string name="expand1">Apa Itu Stunting ?</string>
     <string name="faq1">Stunting adalah kondisi gagal tumbuh pada anak berusia dibawah lima tahun (balita) akibat kekurangan asupan gizi kronis dan infeksi berulang terutama pada periode 1.000 Hari Pertama Kehidupan (HPK), yaitu dari janin hingga anak berusia 23 bulan. Stunting ditentukan oleh indeks antropometri yang menggunakan data panjang badan berdasarkan umur (PB/U) untuk anak usia dibawah 2 tahun dan menggunakan data tinggi badan berdasarkan umur (TB/U) untuk anak usia 2 tahun ke atas. </string>
 
