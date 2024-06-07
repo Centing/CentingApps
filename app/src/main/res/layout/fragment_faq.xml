@@ -255,7 +255,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:ems="10"
-                                android:inputType="textEmailAddress"
+                                android:inputType="textLongMessage"
                                 android:textSize="12sp"
                                 tools:ignore="SpeakableTextPresentCheck" />
                         </com.google.android.material.textfield.TextInputLayout>
