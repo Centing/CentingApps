@@ -8,6 +8,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.c241ps220.centingapps.R
 import com.c241ps220.centingapps.databinding.ActivityProfileBinding
 import com.c241ps220.centingapps.databinding.ActivityZoomImageBinding
+import com.c241ps220.centingapps.utils.CustomFunction
 
 class ProfileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProfileBinding
@@ -19,6 +20,10 @@ class ProfileActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setupToolbar()
+
+        with(binding){
+            tvInisial.text = CustomFunction.getInitials(getString(R.string.dummy_name))
+        }
     }
 
     private fun setupToolbar(){

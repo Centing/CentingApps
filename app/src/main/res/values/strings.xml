@@ -47,10 +47,20 @@
 
     <!--    Profile Fragment -->
     <string name="descProfile">Your Information</string>
+    <string name="title_personal">Personalization</string>
+    <string name="p_profile">My Profile</string>
+    <string name="p_password">Change Password</string>
+    <string name="title_data_privacy">Data and Privacy</string>
+    <string name="dp_sk">Terms and Conditions</string>
+    <string name="dp_privacy">Privacy Policy</string>
+    <string name="title_setting">Settings</string>
+    <string name="s_language">Language</string>
+    <string name="s_logout">Log out</string>
 
     <!--    Dashboard-->
     <string name="hi_welcoming">Hi,</string>
     <string name="dummy_name">Ryandhika Bintang A</string>
+    <string name="dummy_email">emaildummy@gmail.com</string>
     <string name="riwayat_deteksi">History Detection</string>
     <string name="invitation_check">Lets Detect Stunting!</string>
     <string name="check_now">Check Now</string>

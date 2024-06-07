@@ -1,5 +1,6 @@
 package com.c241ps220.centingapps.views.Fragment.ProfileFragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import com.c241ps220.centingapps.R
 import com.c241ps220.centingapps.databinding.FragmentFaqBinding
 import com.c241ps220.centingapps.databinding.FragmentProfileBinding
+import com.c241ps220.centingapps.views.profile.ProfileActivity
 
 
 class ProfileFragment : Fragment() {
@@ -32,7 +34,14 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         with(binding){
-
+            divProfile.setOnClickListener{
+                startActivity(
+                    Intent(
+                        this@ProfileFragment.requireContext(),
+                        ProfileActivity::class.java
+                    )
+                )
+            }
         }
     }
 

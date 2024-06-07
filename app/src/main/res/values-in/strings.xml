@@ -46,15 +46,25 @@
 
     <!--    FAQ Fragment-->
     <string name="faq">Pertanyaan yang Sering Diajukan</string>
+    <string name="faq_question">Tanya Centing</string>
 
 <!--    Profile Fragment -->
     <string name="descProfile">Informasi Kamu</string>
-    <string name="faq_question">Tanya Centing</string>
+    <string name="title_personal">Personalisasi</string>
+    <string name="p_profile">Profil Saya</string>
+    <string name="p_password">Ubah Kata Sandi</string>
+    <string name="title_data_privacy">Data dan Privasi</string>
+    <string name="dp_sk">Syarat dan Ketentuan</string>
+    <string name="dp_privacy">Kebijakan Privacy</string>
+    <string name="title_setting">Pengaturan</string>
+    <string name="s_language">Bahasa</string>
+    <string name="s_logout">Keluar</string>
 
 
     <!--    Dashboard-->
     <string name="hi_welcoming">Halo,</string>
     <string name="dummy_name">Ryandhika Bintang A</string>
+    <string name="dummy_email">emaildummy@gmail.com</string>
     <string name="riwayat_deteksi">Riwayat Deteksi</string>
     <string name="invitation_check">Yuk Deteksi Stunting!</string>
     <string name="check_now">Cek Sekarang</string>
