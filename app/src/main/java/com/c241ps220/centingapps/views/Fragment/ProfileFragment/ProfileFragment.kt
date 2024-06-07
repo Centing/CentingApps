@@ -1,11 +1,14 @@
 package com.c241ps220.centingapps.views.Fragment.ProfileFragment
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.provider.Settings
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import com.c241ps220.centingapps.R
 import com.c241ps220.centingapps.databinding.FragmentFaqBinding
 import com.c241ps220.centingapps.databinding.FragmentProfileBinding
@@ -51,7 +54,27 @@ class ProfileFragment : Fragment() {
                     )
                 )
             }
+            divLanguage.setOnClickListener {
+                showConfirmationSettingDialog()
+            }
         }
+    }
+
+    private fun showConfirmationSettingDialog() {
+        val builder = AlertDialog.Builder(this@ProfileFragment.requireContext())
+        builder.setTitle(R.string.konfirmasi)
+        builder.setMessage(R.string.dialog_setting_message)
+
+        builder.setPositiveButton(R.string.ya) { dialog: DialogInterface, which: Int ->
+            startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
+        }
+
+        builder.setNegativeButton(R.string.tidak) { dialog: DialogInterface, which: Int ->
+            dialog.dismiss()
+        }
+
+        val dialog = builder.create()
+        dialog.show()
     }
 
     override fun onDestroyView() {

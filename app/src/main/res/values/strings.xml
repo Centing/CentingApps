@@ -63,6 +63,12 @@
     <string name="reset_pw3">Old Password</string>
     <string name="reset_pw4">New Password</string>
     <string name="reset_pw5">Confirm New Password</string>
+    <string name="konfirmasi">Confirmation</string>
+    <string name="ya">Yes</string>
+    <string name="tidak">No</string>
+    <string name="dialog_logout_message">Are you sure you want to log out of the application? To return to using the application you must log in again later</string>
+    <string name="dialog_setting_message">Are you sure you want to change the language?</string>
+
 
     <!--    Dashboard-->
     <string name="hi_welcoming">Hi,</string>

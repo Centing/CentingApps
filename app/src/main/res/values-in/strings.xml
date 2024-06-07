@@ -66,6 +66,11 @@
     <string name="reset_pw3">Kata Sandi Lama</string>
     <string name="reset_pw4">Kata Sandi Baru</string>
     <string name="reset_pw5">Konfirmasi Kata Sandi Baru</string>
+    <string name="konfirmasi">Konfirmasi</string>
+    <string name="ya">Ya</string>
+    <string name="tidak">Tidak</string>
+    <string name="dialog_logout_message">Apakah Anda yakin ingin logout dari aplikasi?, untuk kembali menggunakan aplikasi anda harus login kembali nantinya</string>
+    <string name="dialog_setting_message">Apakah Anda yakin ingin mengubah bahasa?</string>
 
 
     <!--    Dashboard-->
