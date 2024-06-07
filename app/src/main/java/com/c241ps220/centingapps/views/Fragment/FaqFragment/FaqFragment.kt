@@ -80,4 +80,9 @@ class FaqFragment : Fragment() {
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null // Membersihkan binding
+    }
+
 }
