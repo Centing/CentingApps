@@ -50,7 +50,7 @@
     <string name="faq_desc_gpt">Anda masih bingung tentang stunting? Yuk mari tanya Centing</string>
     <string name="faq_desc_gpt_btn">Tanyakan Sekarang Dengan Centing</string>
 
-<!--    Profile Fragment -->
+    <!--    Profile Fragment -->
     <string name="descProfile">Informasi Kamu</string>
     <string name="title_personal">Personalisasi</string>
     <string name="p_profile">Profil Saya</string>
@@ -125,5 +125,12 @@
 
     <string name="expand4">Apakah stunting dapat dicegah atau dikoreksi?</string>
     <string name="faq4">Stunting dapat dicegah atau dikoreksi jika dilakukan sebelum atau selama periode emas. Karenanya berbagai intervensi penting dilakukan sejak dini, mulai dari mempersiapkan kondisi gizi dan kesehatan calon ibu hingga memastikan kesehatan yang baik dan gizi yang cukup terutama pada 1000 Hari Pertama Kehidupan, yaitu sejak anak berada dalam kandungan hingga usia 2 tahun.</string>
+
+    <!--    Child -->
+    <string name="tb_child">Data Anak</string>
+    <string name="tb_add_child">Tambah Data Anak</string>
+    <string name="child_name">Nama Anak</string>">
+    <string name="child_birth">Tanggal Lahir</string>
+    <string name="child_age">Umur (Bulan)</string>
 
 </resources>

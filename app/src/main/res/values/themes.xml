@@ -47,6 +47,31 @@
     </style>
 
 
+    <!-- Gaya khusus untuk TextInputLayout -->
+    <style name="Widget.TextInputLayout.Custom" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/colorTransparent</item> <!-- Ubah warna outline -->
+        <item name="android:textColorHint">@color/colorPrimaryDark</item> <!-- Warna hint -->
+        <item name="hintTextAppearance">@style/TextAppearance.CustomHint</item> <!-- Gaya hint -->
+    </style>
+
+    <!-- Gaya khusus untuk hint text -->
+    <style name="TextAppearance.CustomHint" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">10sp</item> <!-- Ubah ukuran teks hint -->
+        <item name="android:textStyle">bold</item> <!-- Ubah gaya teks hint ke tebal -->
+        <item name="android:fontFamily">@font/poppins_bold</item> <!-- Ubah gaya teks hint ke tebal -->
+        <item name="android:textColor">@color/colorPrimaryDark</item> <!-- Ubah warna teks hint -->
+    </style>
+
+    <style name="DatePickerDialogStyle" parent="@android:style/Theme.Material.Light.Dialog">
+        <item name="android:colorControlActivated">@color/colorPrimaryDark</item> <!-- Untuk bulan yang dipilih -->
+        <item name="android:textColorPrimary">@color/colorPrimaryDark</item> <!-- Untuk teks dan angka -->
+        <item name="android:colorAccent">@color/colorPrimaryDark</item> <!-- Untuk header -->
+        <item name="android:buttonBarButtonStyle">@style/DialogButtonStyle</item> <!-- Untuk header -->
+    </style>
+
+    <style name="DialogButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">@color/colorPrimaryDark</item> <!-- Warna teks tombol "OK" -->
+    </style>
 
 
 </resources>

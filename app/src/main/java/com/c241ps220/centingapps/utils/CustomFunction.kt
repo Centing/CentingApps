@@ -1,5 +1,9 @@
 package com.c241ps220.centingapps.utils
 
+import java.time.LocalDate
+import java.time.Period
+import java.time.format.DateTimeFormatter
+
 object CustomFunction {
     fun getInitials(name: String): String {
         val names = name.split(" ")
@@ -15,5 +19,13 @@ object CustomFunction {
             initials += names[i].first()
         }
         return initials
+    }
+
+    fun calculateAgeInMonths(birthDate: String): Int {
+        val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
+        val birthLocalDate = LocalDate.parse(birthDate, formatter)
+        val currentDate = LocalDate.now()
+        val period = Period.between(birthLocalDate, currentDate)
+        return period.years * 12 + period.months
     }
 }
