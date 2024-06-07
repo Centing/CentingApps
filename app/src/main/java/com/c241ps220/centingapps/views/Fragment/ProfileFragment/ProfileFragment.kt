@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import com.c241ps220.centingapps.R
 import com.c241ps220.centingapps.databinding.FragmentFaqBinding
 import com.c241ps220.centingapps.databinding.FragmentProfileBinding
+import com.c241ps220.centingapps.views.ResetPassword.ResetPasswordActivity
 import com.c241ps220.centingapps.views.profile.ProfileActivity
 
 
@@ -39,6 +40,14 @@ class ProfileFragment : Fragment() {
                     Intent(
                         this@ProfileFragment.requireContext(),
                         ProfileActivity::class.java
+                    )
+                )
+            }
+            divChangePassword.setOnClickListener{
+                startActivity(
+                    Intent(
+                        this@ProfileFragment.requireContext(),
+                        ResetPasswordActivity::class.java
                     )
                 )
             }

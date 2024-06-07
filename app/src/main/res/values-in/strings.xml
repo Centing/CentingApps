@@ -59,6 +59,13 @@
     <string name="title_setting">Pengaturan</string>
     <string name="s_language">Bahasa</string>
     <string name="s_logout">Keluar</string>
+    <string name="cancel">Batal</string>
+    <string name="save">Simpan</string>
+    <string name="reset_pw1">Pastikan kata sand kamu aman</string>
+    <string name="reset_pw2">Lindungi akun kamu dengan kata sandi yang unik dan tidak pernah dibagikan serta kuat, sehingga kamu dapat fokus pada monitoring kesehata anak kamu tanpa khawatir</string>
+    <string name="reset_pw3">Kata Sandi Lama</string>
+    <string name="reset_pw4">Kata Sandi Baru</string>
+    <string name="reset_pw5">Konfirmasi Kata Sandi Baru</string>
 
 
     <!--    Dashboard-->

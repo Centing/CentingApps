@@ -56,6 +56,13 @@
     <string name="title_setting">Settings</string>
     <string name="s_language">Language</string>
     <string name="s_logout">Log out</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="reset_pw1">Make sure your password is secure</string>
+    <string name="reset_pw2">Protect your account with a unique, never-shared and strong password, so you can focus on monitoring your childs health without worry</string>
+    <string name="reset_pw3">Old Password</string>
+    <string name="reset_pw4">New Password</string>
+    <string name="reset_pw5">Confirm New Password</string>
 
     <!--    Dashboard-->
     <string name="hi_welcoming">Hi,</string>
