@@ -17,16 +17,21 @@ class ListAnakActivity : AppCompatActivity() {
 
         setupToolbar()
 
-        with(binding){
+        with(binding) {
             fabChild.setOnClickListener {
                 startActivity(Intent(this@ListAnakActivity, AddAnakActivity::class.java))
+            }
+
+//            Dummy, kalau sudah tidak kepake hapus aja
+            divDummyList.setOnClickListener {
+                startActivity(Intent(this@ListAnakActivity, DetailAnakActivity::class.java))
             }
         }
 
     }
 
-    private fun setupToolbar(){
-        with(binding.divToolbar){
+    private fun setupToolbar() {
+        with(binding.divToolbar) {
             ivBack.setOnClickListener { finish() }
             tvTitleToolbar.text = getResources().getString(R.string.tb_child)
         }

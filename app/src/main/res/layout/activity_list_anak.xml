@@ -30,6 +30,7 @@
             <!-- DUMMY, Hapus aja jika gakepake -->
 
             <LinearLayout
+                android:id="@+id/divDummyList"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="15dp"

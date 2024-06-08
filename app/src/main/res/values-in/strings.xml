@@ -63,6 +63,7 @@
     <string name="s_logout">Keluar</string>
     <string name="cancel">Batal</string>
     <string name="save">Simpan</string>
+    <string name="delete">Hapus</string>
     <string name="reset_pw1">Pastikan kata sand kamu aman</string>
     <string name="reset_pw2">Lindungi akun kamu dengan kata sandi yang unik dan tidak pernah dibagikan serta kuat, sehingga kamu dapat fokus pada monitoring kesehata anak kamu tanpa khawatir</string>
     <string name="reset_pw3">Kata Sandi Lama</string>
@@ -132,5 +133,6 @@
     <string name="child_name">Nama Anak</string>">
     <string name="child_birth">Tanggal Lahir</string>
     <string name="child_age">Umur (Bulan)</string>
+    <string name="tb_child_detail">Detail Anak</string>
 
 </resources>

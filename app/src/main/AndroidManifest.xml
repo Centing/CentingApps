@@ -15,6 +15,9 @@
         android:theme="@style/Theme.CentingApps"
         tools:targetApi="31">
         <activity
+            android:name=".views.AnakSection.DetailAnakActivity"
+            android:exported="false" />
+        <activity
             android:name=".views.AnakSection.AddAnakActivity"
             android:exported="false" />
         <activity
@@ -61,7 +64,7 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>
