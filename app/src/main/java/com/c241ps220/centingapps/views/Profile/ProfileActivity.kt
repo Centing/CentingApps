@@ -1,13 +1,9 @@
-package com.c241ps220.centingapps.views.profile
+package com.c241ps220.centingapps.views.Profile
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.c241ps220.centingapps.R
 import com.c241ps220.centingapps.databinding.ActivityProfileBinding
-import com.c241ps220.centingapps.databinding.ActivityZoomImageBinding
 import com.c241ps220.centingapps.utils.CustomFunction
 
 class ProfileActivity : AppCompatActivity() {

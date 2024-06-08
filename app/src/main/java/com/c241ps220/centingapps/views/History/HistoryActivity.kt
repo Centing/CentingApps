@@ -1,4 +1,4 @@
-package com.c241ps220.centingapps.views.history
+package com.c241ps220.centingapps.views.History
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge

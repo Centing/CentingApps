@@ -32,13 +32,13 @@
             android:name=".views.Onboarding.OnBoardingActivity"
             android:exported="false" />
         <activity
-            android:name=".views.history.HistoryActivity"
+            android:name=".views.History.HistoryActivity"
             android:exported="false" />
         <activity
-            android:name=".views.result.ResultActivity"
+            android:name=".views.Deteksi.Result.ResultActivity"
             android:exported="false" />
         <activity
-            android:name=".views.profile.ProfileActivity"
+            android:name=".views.Profile.ProfileActivity"
             android:exported="false" />
         <activity
             android:name=".views.Deteksi.Guest.DetectionGuestActivity"

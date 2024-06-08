@@ -2,24 +2,16 @@ package com.c241ps220.centingapps.views.Dashboard
 
 import android.animation.ObjectAnimator
 import android.content.Intent
-import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
 import android.view.View
-import android.view.WindowManager
 import android.view.animation.AnimationUtils
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.c241ps220.centingapps.R
 import com.c241ps220.centingapps.databinding.ActivityDashboardBinding
 import com.c241ps220.centingapps.views.Deteksi.Guest.DetectionGuestActivity
 import com.c241ps220.centingapps.views.ZoomImage.ZoomImageActivity
-import com.c241ps220.centingapps.views.profile.ProfileActivity
+import com.c241ps220.centingapps.views.Profile.ProfileActivity
 import com.denzcoskun.imageslider.constants.ActionTypes
-import com.denzcoskun.imageslider.constants.AnimationTypes
-import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.interfaces.ItemClickListener
 import com.denzcoskun.imageslider.interfaces.TouchListener
 import com.denzcoskun.imageslider.models.SlideModel

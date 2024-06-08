@@ -1,4 +1,4 @@
-package com.c241ps220.centingapps.views.result
+package com.c241ps220.centingapps.views.Deteksi.Result
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
