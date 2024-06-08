@@ -110,6 +110,8 @@
     <string name="weight_birth">Berat Lahir</string>
     <string name="weight_latest">Berat Sekarang</string>
     <string name="detection_now">Deteksi Sekarang</string>
+    <string name="select_child">Pilih Anak</string>
+    <string name="please_select_child">Harap Pilih Anak Terlebih Dahulu</string>
     <string name="age">Bulan</string>
     <string name="default_age">0 Bulan</string>
 

@@ -10,6 +10,7 @@ import com.c241ps220.centingapps.R
 import com.c241ps220.centingapps.databinding.FragmentBerandaBinding
 import com.c241ps220.centingapps.utils.CustomFunction
 import com.c241ps220.centingapps.views.Deteksi.Guest.DetectionGuestActivity
+import com.c241ps220.centingapps.views.Deteksi.User.DetectionUserActivity
 import com.c241ps220.centingapps.views.ZoomImage.ZoomImageActivity
 import com.c241ps220.centingapps.views.Profile.ProfileActivity
 import com.denzcoskun.imageslider.constants.ActionTypes
@@ -53,11 +54,20 @@ class BerandaFragment : Fragment() {
                 )
             }
 
+//            btDetect.setOnClickListener {
+//                startActivity(
+//                    Intent(
+//                        this@BerandaFragment.requireContext(),
+//                        ProfileActivity::class.java
+//                    )
+//                )
+//            }
+
             btDetect.setOnClickListener {
                 startActivity(
                     Intent(
                         this@BerandaFragment.requireContext(),
-                        DetectionGuestActivity::class.java
+                        DetectionUserActivity::class.java
                     )
                 )
             }

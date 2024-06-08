@@ -107,6 +107,8 @@
     <string name="weight_birth">Birth Weight</string>">
     <string name="weight_latest">Latest Weight</string>
     <string name="detection_now">Detection Now</string>
+    <string name="select_child">Select Child</string>
+    <string name="please_select_child">Please Select Child First</string>
     <string name="age">Month</string>
     <string name="default_age">0 Month</string>
 

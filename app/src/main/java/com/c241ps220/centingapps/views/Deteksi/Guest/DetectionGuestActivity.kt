@@ -26,8 +26,8 @@ class DetectionGuestActivity : AppCompatActivity() {
 //     Value Selectected
     private var isSelectedGender = 0f // 0 Laki, 1 Perempuan
     private var isSelectedSusu = "ASI"
-    private var isSelectedHeightBirth = 0f
-    private var isSelectedHeightLatest = 0f
+    private var isSelectedHeightBirth = 40f
+    private var isSelectedHeightLatest = 60f
     private var isSelectedWeightBirth = 2.4f
     private var isSelectedWeightLatest = 4f
     private var isSelectedAge = 0f
