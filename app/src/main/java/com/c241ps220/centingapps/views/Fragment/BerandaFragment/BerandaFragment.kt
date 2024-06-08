@@ -10,6 +10,7 @@ import com.c241ps220.centingapps.R
 import com.c241ps220.centingapps.databinding.FragmentBerandaBinding
 import com.c241ps220.centingapps.utils.CustomFunction
 import com.c241ps220.centingapps.views.ZoomImage.ZoomImageActivity
+import com.c241ps220.centingapps.views.profile.ProfileActivity
 import com.denzcoskun.imageslider.constants.ActionTypes
 import com.denzcoskun.imageslider.interfaces.ItemClickListener
 import com.denzcoskun.imageslider.interfaces.TouchListener
@@ -38,9 +39,18 @@ class BerandaFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         with(binding){
-            tvInisial.text = CustomFunction.getInitials("Ryandhika Bintang")
+            tvInisial.text = CustomFunction.getInitials(getString(R.string.dummy_name))
 
             setupSlider()
+
+            divName.setOnClickListener {
+                startActivity(
+                    Intent(
+                        this@BerandaFragment.requireContext(),
+                        ProfileActivity::class.java
+                    )
+                )
+            }
         }
     }
 

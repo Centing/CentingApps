@@ -13,6 +13,7 @@ import com.c241ps220.centingapps.R
 import com.c241ps220.centingapps.databinding.FragmentFaqBinding
 import com.c241ps220.centingapps.databinding.FragmentProfileBinding
 import com.c241ps220.centingapps.utils.CustomFunction
+import com.c241ps220.centingapps.views.AnakSection.ListAnakActivity
 import com.c241ps220.centingapps.views.ResetPassword.ResetPasswordActivity
 import com.c241ps220.centingapps.views.profile.ProfileActivity
 
@@ -49,6 +50,16 @@ class ProfileFragment : Fragment() {
                     )
                 )
             }
+
+            divDataAnak.setOnClickListener{
+                startActivity(
+                    Intent(
+                        this@ProfileFragment.requireContext(),
+                        ListAnakActivity::class.java
+                    )
+                )
+            }
+
             divChangePassword.setOnClickListener{
                 startActivity(
                     Intent(
