@@ -40,7 +40,7 @@ class BerandaFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        with(binding){
+        with(binding) {
             tvInisial.text = CustomFunction.getInitials(getString(R.string.dummy_name))
 
             setupSlider()
@@ -54,15 +54,7 @@ class BerandaFragment : Fragment() {
                 )
             }
 
-//            btDetect.setOnClickListener {
-//                startActivity(
-//                    Intent(
-//                        this@BerandaFragment.requireContext(),
-//                        ProfileActivity::class.java
-//                    )
-//                )
-//            }
-
+            // Cek kondisi kalau ada data user yang tersimpan ke DetectionUserActivity, kalau tidak ada data kesimpan ke
             btDetect.setOnClickListener {
                 startActivity(
                     Intent(
@@ -74,8 +66,8 @@ class BerandaFragment : Fragment() {
         }
     }
 
-    private fun setupSlider(){
-        with(binding.imageSlider){
+    private fun setupSlider() {
+        with(binding.imageSlider) {
             val imageList = ArrayList<SlideModel>() // Create image list
             imageList.add(SlideModel("https://mediaedukasi.id/wp-content/uploads/2022/04/Generasi-bebas-stunding.png"))
             imageList.add(SlideModel("https://diskominfosp.lebakkab.go.id/wp-content/uploads/2024/02/d66b775045769e99783493e1d451ab78.webp"))
@@ -91,7 +83,10 @@ class BerandaFragment : Fragment() {
             setItemClickListener(object : ItemClickListener {
                 override fun onItemSelected(position: Int) {
                     var data = imageList[position].imageUrl
-                    val intent = Intent(this@BerandaFragment.requireContext(), ZoomImageActivity::class.java).apply {
+                    val intent = Intent(
+                        this@BerandaFragment.requireContext(),
+                        ZoomImageActivity::class.java
+                    ).apply {
                         putExtra("imageUrl", data)
                     }
                     startActivity(intent)
@@ -107,9 +102,9 @@ class BerandaFragment : Fragment() {
 
             setTouchListener(object : TouchListener {
                 override fun onTouched(touched: ActionTypes, position: Int) {
-                    if (touched == com.denzcoskun.imageslider.constants.ActionTypes.DOWN){
+                    if (touched == com.denzcoskun.imageslider.constants.ActionTypes.DOWN) {
                         stopSliding()
-                    } else if (touched == com.denzcoskun.imageslider.constants.ActionTypes.UP ) {
+                    } else if (touched == com.denzcoskun.imageslider.constants.ActionTypes.UP) {
                         startSliding(1000)
                     }
                 }

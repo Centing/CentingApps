@@ -1,5 +1,6 @@
 package com.c241ps220.centingapps.views.Deteksi.User
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.SeekBar
 import androidx.activity.enableEdgeToEdge
@@ -9,6 +10,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.c241ps220.centingapps.R
 import com.c241ps220.centingapps.databinding.ActivityAddAnakBinding
 import com.c241ps220.centingapps.databinding.ActivityDetectionUserBinding
+import com.c241ps220.centingapps.views.Deteksi.SelectChild.SelectAnakActivity
 
 class DetectionUserActivity : AppCompatActivity() {
 
@@ -26,6 +28,9 @@ class DetectionUserActivity : AppCompatActivity() {
         setupSeekBar()
 
         with(binding){
+            btSelectChild.setOnClickListener {
+                startActivity(Intent(this@DetectionUserActivity, SelectAnakActivity::class.java))
+            }
         }
 
     }
