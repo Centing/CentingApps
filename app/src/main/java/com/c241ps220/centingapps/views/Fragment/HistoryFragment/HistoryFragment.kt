@@ -1,5 +1,6 @@
 package com.c241ps220.centingapps.views.Fragment.HistoryFragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import com.c241ps220.centingapps.R
 import com.c241ps220.centingapps.databinding.FragmentHistoryBinding
 import com.c241ps220.centingapps.databinding.FragmentProfileBinding
+import com.c241ps220.centingapps.views.History.HistoryActivity
 
 
 class HistoryFragment : Fragment() {
@@ -33,7 +35,9 @@ class HistoryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         with(binding){
-
+            divDummyList.setOnClickListener {
+                startActivity(Intent(this@HistoryFragment.requireContext(), HistoryActivity::class.java))
+            }
         }
     }
 

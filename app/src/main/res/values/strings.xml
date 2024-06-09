@@ -104,6 +104,7 @@
     <string name="asi_formula">Formula</string>
     <string name="height_birth">Birth Height</string>
     <string name="height_latest">Latest Height</string>
+    <string name="height_latest2">Latest Height</string>
     <string name="weight_birth">Birth Weight</string>">
     <string name="weight_latest">Latest Weight</string>
     <string name="detection_now">Detection Now</string>
@@ -111,6 +112,8 @@
     <string name="please_select_child">Please Select Child First</string>
     <string name="age">Month</string>
     <string name="default_age">0 Month</string>
+    <string name="result_detection_title">Result Detection</string>
+    <string name="result_detection_value">Normal</string>
 
 
     <!--FAQ STUNTING-->
@@ -132,5 +135,6 @@
     <string name="child_name">Child Name</string>">
     <string name="child_birth">Birth Date</string>
     <string name="child_age">Age (Months)</string>
+    <string name="child_age2">Age (Months)</string>
     <string name="tb_child_detail">Child Detail</string>
 </resources>

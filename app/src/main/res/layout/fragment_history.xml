@@ -52,6 +52,7 @@
                     android:fontFamily="@font/poppins_bold"/>
 
                 <LinearLayout
+                    android:id="@+id/divDummyList"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_below="@+id/tvDescToolbar"

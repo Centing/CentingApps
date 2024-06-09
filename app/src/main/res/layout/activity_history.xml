@@ -1,78 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    android:background="@android:color/white"
-    app:cardElevation="4dp"
-    app:cardCornerRadius="8dp">
+    android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/dateTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_bold"
-            android:text="29 April 2024"
-            android:textColor="@android:color/black"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <include
+            android:id="@+id/divToolbar"
+            layout="@layout/toolbar" />
 
-        <TextView
-            android:id="@+id/imtTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_regular"
-            android:text="IMT  : 15"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dateTextView"
-            android:layout_marginTop="8dp" />
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
 
-        <TextView
-            android:id="@+id/tbuTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_regular"
-            android:text="TB/U  : 0.71"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imtTextView"
-            android:layout_marginTop="4dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/stuntingStatusTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_regular"
-            android:text="Terindikasi Stunting"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tbuTextView"
-            android:layout_marginTop="4dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/detailLinkTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_regular"
-            android:text="Lihat Detail"
-            android:textColor="@color/colorGreenDark"
-            android:textSize="16sp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/stuntingStatusTextView"
-            app:layout_constraintBottom_toBottomOf="@+id/stuntingStatusTextView" />
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.TextInputLayout.Custom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:hint="@string/child_name"
+                        app:boxBackgroundMode="filled"
+                        app:boxStrokeColor="@color/colorPrimaryDark">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                        <EditText
+                            android:id="@+id/etNameChild"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:enabled="false"
+                            android:inputType="text"
+                            android:paddingStart="0dp"
+                            android:paddingEnd="0dp"
+                            android:paddingBottom="7dp"
+                            android:text="@string/please_select_child"
+                            android:textSize="12sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
-</androidx.cardview.widget.CardView>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.TextInputLayout.Custom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:hint="@string/child_birth"
+                        app:boxBackgroundMode="filled"
+                        app:boxStrokeColor="@color/colorPrimaryDark">
+
+                        <EditText
+                            android:id="@+id/etBirthChild"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:clickable="false"
+                            android:cursorVisible="false"
+                            android:enabled="false"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            android:inputType="text"
+                            android:paddingStart="0dp"
+                            android:paddingEnd="0dp"
+                            android:paddingBottom="7dp"
+                            android:text="@string/please_select_child"
+                            android:textSize="12sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.TextInputLayout.Custom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:hint="@string/child_age"
+                        app:boxBackgroundMode="filled"
+                        app:boxStrokeColor="@color/colorPrimaryDark">
+
+                        <EditText
+                            android:id="@+id/etAge"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:enabled="false"
+                            android:inputType="text"
+                            android:paddingStart="0dp"
+                            android:paddingEnd="0dp"
+                            android:paddingBottom="7dp"
+                            android:text="@string/please_select_child"
+                            android:textSize="12sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.TextInputLayout.Custom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:hint="@string/height_birth"
+                        app:boxBackgroundMode="filled"
+                        app:boxStrokeColor="@color/colorPrimaryDark">
+
+                        <EditText
+                            android:id="@+id/etBirthHeight"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:enabled="false"
+                            android:inputType="text"
+                            android:paddingStart="0dp"
+                            android:paddingEnd="0dp"
+                            android:paddingBottom="7dp"
+                            android:text="@string/please_select_child"
+                            android:textSize="12sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvHistory"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:listitem="@layout/item_history"
+                    android:layout_marginHorizontal="18dp"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone"/>
+
+                <!--  Dummy Jika Udah ada hapus aja               -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginHorizontal="18dp">
+                    <include layout="@layout/item_history"/>
+                    <include layout="@layout/item_history"/>
+                    <include layout="@layout/item_history"/>
+                    <include layout="@layout/item_history"/>
+                    <include layout="@layout/item_history"/>
+                    <include layout="@layout/item_history"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+
+</RelativeLayout>

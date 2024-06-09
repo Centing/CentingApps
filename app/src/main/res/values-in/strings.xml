@@ -107,6 +107,7 @@
     <string name="asi_formula">Formula</string>
     <string name="height_birth">Tinggi Lahir</string>
     <string name="height_latest">Tinggi Sekarang</string>
+    <string name="height_latest2">Tinggi Terakhir</string>
     <string name="weight_birth">Berat Lahir</string>
     <string name="weight_latest">Berat Sekarang</string>
     <string name="detection_now">Deteksi Sekarang</string>
@@ -114,6 +115,9 @@
     <string name="please_select_child">Harap Pilih Anak Terlebih Dahulu</string>
     <string name="age">Bulan</string>
     <string name="default_age">0 Bulan</string>
+    <string name="result_detection_title">Hasil Deteksi</string>
+    <string name="result_detection_value">Normal</string>
+
 
 
     <!--FAQ STUNTING-->
@@ -135,6 +139,7 @@
     <string name="child_name">Nama Anak</string>">
     <string name="child_birth">Tanggal Lahir</string>
     <string name="child_age">Umur (Bulan)</string>
+    <string name="child_age2">Umur (Bulan)</string>
     <string name="tb_child_detail">Detail Anak</string>
 
 </resources>
