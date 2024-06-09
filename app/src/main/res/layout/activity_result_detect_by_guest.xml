@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/divToolbar"
+            layout="@layout/toolbar" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.TextInputLayout.Custom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:hint="@string/child_age"
+                        app:boxBackgroundMode="filled"
+                        app:boxStrokeColor="@color/colorPrimaryDark">
+
+                        <EditText
+                            android:id="@+id/etAge"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:enabled="false"
+                            android:inputType="text"
+                            android:paddingStart="0dp"
+                            android:paddingEnd="0dp"
+                            android:paddingBottom="7dp"
+                            android:text="@string/please_select_child"
+                            android:textSize="12sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.TextInputLayout.Custom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:hint="@string/height_birth"
+                        app:boxBackgroundMode="filled"
+                        app:boxStrokeColor="@color/colorPrimaryDark">
+
+                        <EditText
+                            android:id="@+id/etBirthHeight"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:enabled="false"
+                            android:inputType="text"
+                            android:paddingStart="0dp"
+                            android:paddingEnd="0dp"
+                            android:paddingBottom="7dp"
+                            android:text="@string/please_select_child"
+                            android:textSize="12sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.TextInputLayout.Custom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:hint="@string/height_latest"
+                        app:boxBackgroundMode="filled"
+                        app:boxStrokeColor="@color/colorPrimaryDark">
+
+                        <EditText
+                            android:id="@+id/etLatestHeight"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:enabled="false"
+                            android:inputType="text"
+                            android:paddingStart="0dp"
+                            android:paddingEnd="0dp"
+                            android:paddingBottom="7dp"
+                            android:text="@string/please_select_child"
+                            android:textSize="12sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/animationSad"
+                        android:layout_width="225dp"
+                        android:layout_height="225dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/beratBadanData"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"
+                        app:lottie_rawRes="@raw/stunting"
+                        app:lottie_renderMode="hardware"
+                        app:lottie_speed="1"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/tvStatusDetection"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="@string/result_detection_value"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/tvDetectionValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/result_detection_value_plus"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        android:gravity="center"/>
+
+                    <include layout="@layout/div_status_plus"
+                        android:id="@+id/divStatusPlus"/>
+
+                    <include layout="@layout/div_status_minus"
+                        android:id="@+id/divStatusMinus"
+                        android:visibility="gone"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+
+</RelativeLayout>

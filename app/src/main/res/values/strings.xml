@@ -114,6 +114,8 @@
     <string name="default_age">0 Month</string>
     <string name="result_detection_title">Result Detection</string>
     <string name="result_detection_value">Normal</string>
+    <string name="result_detection_value_plus">Your childs ideal height is less than his current age, your child needs to grow to enter the normal category.</string>
+    <string name="result_detection_value_minus">Congratulations! Your child has succeeded in maintaining good nutritional conditions so that he is not included in the stunting category.</string>
 
 
     <!--FAQ STUNTING-->
@@ -137,4 +139,29 @@
     <string name="child_age">Age (Months)</string>
     <string name="child_age2">Age (Months)</string>
     <string name="tb_child_detail">Child Detail</string>
+
+    <!-- Result Detection-->
+    <string name="rdp_title">The following are recommended things to maintain good nutrition:</string>
+    <string name="rdp_1">Continue breastfeeding until 2 years of age or older while introducing healthy solid foods.</string>
+    <string name="rdp_2">Provide complementary foods for breast milk (MPASI) that are balanced and rich in nutrients.</string>
+    <string name="rdp_3">Make sure your child gets enough vitamins and minerals to support growth and development.</string>
+    <string name="rdp_4">Make sure your child always drinks clean water for good hydration.</string>
+    <string name="rdp_5">Set a regular eating schedule and make sure the portion sizes suit your childs needs.</string>
+    <string name="rdp_6">Maintain personal and environmental hygiene to prevent infection.</string>
+    <string name="rdp_7">Get immunizations according to schedule to prevent diseases that can interfere with your childs growth and development.</string>
+    <string name="rdp_8">Routinely check your childs health with a doctor to monitor their growth.</string>
+    <string name="rdp_9">Provide physical and mental stimulation through educational games and activities.</string>
+    <string name="rdp_10">Show affection and attention to support your childs emotional development.</string>
+
+    <string name="rdm_title">The following are recommended things to overcome stunting in toddlers:</string>
+    <string name="rdm_1">Exclusively breastfeed for the first 6 months to ensure optimal nutrition.</string>
+    <string name="rdm_2">After 6 months, provide MPASI which is rich in nutrients to support growth.</string>
+    <string name="rdm_3">Make sure your child gets enough vitamins and minerals from their food.</string>
+    <string name="rdm_4">Make sure your child always drinks clean water to maintain health.</string>
+    <string name="rdm_5">Set a regular eating schedule to form a healthy eating pattern.</string>
+    <string name="rdm_6">Keep yourself and your environment clean to prevent infection.</string>
+    <string name="rdm_7">Complete child immunizations according to schedule to prevent disease.</string>
+    <string name="rdm_8">Perform regular health checks to monitor your childs development.</string>
+    <string name="rdm_9">Provide physical and cognitive stimulation to support brain and motor development.</string>
+    <string name="rdm_10">Give love and attention so that the child feels safe and loved.</string>
 </resources>

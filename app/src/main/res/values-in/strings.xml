@@ -117,6 +117,8 @@
     <string name="default_age">0 Bulan</string>
     <string name="result_detection_title">Hasil Deteksi</string>
     <string name="result_detection_value">Normal</string>
+    <string name="result_detection_value_plus">Tinggi ideal anak anda kurang dengan umur sekarang, anak anda perlu bertumbuh untuk masuk kategori normal.</string>
+    <string name="result_detection_value_minus">Selamat! anak anda telah berhasil menjaga kondisi gizi dengan baik sehingga tidak termasuk dalam kategori stunting.</string>
 
 
 
@@ -141,5 +143,33 @@
     <string name="child_age">Umur (Bulan)</string>
     <string name="child_age2">Umur (Bulan)</string>
     <string name="tb_child_detail">Detail Anak</string>
+
+
+<!--    Result Detection-->
+    <string name="rdp_title">Berikut adalah hal-hal yang direkomendasikan untuk mempertahankan gizi baik:</string>
+    <string name="rdp_1">Teruskan memberikan ASI hingga usia 2 tahun atau lebih sambil mengenalkan makanan padat yang sehat.</string>
+    <string name="rdp_2">Berikan makanan pendamping ASI (MPASI) yang seimbang dan kaya nutrisi.</string>
+    <string name="rdp_3">Pastikan anak mendapatkan cukup vitamin dan mineral untuk mendukung pertumbuhan dan perkembangan.</string>
+    <string name="rdp_4">Jaga agar anak selalu minum air bersih untuk hidrasi yang baik.</string>
+    <string name="rdp_5">Tetapkan jadwal makan yang teratur dan pastikan porsi makan sesuai dengan kebutuhan anak.</string>
+    <string name="rdp_6">Pertahankan kebersihan diri dan lingkungan untuk mencegah infeksi.</string>
+    <string name="rdp_7">Lakukan imunisasi sesuai jadwal untuk mencegah penyakit yang dapat mengganggu tumbuh kembang anak.</string>
+    <string name="rdp_8">Rutin periksakan kesehatan anak ke dokter untuk memantau pertumbuhannya.</string>
+    <string name="rdp_9">Berikan stimulasi fisik dan mental melalui permainan dan aktivitas yang edukatif.</string>
+    <string name="rdp_10">Tunjukkan kasih sayang dan perhatian untuk mendukung perkembangan emosional anak.</string>
+
+    <string name="rdm_title">Berikut adalah hal-hal yang direkomendasikan untuk mengatasi stunting pada balita:</string>
+    <string name="rdm_1">Berikan ASI eksklusif selama 6 bulan pertama untuk memastikan nutrisi optimal.</string>
+    <string name="rdm_2">Setelah 6 bulan, berikan MPASI yang kaya nutrisi untuk mendukung pertumbuhan.</string>
+    <string name="rdm_3">Pastikan anak mendapatkan cukup vitamin dan mineral dari makanannya.</string>
+    <string name="rdm_4">Pastikan anak selalu minum air bersih untuk menjaga kesehatan.</string>
+    <string name="rdm_5">Tetapkan jadwal makan yang teratur untuk membentuk pola makan yang sehat.</string>
+    <string name="rdm_6">Jaga kebersihan diri dan lingkungan untuk mencegah infeksi.</string>
+    <string name="rdm_7">Lengkapi imunisasi anak sesuai jadwal untuk mencegah penyakit.</string>
+    <string name="rdm_8">Lakukan pemeriksaan kesehatan rutin untuk memantau perkembangan anak.</string>
+    <string name="rdm_9">Berikan stimulasi fisik dan kognitif untuk mendukung perkembangan otak dan motorik.</string>
+    <string name="rdm_10">Berikan kasih sayang dan perhatian agar anak merasa aman dan dicintai.</string>
+
+
 
 </resources>
