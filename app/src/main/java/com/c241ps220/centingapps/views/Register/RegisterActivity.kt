@@ -7,13 +7,9 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.c241ps220.centingapps.R
+import com.c241ps220.centingapps.MainActivity
 import com.c241ps220.centingapps.databinding.ActivityRegisterBinding
-import com.c241ps220.centingapps.views.Dashboard.DashboardActivity
 import com.c241ps220.centingapps.views.Login.LoginActivity
 
 class RegisterActivity : AppCompatActivity() {
@@ -36,7 +32,7 @@ class RegisterActivity : AppCompatActivity() {
             }
 
             registerButton.setOnClickListener {
-                startActivity(Intent(this@RegisterActivity, DashboardActivity::class.java))
+                startActivity(Intent(this@RegisterActivity, MainActivity::class.java))
             }
         }
     }

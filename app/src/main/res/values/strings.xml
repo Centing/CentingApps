@@ -114,8 +114,8 @@
     <string name="default_age">0 Month</string>
     <string name="result_detection_title">Result Detection</string>
     <string name="result_detection_value">Normal</string>
-    <string name="result_detection_value_plus">Your childs ideal height is less than his current age, your child needs to grow to enter the normal category.</string>
-    <string name="result_detection_value_minus">Congratulations! Your child has succeeded in maintaining good nutritional conditions so that he is not included in the stunting category.</string>
+    <string name="result_detection_value_minus">Your childs ideal height is less than his current age, your child needs to grow to enter the normal category.</string>
+    <string name="result_detection_value_plus">Congratulations! Your child has succeeded in maintaining good nutritional conditions so that he is not included in the stunting category.</string>
 
 
     <!--FAQ STUNTING-->
@@ -141,6 +141,11 @@
     <string name="tb_child_detail">Child Detail</string>
 
     <!-- Result Detection-->
+    <string name="status_0">Normal</string>
+    <string name="status_1">Severely stunting</string>
+    <string name="status_2">Stunting</string>
+    <string name="status_3">High</string>
+
     <string name="rdp_title">The following are recommended things to maintain good nutrition:</string>
     <string name="rdp_1">Continue breastfeeding until 2 years of age or older while introducing healthy solid foods.</string>
     <string name="rdp_2">Provide complementary foods for breast milk (MPASI) that are balanced and rich in nutrients.</string>

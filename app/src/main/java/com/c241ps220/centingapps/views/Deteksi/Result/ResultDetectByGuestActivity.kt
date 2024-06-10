@@ -1,6 +1,8 @@
 package com.c241ps220.centingapps.views.Deteksi.Result
 
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -13,6 +15,12 @@ class ResultDetectByGuestActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityResultDetectByGuestBinding
 
+    private var isSelectedAge = 0
+    private var isSelectedHeightBirth = 0f
+    private var isSelectedHeightLatest = 0f
+    private var isSelectedGender = 0
+    private var isSelectedStatus = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -22,7 +30,79 @@ class ResultDetectByGuestActivity : AppCompatActivity() {
         setupToolbar()
 
         with(binding){
+            val intent = intent
 
+            // Mengecek apakah intent memiliki data dengan key "message"
+            if (!intent.hasExtra("AGE")) {
+                finish() // Mengakhiri aktivitas jika tidak ada data
+                return
+            }else{
+//                intent.putExtra("AGE", isSelectedAge)
+//                intent.putExtra("HEIGHT_BIRTH", isSelectedHeightBirth)
+//                intent.putExtra("HEIGHT_LATEST", isSelectedHeightLatest)
+//                intent.putExtra("GENDER", isSelectedGender)
+                isSelectedAge = intent.getIntExtra("AGE", 0)
+                isSelectedHeightBirth = intent.getFloatExtra("HEIGHT_BIRTH", 0f)
+                isSelectedHeightLatest = intent.getFloatExtra("HEIGHT_LATEST", 0f)
+                isSelectedGender = intent.getIntExtra("GENDER", 0)
+                isSelectedStatus = intent.getIntExtra("STATUS", 0)
+
+                if (isSelectedGender == 0){
+                    etGender.setText(getString(R.string.laki_laki))
+                }
+
+                if (isSelectedGender == 1){
+                    etGender.setText(getString(R.string.perempuan))
+                }
+
+                etAge.setText(isSelectedAge.toString())
+                etBirthHeight.setText(isSelectedHeightBirth.toString())
+                etLatestHeight.setText(isSelectedHeightLatest.toString())
+
+                when (isSelectedStatus) {
+                    0 -> {
+                       tvStatusDetection.text = getResources().getString(R.string.status_0)
+                        tvDetectionValue.text= getResources().getString(R.string.result_detection_value_plus)
+                        divStatusPlus.root.visibility = View.VISIBLE
+                        divStatusMinus.root.visibility = View.GONE
+                        animationSad.setAnimation(R.raw.no_stunting) // Mengatur animasi dari raw resource
+                        animationSad.playAnimation()
+                    }
+                    1 -> {
+                        tvStatusDetection.text = getResources().getString(R.string.status_1)
+                        tvDetectionValue.text= getResources().getString(R.string.result_detection_value_minus)
+                        divStatusPlus.root.visibility = View.GONE
+                        divStatusMinus.root.visibility = View.VISIBLE
+                        animationSad.setAnimation(R.raw.stunting) // Mengatur animasi dari raw resource
+                        animationSad.playAnimation()
+                    }
+                    2 -> {
+                        tvStatusDetection.text = getResources().getString(R.string.status_2)
+                        tvDetectionValue.text= getResources().getString(R.string.result_detection_value_minus)
+                        divStatusPlus.root.visibility = View.GONE
+                        divStatusMinus.root.visibility = View.VISIBLE
+                        animationSad.setAnimation(R.raw.stunting) // Mengatur animasi dari raw resource
+                        animationSad.playAnimation()
+
+                    }
+                    3 -> {
+                        tvStatusDetection.text = getResources().getString(R.string.status_3)
+                        tvDetectionValue.text= getResources().getString(R.string.result_detection_value_plus)
+                        divStatusPlus.root.visibility = View.VISIBLE
+                        divStatusMinus.root.visibility = View.GONE
+                        animationSad.setAnimation(R.raw.no_stunting) // Mengatur animasi dari raw resource
+                        animationSad.playAnimation()
+                    }
+                    else -> {
+                        tvStatusDetection.text = "Error in finding the result."
+                        tvDetectionValue.text = "Error in finding the result."
+                        divStatusPlus.root.visibility = View.GONE
+                        divStatusMinus.root.visibility = View.GONE
+                        animationSad.setAnimation(R.raw.on_development) // Mengatur animasi dari raw resource
+                        animationSad.playAnimation()
+                    }
+                }
+            }
         }
     }
 

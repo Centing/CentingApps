@@ -7,13 +7,9 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.c241ps220.centingapps.R
+import com.c241ps220.centingapps.MainActivity
 import com.c241ps220.centingapps.databinding.ActivityLoginBinding
-import com.c241ps220.centingapps.views.Dashboard.DashboardActivity
 import com.c241ps220.centingapps.views.Register.RegisterActivity
 
 class LoginActivity : AppCompatActivity() {
@@ -36,7 +32,7 @@ class LoginActivity : AppCompatActivity() {
                 startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
             }
             loginButton.setOnClickListener {
-                startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
+                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
             }
         }
     }

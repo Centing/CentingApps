@@ -54,12 +54,12 @@ class BerandaFragment : Fragment() {
                 )
             }
 
-            // Cek kondisi kalau ada data user yang tersimpan ke DetectionUserActivity, kalau tidak ada data kesimpan ke
+            // Cek kondisi kalau ada data user yang tersimpan ke DetectionUserActivity, kalau tidak ada data kesimpan ke DetectionGuestActivity
             btDetect.setOnClickListener {
                 startActivity(
                     Intent(
                         this@BerandaFragment.requireContext(),
-                        DetectionUserActivity::class.java
+                        DetectionGuestActivity::class.java
                     )
                 )
             }

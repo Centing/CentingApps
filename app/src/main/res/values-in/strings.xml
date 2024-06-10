@@ -117,8 +117,8 @@
     <string name="default_age">0 Bulan</string>
     <string name="result_detection_title">Hasil Deteksi</string>
     <string name="result_detection_value">Normal</string>
-    <string name="result_detection_value_plus">Tinggi ideal anak anda kurang dengan umur sekarang, anak anda perlu bertumbuh untuk masuk kategori normal.</string>
-    <string name="result_detection_value_minus">Selamat! anak anda telah berhasil menjaga kondisi gizi dengan baik sehingga tidak termasuk dalam kategori stunting.</string>
+    <string name="result_detection_value_minus">Tinggi ideal anak anda kurang dengan umur sekarang, anak anda perlu bertumbuh untuk masuk kategori normal.</string>
+    <string name="result_detection_value_plus">Selamat! anak anda telah berhasil menjaga kondisi gizi dengan baik sehingga tidak termasuk dalam kategori stunting.</string>
 
 
 
@@ -146,6 +146,11 @@
 
 
 <!--    Result Detection-->
+    <string name="status_0">Normal</string>
+    <string name="status_1">Stunting Parah</string>
+    <string name="status_2">Stunting</string>
+    <string name="status_3">Tinggi</string>
+
     <string name="rdp_title">Berikut adalah hal-hal yang direkomendasikan untuk mempertahankan gizi baik:</string>
     <string name="rdp_1">Teruskan memberikan ASI hingga usia 2 tahun atau lebih sambil mengenalkan makanan padat yang sehat.</string>
     <string name="rdp_2">Berikan makanan pendamping ASI (MPASI) yang seimbang dan kaya nutrisi.</string>
