@@ -1,16 +1,21 @@
 package com.c241ps220.centingapps.views.Fragment.BerandaFragment
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.c241ps220.centingapps.R
 import com.c241ps220.centingapps.databinding.FragmentBerandaBinding
 import com.c241ps220.centingapps.utils.CustomFunction
 import com.c241ps220.centingapps.views.Deteksi.Guest.DetectionGuestActivity
 import com.c241ps220.centingapps.views.Deteksi.User.DetectionUserActivity
+import com.c241ps220.centingapps.views.Fragment.BerandaFragment.Article.Article
+import com.c241ps220.centingapps.views.Fragment.BerandaFragment.Article.ArticleAdapter
+import com.c241ps220.centingapps.views.Fragment.BerandaFragment.Article.articleData
 import com.c241ps220.centingapps.views.ZoomImage.ZoomImageActivity
 import com.c241ps220.centingapps.views.Profile.ProfileActivity
 import com.denzcoskun.imageslider.constants.ActionTypes
@@ -23,6 +28,8 @@ class BerandaFragment : Fragment() {
 
     private var _binding: FragmentBerandaBinding? = null
     private val binding get() = _binding!!
+
+    private val list = ArrayList<Article>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,7 +70,36 @@ class BerandaFragment : Fragment() {
                     )
                 )
             }
+
+            divTop.requestFocus()
+
+
+            rvArticle.setNestedScrollingEnabled(false)
+            rvArticle.setFocusable(false)
+            rvArticle.setFocusableInTouchMode(false)
+            rvArticle.setHasFixedSize(true)
+            list.addAll(getListActicle())
+            showRecyclerList()
         }
+    }
+
+    private fun getListActicle(): ArrayList<Article> {
+        val listService = ArrayList<Article>()
+        listService.addAll(articleData)
+        return listService
+    }
+
+    private fun showRecyclerList() {
+        binding.rvArticle.layoutManager = LinearLayoutManager(this@BerandaFragment.requireContext())
+        val listServiceAdapter = ArticleAdapter(list)
+        binding.rvArticle.adapter = listServiceAdapter
+
+        listServiceAdapter.setOnItemClickCallback(object : ArticleAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: Article) {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(data.urlArticle))
+                startActivity(intent)
+            }
+        })
     }
 
     private fun setupSlider() {

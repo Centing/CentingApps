@@ -13,8 +13,7 @@
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true">
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -194,12 +193,19 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:layout_marginTop="5dp"
-                        android:layout_marginBottom="10dp">
+                        android:layout_marginBottom="10dp"
+                        android:visibility="gone">
                         <include layout="@layout/item_row_article"/>
                         <include layout="@layout/item_row_article"/>
                         <include layout="@layout/item_row_article"/>
                         <include layout="@layout/item_row_article"/>
                     </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:listitem="@layout/item_row_article"
+                        android:id="@+id/rvArticle"/>
                 </LinearLayout>
 
 

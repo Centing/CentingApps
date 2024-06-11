@@ -3,6 +3,7 @@ package com.c241ps220.centingapps.utils
 import java.time.LocalDate
 import java.time.Period
 import java.time.format.DateTimeFormatter
+import java.time.temporal.ChronoUnit
 
 object CustomFunction {
     fun getInitials(name: String): String {
@@ -27,5 +28,29 @@ object CustomFunction {
         val currentDate = LocalDate.now()
         val period = Period.between(birthLocalDate, currentDate)
         return period.years * 12 + period.months
+    }
+
+    fun generateTimeLapse(input: String): String {
+        val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
+        val targetDate = LocalDate.parse(input, formatter)
+
+        // Tanggal sekarang
+        val currentDate = LocalDate.now()
+
+        // Menghitung perbedaan hari
+        val daysDifference = ChronoUnit.DAYS.between(targetDate, currentDate).toInt()
+
+        // Jika perbedaan hari kurang dari 30
+        if (daysDifference < 30) {
+            return "$daysDifference Hari yang lalu"
+        } else {
+            // Menghitung perbedaan bulan
+            val monthsDifference = ChronoUnit.MONTHS.between(targetDate, currentDate).toInt()
+            return if (monthsDifference == 1) {
+                "1 Bulan yang lalu"
+            } else {
+                "$monthsDifference Bulan yang lalu"
+            }
+        }
     }
 }
