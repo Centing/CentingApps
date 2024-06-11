@@ -4,8 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.c241ps220.centingapps.R
 import com.c241ps220.centingapps.data.database.AppDatabase
+import com.c241ps220.centingapps.data.database.child.Child
 import com.c241ps220.centingapps.data.database.child.ChildDao
 import com.c241ps220.centingapps.databinding.ActivityListAnakBinding
 import kotlinx.coroutines.launch
@@ -14,6 +16,7 @@ class ListAnakActivity : AppCompatActivity() {
     private lateinit var binding: ActivityListAnakBinding
     private lateinit var database: AppDatabase
     private lateinit var childDao: ChildDao
+    private lateinit var adapter: ChildAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +27,7 @@ class ListAnakActivity : AppCompatActivity() {
         childDao = database.childDao()
 
         setupToolbar()
+        setupRecyclerView()
 
         with(binding) {
             fabChild.setOnClickListener {
@@ -36,7 +40,7 @@ class ListAnakActivity : AppCompatActivity() {
             }
         }
 
-        setupChildList()
+        loadChildren()
     }
 
     private fun setupToolbar() {
@@ -46,13 +50,21 @@ class ListAnakActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupChildList() {
-        // Coroutine to load children from the database
+    private fun setupRecyclerView() {
+        adapter = ChildAdapter { child ->
+            val intent = Intent(this, DetailAnakActivity::class.java).apply {
+                putExtra("child_id", child.id)
+            }
+            startActivity(intent)
+        }
+        binding.rvListAnak.layoutManager = LinearLayoutManager(this)
+        binding.rvListAnak.adapter = adapter
+    }
+
+    private fun loadChildren() {
         lifecycleScope.launch {
             val children = childDao.getAllChildren()
-            // Update the UI with the list of children
-            // For example:
-            // adapter.submitList(children)
+            adapter.submitList(children)
         }
     }
 }

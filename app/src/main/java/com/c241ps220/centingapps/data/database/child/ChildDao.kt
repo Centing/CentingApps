@@ -19,4 +19,7 @@ interface ChildDao {
 
     @Query("SELECT * FROM children")
     suspend fun getAllChildren(): List<Child>
+
+    @Query("SELECT * FROM children WHERE id = :childId")
+    suspend fun getChildById(childId: Int): Child?
 }

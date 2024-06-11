@@ -10,5 +10,4 @@ data class Child(
     val birthDate: String,
     val gender: String,
     val heightBirth: Float,
-    val weightBirth: Float
 )

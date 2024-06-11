@@ -1,27 +1,22 @@
 package com.c241ps220.centingapps.views.AnakSection
 
 import android.app.DatePickerDialog
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.widget.SeekBar
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.ViewModelProvider
 import com.c241ps220.centingapps.R
+import com.c241ps220.centingapps.data.database.AppDatabase
 import com.c241ps220.centingapps.databinding.ActivityAddAnakBinding
-import com.c241ps220.centingapps.databinding.ActivityListAnakBinding
-import com.c241ps220.centingapps.utils.CustomFunction
 import java.text.SimpleDateFormat
-import java.util.Calendar
-import java.util.Locale
+import java.util.*
 
 class AddAnakActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAddAnakBinding
-    private var isSelectedGender = 0f // 0 Laki, 1 Perempuan
+    private var isSelectedGender = 0f // 0 for Laki-Laki, 1 for Perempuan
     private var isSelectedHeightBirth = 0f
-
+    private lateinit var viewModel: AddChildViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,24 +24,31 @@ class AddAnakActivity : AppCompatActivity() {
         binding = ActivityAddAnakBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setupToolbar()
+        val childDao = AppDatabase.getInstance(application).childDao()
+        val factory = AddChildViewModelFactory(childDao)
+        viewModel = ViewModelProvider(this, factory).get(AddChildViewModel::class.java)
 
+        setupToolbar()
         setupGender()
         setupSeekBar()
 
-        with(binding){
+        with(binding) {
             etBirthChild.setOnClickListener { showDatePickerDialog() }
 
             btSave.setOnClickListener {
+                val name = etNameChild.text.toString()
+                val birthDate = etBirthChild.text.toString()
+                val gender = if (isSelectedGender == 0f) "Laki-Laki" else "Perempuan"
+                val heightBirth = isSelectedHeightBirth
+
+                viewModel.addChild(name, birthDate, gender, heightBirth)
                 finish()
             }
-
         }
-
     }
 
-    private fun setupGender(){
-        with(binding){
+    private fun setupGender() {
+        with(binding) {
             divGenderLaki.setOnClickListener {
                 isSelectedGender = 0f // "Laki-Laki"
                 divGenderLaki.setBackgroundResource(R.drawable.rectangle_stroke2)
@@ -60,48 +62,40 @@ class AddAnakActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupSeekBar(){
-        with(binding){
-
+    private fun setupSeekBar() {
+        with(binding) {
             sbHeightBirth.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
                 override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                    tvValueHeightBirth.setText("$progress Cm")
+                    tvValueHeightBirth.text = "$progress Cm"
                     isSelectedHeightBirth = progress.toFloat()
                 }
 
-                override fun onStartTrackingTouch(seekBar: SeekBar) {
-                }
-
+                override fun onStartTrackingTouch(seekBar: SeekBar) {}
                 override fun onStopTrackingTouch(seekBar: SeekBar) {
-                    var progress = seekBar.progress
-                    tvValueHeightBirth.setText("$progress Cm")
-                    isSelectedHeightBirth = progress.toFloat()
+                    tvValueHeightBirth.text = "${seekBar.progress} Cm"
+                    isSelectedHeightBirth = seekBar.progress.toFloat()
                 }
             })
         }
     }
 
-
-    private fun setupToolbar(){
-        with(binding.divToolbar){
+    private fun setupToolbar() {
+        with(binding.divToolbar) {
             ivBack.setOnClickListener { finish() }
-            tvTitleToolbar.text = getResources().getString(R.string.tb_add_child)
+            tvTitleToolbar.text = resources.getString(R.string.tb_add_child)
         }
     }
 
     private fun showDatePickerDialog() {
-        // Get current date
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
         val month = calendar.get(Calendar.MONTH)
         val day = calendar.get(Calendar.DAY_OF_MONTH)
 
-        // Show DatePickerDialog
         val datePickerDialog = DatePickerDialog(
             this,
             R.style.DatePickerDialogStyle,
             { _, selectedYear, selectedMonth, selectedDayOfMonth ->
-                // Format the selected date and set it to EditText
                 val selectedDate = Calendar.getInstance()
                 selectedDate.set(selectedYear, selectedMonth, selectedDayOfMonth)
                 val dateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.US)

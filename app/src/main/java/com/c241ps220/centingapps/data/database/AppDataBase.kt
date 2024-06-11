@@ -9,7 +9,7 @@ import com.c241ps220.centingapps.data.database.child.ChildDao
 import com.c241ps220.centingapps.data.database.result.DetectionResult
 import com.c241ps220.centingapps.data.database.result.DetectionResultDao
 
-@Database(entities = [Child::class, DetectionResult::class], version = 1)
+@Database(entities = [Child::class, DetectionResult::class], version = 2) // Incremented version number
 abstract class AppDatabase : RoomDatabase() {
     abstract fun childDao(): ChildDao
     abstract fun detectionResultDao(): DetectionResultDao
@@ -24,7 +24,9 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "centing_apps_database"
-                ).build()
+                )
+                    .fallbackToDestructiveMigration() // This will handle the migration automatically by destroying the database
+                    .build()
                 INSTANCE = instance
                 instance
             }

@@ -2,14 +2,14 @@ package com.c241ps220.centingapps.views.AnakSection
 
 import android.app.DatePickerDialog
 import android.os.Bundle
-import android.widget.SeekBar
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
 import com.c241ps220.centingapps.R
-import com.c241ps220.centingapps.databinding.ActivityAddAnakBinding
+import com.c241ps220.centingapps.data.database.AppDatabase
+import com.c241ps220.centingapps.data.database.child.Child
+import com.c241ps220.centingapps.data.database.child.ChildDao
 import com.c241ps220.centingapps.databinding.ActivityDetailAnakBinding
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -17,8 +17,9 @@ import java.util.Locale
 class DetailAnakActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailAnakBinding
-    private var isSelectedGender = 0f // 0 Laki, 1 Perempuan
-    private var isSelectedHeightBirth = 0f
+    private lateinit var database: AppDatabase
+    private lateinit var childDao: ChildDao
+    private var childId: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,62 +27,52 @@ class DetailAnakActivity : AppCompatActivity() {
         binding = ActivityDetailAnakBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        childId = intent.getIntExtra("child_id", 0)
+        database = AppDatabase.getInstance(this)
+        childDao = database.childDao()
+
         setupToolbar()
+        loadChildDetails()
 
-        setupGender()
-        setupSeekBar()
-
-        with(binding){
+        with(binding) {
             etBirthChild.setOnClickListener { showDatePickerDialog() }
 
             btSave.setOnClickListener {
+                // Save logic here
                 finish()
             }
 
-        }
-    }
-
-    private fun setupGender(){
-        with(binding){
-            divGenderLaki.setOnClickListener {
-                isSelectedGender = 0f // "Laki-Laki"
-                divGenderLaki.setBackgroundResource(R.drawable.rectangle_stroke2)
-                divGenderPerempuan.setBackgroundResource(R.drawable.rectangle_stroke_transparent)
-            }
-            divGenderPerempuan.setOnClickListener {
-                isSelectedGender = 1f // "Perempuan"
-                divGenderLaki.setBackgroundResource(R.drawable.rectangle_stroke_transparent)
-                divGenderPerempuan.setBackgroundResource(R.drawable.rectangle_stroke2)
+            btHapus.setOnClickListener {
+                deleteChild()
             }
         }
     }
 
-    private fun setupSeekBar(){
-        with(binding){
-
-            sbHeightBirth.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-                override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                    tvValueHeightBirth.setText("$progress Cm")
-                    isSelectedHeightBirth = progress.toFloat()
-                }
-
-                override fun onStartTrackingTouch(seekBar: SeekBar) {
-                }
-
-                override fun onStopTrackingTouch(seekBar: SeekBar) {
-                    var progress = seekBar.progress
-                    tvValueHeightBirth.setText("$progress Cm")
-                    isSelectedHeightBirth = progress.toFloat()
-                }
-            })
-        }
-    }
-
-
-    private fun setupToolbar(){
-        with(binding.divToolbar){
+    private fun setupToolbar() {
+        with(binding.divToolbar) {
             ivBack.setOnClickListener { finish() }
-            tvTitleToolbar.text = getResources().getString(R.string.tb_child_detail)
+            tvTitleToolbar.text = getString(R.string.tb_child_detail)
+        }
+    }
+
+    private fun loadChildDetails() {
+        lifecycleScope.launch {
+            val child = childDao.getChildById(childId)
+            if (child != null) {
+                binding.etNameChild.setText(child.name)
+                binding.etBirthChild.setText(child.birthDate)
+                // Set gender and height birth accordingly
+            }
+        }
+    }
+
+    private fun deleteChild() {
+        lifecycleScope.launch {
+            val child = childDao.getChildById(childId)
+            if (child != null) {
+                childDao.deleteChild(child)
+                finish()
+            }
         }
     }
 
