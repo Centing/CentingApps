@@ -16,7 +16,7 @@ import java.util.*
 class AddAnakActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAddAnakBinding
-    private var isSelectedGender = 0f // 0 for Laki-Laki, 1 for Perempuan
+    private var isSelectedGender = 0 // 0 for Laki-Laki, 1 for Perempuan
     private var isSelectedHeightBirth = 40f
 
     private lateinit var addAnakViewModel: AddAnakViewModel
@@ -44,7 +44,7 @@ class AddAnakActivity : AppCompatActivity() {
                     val dataChild = Child(
                         name = etNameChild.text.toString(),
                         birthDate = etBirthChild.text.toString(),
-                        gender = if (isSelectedGender == 0f) "Laki-Laki" else "Perempuan",
+                        gender = if (isSelectedGender == 0) "Laki-Laki" else "Perempuan",
                         heightBirth = isSelectedHeightBirth
                     )
                     addAnakViewModel.insert(dataChild)
@@ -64,12 +64,12 @@ class AddAnakActivity : AppCompatActivity() {
     private fun setupGender() {
         with(binding) {
             divGenderLaki.setOnClickListener {
-                isSelectedGender = 0f // "Laki-Laki"
+                isSelectedGender = 0 // "Laki-Laki"
                 divGenderLaki.setBackgroundResource(R.drawable.rectangle_stroke2)
                 divGenderPerempuan.setBackgroundResource(R.drawable.rectangle_stroke_transparent)
             }
             divGenderPerempuan.setOnClickListener {
-                isSelectedGender = 1f // "Perempuan"
+                isSelectedGender = 1 // "Perempuan"
                 divGenderLaki.setBackgroundResource(R.drawable.rectangle_stroke_transparent)
                 divGenderPerempuan.setBackgroundResource(R.drawable.rectangle_stroke2)
             }

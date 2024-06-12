@@ -71,6 +71,8 @@
     <string name="tidak">No</string>
     <string name="dialog_logout_message">Are you sure you want to log out of the application? To return to using the application you must log in again later</string>
     <string name="dialog_setting_message">Are you sure you want to change the language?</string>
+    <string name="dialog_delete_child_message">Are you sure you want to delete the childs data?</string>
+    <string name="dialog_update_child_message">Are you sure you want to update the childs data?</string>
 
 
     <!--    Dashboard-->

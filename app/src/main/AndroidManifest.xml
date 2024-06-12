@@ -27,7 +27,7 @@
             android:name=".views.Deteksi.User.DetectionUserActivity"
             android:exported="false" />
         <activity
-            android:name=".views.AnakSection.DetailAnakActivity"
+            android:name=".views.AnakSection.DetailAnak.DetailAnakActivity"
             android:exported="false" />
         <activity
             android:name=".views.AnakSection.AddAnak.AddAnakActivity"

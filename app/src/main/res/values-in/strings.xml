@@ -74,6 +74,8 @@
     <string name="tidak">Tidak</string>
     <string name="dialog_logout_message">Apakah Anda yakin ingin logout dari aplikasi?, untuk kembali menggunakan aplikasi anda harus login kembali nantinya</string>
     <string name="dialog_setting_message">Apakah Anda yakin ingin mengubah bahasa?</string>
+    <string name="dialog_delete_child_message">Apakah Anda yakin ingin menghapus data anak?</string>
+    <string name="dialog_update_child_message">Apakah Anda yakin ingin mengupdate data anak?</string>
 
 
     <!--    Dashboard-->

@@ -7,13 +7,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.c241ps220.centingapps.R
 import com.c241ps220.centingapps.ViewModelFactory.ViewModelFactory
-import com.c241ps220.centingapps.data.database.AppDatabase
 import com.c241ps220.centingapps.data.database.child.Child
-import com.c241ps220.centingapps.data.database.child.ChildDao
 import com.c241ps220.centingapps.databinding.ActivityListAnakBinding
 import com.c241ps220.centingapps.views.AnakSection.AddAnak.AddAnakActivity
-import com.c241ps220.centingapps.views.AnakSection.DetailAnakActivity
-import com.c241ps220.centingapps.views.Deteksi.SelectChild.SelectAnakAdapter
+import com.c241ps220.centingapps.views.AnakSection.DetailAnak.DetailAnakActivity
+
 
 class ListAnakActivity : AppCompatActivity() {
     private lateinit var binding: ActivityListAnakBinding
@@ -47,7 +45,12 @@ class ListAnakActivity : AppCompatActivity() {
 
             adapter.setOnItemClickCallback(object : ListAnakAdapter.OnItemClickCallback {
                 override fun onItemClicked(data: Child) {
-
+                    val intent: Intent = Intent(
+                        this@ListAnakActivity,
+                        DetailAnakActivity::class.java
+                    )
+                    intent.putExtra("DATA_CHILD", data)
+                    startActivity(intent)
                 }
             })
         }
