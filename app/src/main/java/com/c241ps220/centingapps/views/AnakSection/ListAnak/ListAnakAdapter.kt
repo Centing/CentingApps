@@ -1,7 +1,6 @@
-package com.c241ps220.centingapps.views.Deteksi.SelectChild
+package com.c241ps220.centingapps.views.AnakSection.ListAnak
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -10,7 +9,7 @@ import com.c241ps220.centingapps.data.database.child.Child
 import com.c241ps220.centingapps.databinding.ItemChildBinding
 import com.c241ps220.centingapps.utils.CustomFunction
 
-class SelectAnakAdapter: RecyclerView.Adapter<SelectAnakAdapter.SelectAnakViewHolder>() {
+class ListAnakAdapter: RecyclerView.Adapter<ListAnakAdapter.SelectAnakViewHolder>() {
 
     private lateinit var onItemClickCallback: OnItemClickCallback
 
@@ -46,8 +45,6 @@ class SelectAnakAdapter: RecyclerView.Adapter<SelectAnakAdapter.SelectAnakViewHo
                 tvName.text = child.name
                 tvGender.text = child.gender
                 tvInisial.text = CustomFunction.getInitials(child.name)
-
-                ivArrow.visibility = View.GONE
 
             }
         }

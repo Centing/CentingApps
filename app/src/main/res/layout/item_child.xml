@@ -45,38 +45,55 @@
                 android:textStyle="bold" />
         </RelativeLayout>
 
-        <LinearLayout
-            android:id="@+id/divTop2"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:gravity="center_vertical"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tvName"
-                style="@style/TEXT"
-                android:layout_width="wrap_content"
+            android:layout_gravity="center">
+            <LinearLayout
+                android:id="@+id/divTop2"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:fontFamily="@font/poppins_bold"
-                android:maxLines="1"
-                android:text="@string/dummy_name"
-                android:textSize="16dp"
-                android:textStyle="bold" />
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:layout_toLeftOf="@id/ivArrow">
 
-            <TextView
-                android:id="@+id/tvGender"
-                style="@style/TEXT"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="@string/male"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tvName"
+                    style="@style/TEXT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/poppins_bold"
+                    android:maxLines="1"
+                    android:text="@string/dummy_name"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/tvGender"
+                    style="@style/TEXT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@string/male"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/ivArrow"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/arrow_right"
+                android:tint="@color/colorPrimaryDark"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

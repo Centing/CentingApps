@@ -2,19 +2,14 @@ package com.c241ps220.centingapps.views.Deteksi.SelectChild
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.c241ps220.centingapps.R
 import com.c241ps220.centingapps.ViewModelFactory.ViewModelFactory
 import com.c241ps220.centingapps.data.database.child.Child
-import com.c241ps220.centingapps.databinding.ActivityListAnakBinding
 import com.c241ps220.centingapps.databinding.ActivitySelectAnakBinding
-import com.c241ps220.centingapps.views.AnakSection.AddAnakActivity
-import com.c241ps220.centingapps.views.AnakSection.DetailAnakActivity
+import com.c241ps220.centingapps.views.AnakSection.AddAnak.AddAnakActivity
 
 class SelectAnakActivity : AppCompatActivity() {
 
@@ -33,6 +28,10 @@ class SelectAnakActivity : AppCompatActivity() {
         setupToolbar()
 
         with(binding) {
+
+            fabChild.setOnClickListener {
+                startActivity(Intent(this@SelectAnakActivity, AddAnakActivity::class.java))
+            }
 
             adapter = SelectAnakAdapter()
             rvChild.layoutManager = LinearLayoutManager(this@SelectAnakActivity)

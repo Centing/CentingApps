@@ -12,7 +12,7 @@ import androidx.appcompat.app.AlertDialog
 import com.c241ps220.centingapps.R
 import com.c241ps220.centingapps.databinding.FragmentProfileBinding
 import com.c241ps220.centingapps.utils.CustomFunction
-import com.c241ps220.centingapps.views.AnakSection.ListAnakActivity
+import com.c241ps220.centingapps.views.AnakSection.ListAnak.ListAnakActivity
 import com.c241ps220.centingapps.views.ResetPassword.ResetPasswordActivity
 import com.c241ps220.centingapps.views.Profile.ProfileActivity
 

@@ -20,31 +20,12 @@
             android:layout_height="match_parent">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvListAnak"
+                android:id="@+id/rvChild"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginHorizontal="15dp"
-                android:visibility="gone"
+                android:layout_marginHorizontal="13dp"
                 tools:listitem="@layout/item_child" />
 
-            <!-- DUMMY, Hapus aja jika gakepake -->
-
-            <LinearLayout
-                android:id="@+id/divDummyList"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="15dp"
-                android:layout_marginTop="10dp"
-                android:orientation="vertical">
-
-                <include layout="@layout/item_child" />
-
-                <include layout="@layout/item_child" />
-
-                <include layout="@layout/item_child" />
-
-                <include layout="@layout/item_child" />
-            </LinearLayout>
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fabChild"
