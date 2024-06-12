@@ -66,7 +66,7 @@ class BerandaFragment : Fragment() {
                 startActivity(
                     Intent(
                         this@BerandaFragment.requireContext(),
-                        DetectionGuestActivity::class.java
+                        DetectionUserActivity::class.java
                     )
                 )
             }

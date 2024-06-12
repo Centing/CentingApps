@@ -19,17 +19,14 @@ abstract class AppDatabase : RoomDatabase() {
         private var INSTANCE: AppDatabase? = null
 
         fun getInstance(context: Context): AppDatabase {
-            return INSTANCE ?: synchronized(this) {
-                val instance = Room.databaseBuilder(
-                    context.applicationContext,
-                    AppDatabase::class.java,
-                    "centing_apps_database"
-                )
-                    .fallbackToDestructiveMigration() // This will handle the migration automatically by destroying the database
-                    .build()
-                INSTANCE = instance
-                instance
+            if (INSTANCE == null) {
+                synchronized(AppDatabase::class.java) {
+                    INSTANCE = Room.databaseBuilder(context.applicationContext,
+                        AppDatabase::class.java, "centing_apps_database")
+                        .build()
+                }
             }
+            return INSTANCE as AppDatabase
         }
     }
 }

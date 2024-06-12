@@ -63,8 +63,8 @@ class ListAnakActivity : AppCompatActivity() {
 
     private fun loadChildren() {
         lifecycleScope.launch {
-            val children = childDao.getAllChildren()
-            adapter.submitList(children)
+//            val children = childDao.getAllChild()
+//            adapter.submitList(children)
         }
     }
 }

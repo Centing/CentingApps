@@ -6,7 +6,11 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.c241ps220.centingapps.R
+import com.c241ps220.centingapps.ViewModelFactory.ViewModelFactory
+import com.c241ps220.centingapps.data.database.child.Child
 import com.c241ps220.centingapps.databinding.ActivityListAnakBinding
 import com.c241ps220.centingapps.databinding.ActivitySelectAnakBinding
 import com.c241ps220.centingapps.views.AnakSection.AddAnakActivity
@@ -15,6 +19,11 @@ import com.c241ps220.centingapps.views.AnakSection.DetailAnakActivity
 class SelectAnakActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySelectAnakBinding
+
+    private lateinit var adapter: SelectAnakAdapter
+
+    private lateinit var selectAnakViewModel: SelectAnakViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -25,12 +34,32 @@ class SelectAnakActivity : AppCompatActivity() {
 
         with(binding) {
 
-//            Dummy, kalau sudah tidak kepake hapus aja
-            divDummyList.setOnClickListener {
-                finish()
+            adapter = SelectAnakAdapter()
+            rvChild.layoutManager = LinearLayoutManager(this@SelectAnakActivity)
+            rvChild.setHasFixedSize(true)
+            rvChild.adapter = adapter
+
+            selectAnakViewModel = obtainViewModel(this@SelectAnakActivity)
+
+            selectAnakViewModel.getAllChild().observe(this@SelectAnakActivity) { childList ->
+                if (childList != null) {
+                    adapter.setListChild(childList)
+                }
             }
+
+            adapter.setOnItemClickCallback(object : SelectAnakAdapter.OnItemClickCallback {
+                override fun onItemClicked(data: Child) {
+
+                }
+            })
         }
     }
+
+    private fun obtainViewModel(activity: AppCompatActivity): SelectAnakViewModel {
+        val factory = ViewModelFactory.getInstance(activity.application)
+        return ViewModelProvider(activity, factory).get(SelectAnakViewModel::class.java)
+    }
+
     private fun setupToolbar() {
         with(binding.divToolbar) {
             ivBack.setOnClickListener { finish() }
