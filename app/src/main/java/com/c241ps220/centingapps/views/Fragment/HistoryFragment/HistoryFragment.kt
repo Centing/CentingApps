@@ -6,9 +6,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.c241ps220.centingapps.R
+import com.c241ps220.centingapps.ViewModelFactory.ViewModelFactory
+import com.c241ps220.centingapps.data.database.child.Child
 import com.c241ps220.centingapps.databinding.FragmentHistoryBinding
 import com.c241ps220.centingapps.databinding.FragmentProfileBinding
+import com.c241ps220.centingapps.views.AnakSection.DetailAnak.DetailAnakActivity
+import com.c241ps220.centingapps.views.AnakSection.ListAnak.ListAnakAdapter
+import com.c241ps220.centingapps.views.AnakSection.ListAnak.ListAnakViewModel
 import com.c241ps220.centingapps.views.History.HistoryActivity
 
 
@@ -16,6 +24,9 @@ class HistoryFragment : Fragment() {
 
     private var _binding: FragmentHistoryBinding? = null
     private val binding get() = _binding!!
+
+    private lateinit var viewModel: HistoryViewModel
+    private lateinit var adapter: HistoryAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,10 +46,35 @@ class HistoryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         with(binding){
-            divDummyList.setOnClickListener {
-                startActivity(Intent(this@HistoryFragment.requireContext(), HistoryActivity::class.java))
+            adapter = HistoryAdapter()
+            rvChild.layoutManager = LinearLayoutManager(this@HistoryFragment.requireContext())
+            rvChild.setHasFixedSize(true)
+            rvChild.adapter = adapter
+
+            viewModel = obtainViewModel(this@HistoryFragment.requireActivity() as AppCompatActivity)
+
+            viewModel.getAllChild().observe(this@HistoryFragment.requireActivity() as AppCompatActivity) { childList ->
+                if (childList != null) {
+                    adapter.setListChild(childList)
+                }
             }
+
+            adapter.setOnItemClickCallback(object : HistoryAdapter.OnItemClickCallback {
+                override fun onItemClicked(data: Child) {
+                    val intent: Intent = Intent(
+                        this@HistoryFragment.requireContext() as AppCompatActivity,
+                        HistoryActivity::class.java
+                    )
+                    intent.putExtra("DATA_CHILD", data)
+                    startActivity(intent)
+                }
+            })
         }
+    }
+
+    private fun obtainViewModel(activity: AppCompatActivity): HistoryViewModel {
+        val factory = ViewModelFactory.getInstance(activity.application)
+        return ViewModelProvider(activity, factory).get(HistoryViewModel::class.java)
     }
 
     override fun onDestroyView() {

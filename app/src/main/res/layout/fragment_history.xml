@@ -51,24 +51,14 @@
                     android:textSize="16sp"
                     android:fontFamily="@font/poppins_bold"/>
 
-                <LinearLayout
-                    android:id="@+id/divDummyList"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_below="@id/tvDescToolbar"
+                    android:id="@+id/rvChild"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_below="@+id/tvDescToolbar"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="10dp"
-                    android:orientation="vertical">
-                    <include layout="@layout/item_child"/>
-                    <include layout="@layout/item_child"/>
-                    <include layout="@layout/item_child"/>
-                    <include layout="@layout/item_child"/>
-                    <include layout="@layout/item_child"/>
-                    <include layout="@layout/item_child"/>
-                    <include layout="@layout/item_child"/>
-                    <include layout="@layout/item_child"/>
-                    <include layout="@layout/item_child"/>
-                </LinearLayout>
+                    android:layout_marginHorizontal="13dp"
+                    tools:listitem="@layout/item_child"
+                    android:layout_marginTop="5dp"/>
             </RelativeLayout>
         </androidx.core.widget.NestedScrollView>
     </RelativeLayout>

@@ -7,6 +7,7 @@ import com.c241ps220.centingapps.views.AnakSection.AddAnak.AddAnakViewModel
 import com.c241ps220.centingapps.views.AnakSection.DetailAnak.DetailAnakViewModel
 import com.c241ps220.centingapps.views.AnakSection.ListAnak.ListAnakViewModel
 import com.c241ps220.centingapps.views.Deteksi.SelectChild.SelectAnakViewModel
+import com.c241ps220.centingapps.views.Fragment.HistoryFragment.HistoryViewModel
 
 class ViewModelFactory (private val mApplication: Application) : ViewModelProvider.NewInstanceFactory() {
     companion object {
@@ -36,6 +37,9 @@ class ViewModelFactory (private val mApplication: Application) : ViewModelProvid
         }
         if (modelClass.isAssignableFrom(DetailAnakViewModel::class.java)) {
             return DetailAnakViewModel(mApplication) as T
+        }
+        if (modelClass.isAssignableFrom(HistoryViewModel::class.java)) {
+            return HistoryViewModel(mApplication) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
     }
