@@ -76,6 +76,7 @@
     <string name="dialog_setting_message">Apakah Anda yakin ingin mengubah bahasa?</string>
     <string name="dialog_delete_child_message">Apakah Anda yakin ingin menghapus data anak?</string>
     <string name="dialog_update_child_message">Apakah Anda yakin ingin mengupdate data anak?</string>
+    <string name="dialog_select_child_detection_message">Apakah Anda yakin memilih anak ini untuk dilakukan deteksi stunting?</string>
 
 
     <!--    Dashboard-->

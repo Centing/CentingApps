@@ -1,7 +1,9 @@
 package com.c241ps220.centingapps.views.Deteksi.SelectChild
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -48,6 +50,24 @@ class SelectAnakActivity : AppCompatActivity() {
 
             adapter.setOnItemClickCallback(object : SelectAnakAdapter.OnItemClickCallback {
                 override fun onItemClicked(data: Child) {
+                    val builder = AlertDialog.Builder(this@SelectAnakActivity)
+                    builder.setTitle(R.string.konfirmasi)
+                    builder.setMessage(R.string.dialog_select_child_detection_message)
+
+                    builder.setPositiveButton(R.string.ya) { dialog: DialogInterface, which: Int ->
+                        val intent = Intent()
+                        intent.putExtra("SELECTED_ANAK", data)
+                        setResult(RESULT_OK, intent)
+                        finish()
+                    }
+
+                    builder.setNegativeButton(R.string.tidak) { dialog: DialogInterface, which: Int ->
+                        dialog.dismiss()
+                    }
+
+                    val dialog = builder.create()
+                    dialog.show()
+
 
                 }
             })
