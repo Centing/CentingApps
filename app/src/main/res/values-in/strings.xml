@@ -123,6 +123,7 @@
     <string name="result_detection_value">Normal</string>
     <string name="result_detection_value_minus">Tinggi ideal anak anda kurang dengan umur sekarang, anak anda perlu bertumbuh untuk masuk kategori normal.</string>
     <string name="result_detection_value_plus">Selamat! anak anda telah berhasil menjaga kondisi gizi dengan baik sehingga tidak termasuk dalam kategori stunting.</string>
+    <string name="note_result">Hasil deteksi ini akan tersimpan otomatis kedalam history sesuai dengan data anak masing-masing</string>
 
 
 

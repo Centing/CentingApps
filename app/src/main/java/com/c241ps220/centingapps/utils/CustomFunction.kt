@@ -1,11 +1,23 @@
 package com.c241ps220.centingapps.utils
 
 import java.time.LocalDate
+import java.time.LocalDateTime
 import java.time.Period
 import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
 
 object CustomFunction {
+
+    fun getCurrentDateTimeFormatted(): String {
+        // Mendapatkan tanggal dan waktu saat ini
+        val current = LocalDateTime.now()
+
+        // Menentukan format yang diinginkan
+        val formatter = DateTimeFormatter.ofPattern("HH:mm dd-MM-yyyy")
+
+        // Memformat tanggal dan waktu saat ini sesuai dengan format yang ditentukan
+        return current.format(formatter)
+    }
     fun getInitials(name: String): String {
         val names = name.split(" ")
         var initials = ""

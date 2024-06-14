@@ -120,7 +120,7 @@
     <string name="result_detection_value">Normal</string>
     <string name="result_detection_value_minus">Your childs ideal height is less than his current age, your child needs to grow to enter the normal category.</string>
     <string name="result_detection_value_plus">Congratulations! Your child has succeeded in maintaining good nutritional conditions so that he is not included in the stunting category.</string>
-
+    <string name="note_result">The results of this detection will be saved automatically into history according to each childs data</string>
 
     <!--FAQ STUNTING-->
     <string name="expand1">What is Stunting ?</string>

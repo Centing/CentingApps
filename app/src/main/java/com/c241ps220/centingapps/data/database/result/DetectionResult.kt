@@ -6,9 +6,10 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "detection_results")
 data class DetectionResult(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    val childId: Int,
-    val age: Float,
-    val height: Float,
-    val weight: Float,
-    val result: String
+    val childId: String,
+    val childName: String,
+    val childAge: String,
+    val childLastHeight: String,
+    val childDetectionResult: String,
+    val childDetectionDate: String,
 )

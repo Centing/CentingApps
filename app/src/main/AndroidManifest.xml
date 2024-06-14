@@ -15,10 +15,10 @@
         android:theme="@style/Theme.CentingApps"
         tools:targetApi="31">
         <activity
-            android:name=".views.Deteksi.Result.ResultDetectByGuestActivity"
+            android:name=".views.Deteksi.Result.ByGuest.ResultDetectByGuestActivity"
             android:exported="false" />
         <activity
-            android:name=".views.Deteksi.Result.ResultDetectByUserActivity"
+            android:name=".views.Deteksi.Result.ByUser.ResultDetectByUserActivity"
             android:exported="false" />
         <activity
             android:name=".views.Deteksi.SelectChild.SelectAnakActivity"

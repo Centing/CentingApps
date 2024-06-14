@@ -41,6 +41,17 @@
                     android:layout_marginBottom="10dp"
                     />
 
+                <TextView
+                    android:id="@+id/tvIdChild"
+                    style="@style/TEXT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@string/male"
+                    android:textStyle="bold"
+                    android:visibility="gone"/>
+
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/Widget.TextInputLayout.Custom"
                     android:layout_width="match_parent"

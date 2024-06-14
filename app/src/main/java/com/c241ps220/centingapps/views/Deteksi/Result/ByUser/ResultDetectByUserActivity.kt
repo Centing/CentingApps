@@ -1,14 +1,14 @@
-package com.c241ps220.centingapps.views.Deteksi.Result
+package com.c241ps220.centingapps.views.Deteksi.Result.ByUser
 
 import android.os.Bundle
 import android.view.View
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.ViewModelProvider
 import com.c241ps220.centingapps.R
-import com.c241ps220.centingapps.databinding.ActivityHistoryBinding
+import com.c241ps220.centingapps.ViewModelFactory.ViewModelFactory
+import com.c241ps220.centingapps.data.database.result.DetectionResult
 import com.c241ps220.centingapps.databinding.ActivityResultDetectByUserBinding
+import com.c241ps220.centingapps.utils.CustomFunction
 
 class ResultDetectByUserActivity : AppCompatActivity() {
 
@@ -22,6 +22,9 @@ class ResultDetectByUserActivity : AppCompatActivity() {
     private var isSelectedGender = 0
     private var isSelectedStatus = 0
 
+    private lateinit var resultDetectByUserViewModel: ResultDetectByUserViewModel
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -29,6 +32,9 @@ class ResultDetectByUserActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setupToolbar()
+
+        resultDetectByUserViewModel = obtainViewModel(this@ResultDetectByUserActivity)
+
 
 
         with(binding){
@@ -54,11 +60,14 @@ class ResultDetectByUserActivity : AppCompatActivity() {
                     etGender.setText(getString(R.string.perempuan))
                 }
 
+
+                tvIdChild.setText(intent.getStringExtra("CHILD_ID"))
                 etNameChild.setText(intent.getStringExtra("NAME"))
                 etBirthChild.setText(intent.getStringExtra("BIRTH_DATE"))
                 etAge.setText(isSelectedAge.toString())
                 etBirthHeight.setText(intent.getStringExtra("HEIGHT_BIRTH"))
                 etLatestHeight.setText(isSelectedHeightLatest.toString())
+
 
                 when (isSelectedStatus) {
                     0 -> {
@@ -103,9 +112,24 @@ class ResultDetectByUserActivity : AppCompatActivity() {
                         animationSad.playAnimation()
                     }
                 }
+
+                val dataResult = DetectionResult(
+                    childId = tvIdChild.text.toString(),
+                    childName = etNameChild.text.toString(),
+                    childAge = etAge.text.toString(),
+                    childLastHeight = etLatestHeight.text.toString(),
+                    childDetectionResult = tvStatusDetection.text.toString(),
+                    childDetectionDate =  CustomFunction.getCurrentDateTimeFormatted()
+                )
+                resultDetectByUserViewModel.insert(dataResult)
             }
         }
 
+    }
+
+    private fun obtainViewModel(activity: AppCompatActivity): ResultDetectByUserViewModel {
+        val factory = ViewModelFactory.getInstance(activity.application)
+        return ViewModelProvider(activity, factory).get(ResultDetectByUserViewModel::class.java)
     }
 
     private fun setupToolbar(){

@@ -7,18 +7,13 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.SeekBar
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.c241ps220.centingapps.R
 import com.c241ps220.centingapps.data.database.child.Child
-import com.c241ps220.centingapps.databinding.ActivityAddAnakBinding
 import com.c241ps220.centingapps.databinding.ActivityDetectionUserBinding
 import com.c241ps220.centingapps.utils.CustomFunction
-import com.c241ps220.centingapps.views.Deteksi.Result.ResultDetectByGuestActivity
-import com.c241ps220.centingapps.views.Deteksi.Result.ResultDetectByUserActivity
+import com.c241ps220.centingapps.views.Deteksi.Result.ByUser.ResultDetectByUserActivity
 import com.c241ps220.centingapps.views.Deteksi.SelectChild.SelectAnakActivity
 
 class DetectionUserActivity : AppCompatActivity() {
@@ -30,6 +25,7 @@ class DetectionUserActivity : AppCompatActivity() {
     private lateinit var tfliteModel: TFLiteModel
     private var isSelectedAge = 0
     private var isSelectedGender = 0 // 0 Laki, 1 Perempuan
+    private var childID = ""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -73,6 +69,7 @@ class DetectionUserActivity : AppCompatActivity() {
                 tvValueHeightLatest.setText(selectedAnak?.heightBirth.toString())
                 sbHeightLatest.progress = selectedAnak?.heightBirth!!.toInt()
                 isSelectedHeightLatest = selectedAnak.heightBirth
+                tvIdChild.text = selectedAnak.id.toString()
             }
         }
     }
@@ -110,6 +107,7 @@ class DetectionUserActivity : AppCompatActivity() {
                                 "\n Result : $result")
 
                         val intent = Intent(this@DetectionUserActivity, ResultDetectByUserActivity::class.java)
+                        intent.putExtra("CHILD_ID", tvIdChild.text.toString())
                         intent.putExtra("NAME", etNameChild.text.toString())
                         intent.putExtra("GENDER", isSelectedGender)
                         intent.putExtra("BIRTH_DATE", etBirthChild.text.toString())

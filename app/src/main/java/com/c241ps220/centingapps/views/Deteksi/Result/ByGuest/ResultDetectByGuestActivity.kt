@@ -1,4 +1,4 @@
-package com.c241ps220.centingapps.views.Deteksi.Result
+package com.c241ps220.centingapps.views.Deteksi.Result.ByGuest
 
 import android.os.Bundle
 import android.util.Log

@@ -5,20 +5,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.SeekBar
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.c241ps220.centingapps.R
 import com.c241ps220.centingapps.databinding.ActivityDetectionGuestBinding
-import com.c241ps220.centingapps.databinding.ActivityZoomImageBinding
-import java.nio.ByteBuffer
-import java.nio.ByteOrder
-import org.tensorflow.lite.DataType
-import org.tensorflow.lite.Interpreter
-import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import android.util.Log
-import com.c241ps220.centingapps.views.Deteksi.Result.ResultDetectByGuestActivity
+import com.c241ps220.centingapps.views.Deteksi.Result.ByGuest.ResultDetectByGuestActivity
 
 class DetectionGuestActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetectionGuestBinding

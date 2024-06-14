@@ -25,13 +25,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
             android:gravity="center_vertical"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tvDateDetect"
-                android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold"
                 android:textSize="10dp"
                 android:layout_width="wrap_content"
@@ -39,17 +37,18 @@
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:layout_marginBottom="7dp"
-                android:text="@string/result_detection_value"/>
+                android:text="xx-xx-xxxx xx:xx"/>
 
             <TextView
-                android:id="@+id/tvName"
+                android:id="@+id/tvStatus"
                 style="@style/TEXT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:fontFamily="@font/poppins_bold"
                 android:maxLines="1"
-                android:text="@string/dummy_name"
+                android:text="@string/status_0"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="14dp"
                 android:textStyle="bold" />
 
@@ -59,7 +58,7 @@
                 android:orientation="horizontal">
                 <TextView
                     style="@style/TEXT"
-                    android:layout_width="110dp"
+                    android:layout_width="125dp"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:maxLines="1"
@@ -88,7 +87,7 @@
                 android:orientation="horizontal">
                 <TextView
                     style="@style/TEXT"
-                    android:layout_width="110dp"
+                    android:layout_width="125dp"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:maxLines="1"
@@ -109,35 +108,6 @@
                     android:ellipsize="end"
                     android:maxLines="1"
                     android:text="@string/default_age"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    style="@style/TEXT"
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:maxLines="1"
-                    android:text="@string/result_detection_title" />
-                <TextView
-                    style="@style/TEXT"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:maxLines="1"
-                    android:text=":"
-                    android:layout_marginHorizontal="10dp"/>
-                <TextView
-                    android:id="@+id/tvResul"
-                    style="@style/TEXT"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:maxLines="1"
-                    android:text="@string/result_detection_value"/>
             </LinearLayout>
 
 

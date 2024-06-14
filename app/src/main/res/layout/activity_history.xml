@@ -154,22 +154,7 @@
                     tools:listitem="@layout/item_history"
                     android:layout_marginHorizontal="18dp"
                     android:layout_marginTop="10dp"
-                    android:visibility="gone"/>
-
-                <!--  Dummy Jika Udah ada hapus aja               -->
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_marginHorizontal="18dp">
-                    <include layout="@layout/item_history"/>
-                    <include layout="@layout/item_history"/>
-                    <include layout="@layout/item_history"/>
-                    <include layout="@layout/item_history"/>
-                    <include layout="@layout/item_history"/>
-                    <include layout="@layout/item_history"/>
-                </LinearLayout>
+                    android:visibility="visible"/>
 
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
