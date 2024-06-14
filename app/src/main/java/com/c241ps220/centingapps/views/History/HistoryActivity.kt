@@ -2,6 +2,7 @@ package com.c241ps220.centingapps.views.History
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -54,8 +55,13 @@ class HistoryActivity : AppCompatActivity() {
                 historyActivityViewModel = obtainViewModel(this@HistoryActivity)
 
                 historyActivityViewModel.getHistoryByChild(data_child.id).observe(this@HistoryActivity) { resultList ->
-                    if (resultList != null) {
+                    if (resultList.size > 0) {
                         adapter.setListDetectionResult(resultList)
+                        rvHistory.visibility = View.VISIBLE
+                        tvEmpty.visibility = View.GONE
+                    }else {
+                        rvHistory.visibility = View.GONE
+                        tvEmpty.visibility = View.VISIBLE
                     }
                 }
 

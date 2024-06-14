@@ -173,4 +173,7 @@
     <string name="rdm_8">Perform regular health checks to monitor your childs development.</string>
     <string name="rdm_9">Provide physical and cognitive stimulation to support brain and motor development.</string>
     <string name="rdm_10">Give love and attention so that the child feels safe and loved.</string>
+
+    <string name="null_data_child">Child Data Doesnt Exist\nPlease Add Child Data</string>
+    <string name="null_data_history">No historical data yet\nPlease carry out stunting detection first</string>
 </resources>

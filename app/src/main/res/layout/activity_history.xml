@@ -154,7 +154,20 @@
                     tools:listitem="@layout/item_history"
                     android:layout_marginHorizontal="18dp"
                     android:layout_marginTop="10dp"
-                    android:visibility="visible"/>
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/tvEmpty"
+                    style="@style/TEXT"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="30dp"
+                    android:text="@string/null_data_child"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12dp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"/>
 
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>

@@ -2,6 +2,7 @@ package com.c241ps220.centingapps.views.AnakSection.ListAnak
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -38,8 +39,13 @@ class ListAnakActivity : AppCompatActivity() {
             listAnakViewModel = obtainViewModel(this@ListAnakActivity)
 
             listAnakViewModel.getAllChild().observe(this@ListAnakActivity) { childList ->
-                if (childList != null) {
+                if (childList.size > 0) {
                     adapter.setListChild(childList)
+                    rvChild.visibility = View.VISIBLE
+                    tvEmpty.visibility = View.GONE
+                }else {
+                    rvChild.visibility = View.GONE
+                    tvEmpty.visibility = View.VISIBLE
                 }
             }
 

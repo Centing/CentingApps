@@ -180,6 +180,10 @@
     <string name="rdm_9">Berikan stimulasi fisik dan kognitif untuk mendukung perkembangan otak dan motorik.</string>
     <string name="rdm_10">Berikan kasih sayang dan perhatian agar anak merasa aman dan dicintai.</string>
 
+    <string name="null_data_child">Data Anak Belum Ada\nSilahkan Tambahkan Data Anak</string>
+    <string name="null_data_history">Data History Belum Ada\nSilahkan Lakukan Deteksi Stunting Terlebih Dahulu</string>
+
+
 
 
 </resources>

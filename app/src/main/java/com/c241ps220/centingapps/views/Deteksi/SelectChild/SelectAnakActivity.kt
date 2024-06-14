@@ -3,6 +3,7 @@ package com.c241ps220.centingapps.views.Deteksi.SelectChild
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -43,8 +44,13 @@ class SelectAnakActivity : AppCompatActivity() {
             selectAnakViewModel = obtainViewModel(this@SelectAnakActivity)
 
             selectAnakViewModel.getAllChild().observe(this@SelectAnakActivity) { childList ->
-                if (childList != null) {
+                if (childList.size > 0) {
                     adapter.setListChild(childList)
+                    rvListAnak.visibility = View.VISIBLE
+                    tvEmpty.visibility = View.GONE
+                }else {
+                    rvListAnak.visibility = View.GONE
+                    tvEmpty.visibility = View.VISIBLE
                 }
             }
 

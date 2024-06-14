@@ -54,8 +54,13 @@ class HistoryFragment : Fragment() {
             viewModel = obtainViewModel(this@HistoryFragment.requireActivity() as AppCompatActivity)
 
             viewModel.getAllChild().observe(this@HistoryFragment.requireActivity() as AppCompatActivity) { childList ->
-                if (childList != null) {
+                if (childList.size > 0) {
                     adapter.setListChild(childList)
+                    rvChild.visibility = View.VISIBLE
+                    tvEmpty.visibility = View.GONE
+                }else {
+                    rvChild.visibility = View.GONE
+                    tvEmpty.visibility = View.VISIBLE
                 }
             }
 
