@@ -74,6 +74,7 @@
     <string name="dialog_delete_child_message">Are you sure you want to delete the childs data?</string>
     <string name="dialog_update_child_message">Are you sure you want to update the childs data?</string>
     <string name="dialog_select_child_detection_message">Are you sure you selected this child for stunting detection?</string>
+    <string name="dialog_detection_now_message">Make sure whether the childs data is suitable for stunting detection??</string>
 
 
     <!--    Dashboard-->
@@ -105,9 +106,9 @@
     <string name="milk">Type of Milk</string>
     <string name="asi_ibu">ASI</string>
     <string name="asi_formula">Formula</string>
-    <string name="height_birth">Birth Height</string>
-    <string name="height_latest">Latest Height</string>
-    <string name="height_latest2">Latest Height</string>
+    <string name="height_birth">Birth Height (Cm)</string>
+    <string name="height_latest">Latest Height (Cm)</string>
+    <string name="height_latest2">Latest Height (Cm)</string>
     <string name="weight_birth">Birth Weight</string>">
     <string name="weight_latest">Latest Weight</string>
     <string name="detection_now">Detection Now</string>

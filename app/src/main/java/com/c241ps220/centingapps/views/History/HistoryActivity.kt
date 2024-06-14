@@ -33,6 +33,7 @@ class HistoryActivity : AppCompatActivity() {
 
             if (data_child != null) {
                 etNameChild.setText(data_child.name)
+                etGender.setText(data_child.gender)
                 etBirthChild.setText(data_child.birthDate)
                 var birtDate = data_child.birthDate
                 var age = birtDate.let { CustomFunction.calculateAgeInMonths(it) }

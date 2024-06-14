@@ -37,14 +37,9 @@ class ResultDetectByGuestActivity : AppCompatActivity() {
                 finish() // Mengakhiri aktivitas jika tidak ada data
                 return
             }else{
-//                intent.putExtra("AGE", isSelectedAge)
-//                intent.putExtra("HEIGHT_BIRTH", isSelectedHeightBirth)
-//                intent.putExtra("HEIGHT_LATEST", isSelectedHeightLatest)
-//                intent.putExtra("GENDER", isSelectedGender)
-                isSelectedAge = intent.getIntExtra("AGE", 0)
-                isSelectedHeightBirth = intent.getFloatExtra("HEIGHT_BIRTH", 0f)
-                isSelectedHeightLatest = intent.getFloatExtra("HEIGHT_LATEST", 0f)
                 isSelectedGender = intent.getIntExtra("GENDER", 0)
+                isSelectedAge = intent.getIntExtra("AGE", 0)
+                isSelectedHeightLatest = intent.getFloatExtra("HEIGHT_LATEST", 0f)
                 isSelectedStatus = intent.getIntExtra("STATUS", 0)
 
                 if (isSelectedGender == 0){
@@ -56,12 +51,12 @@ class ResultDetectByGuestActivity : AppCompatActivity() {
                 }
 
                 etAge.setText(isSelectedAge.toString())
-                etBirthHeight.setText(isSelectedHeightBirth.toString())
+                etBirthHeight.setText(intent.getStringExtra("HEIGHT_BIRTH"))
                 etLatestHeight.setText(isSelectedHeightLatest.toString())
 
                 when (isSelectedStatus) {
                     0 -> {
-                       tvStatusDetection.text = getResources().getString(R.string.status_0)
+                        tvStatusDetection.text = getResources().getString(R.string.status_0)
                         tvDetectionValue.text= getResources().getString(R.string.result_detection_value_plus)
                         divStatusPlus.root.visibility = View.VISIBLE
                         divStatusMinus.root.visibility = View.GONE

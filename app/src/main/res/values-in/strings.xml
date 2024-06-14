@@ -77,6 +77,7 @@
     <string name="dialog_delete_child_message">Apakah Anda yakin ingin menghapus data anak?</string>
     <string name="dialog_update_child_message">Apakah Anda yakin ingin mengupdate data anak?</string>
     <string name="dialog_select_child_detection_message">Apakah Anda yakin memilih anak ini untuk dilakukan deteksi stunting?</string>
+    <string name="dialog_detection_now_message">Pastikan apakah data anak sudah sesuai untuk dilakukan deteksi stunting??</string>
 
 
     <!--    Dashboard-->
@@ -108,9 +109,9 @@
     <string name="milk">Jenis Air Susu</string>
     <string name="asi_ibu">ASI</string>
     <string name="asi_formula">Formula</string>
-    <string name="height_birth">Tinggi Lahir</string>
-    <string name="height_latest">Tinggi Sekarang</string>
-    <string name="height_latest2">Tinggi Terakhir</string>
+    <string name="height_birth">Tinggi Lahir (Cm)</string>
+    <string name="height_latest">Tinggi Sekarang (Cm)</string>
+    <string name="height_latest2">Tinggi Terakhir (Cm)</string>
     <string name="weight_birth">Berat Lahir</string>
     <string name="weight_latest">Berat Sekarang</string>
     <string name="detection_now">Deteksi Sekarang</string>
