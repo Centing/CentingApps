@@ -111,4 +111,10 @@ dependencies {
 //    implementation ("com.github.ismaeldivita:chip-navigation-bar:1.4.0")
     implementation ("com.github.ertugrulkaragoz:SuperBottomBar:0.4")
 
+//    Retrofit login register
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.okhttp3:okhttp:4.11.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
+
 }

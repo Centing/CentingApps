@@ -176,4 +176,6 @@
 
     <string name="null_data_child">Child Data Doesnt Exist\nPlease Add Child Data</string>
     <string name="null_data_history">No historical data yet\nPlease carry out stunting detection first</string>
+    <string name="profile_title">Profile</string>
+    <string name="konfirmasi_logout">Logout?</string>
 </resources>

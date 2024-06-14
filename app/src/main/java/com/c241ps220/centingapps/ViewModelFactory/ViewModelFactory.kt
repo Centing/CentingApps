@@ -11,7 +11,7 @@ import com.c241ps220.centingapps.views.Deteksi.SelectChild.SelectAnakViewModel
 import com.c241ps220.centingapps.views.Fragment.HistoryFragment.HistoryViewModel
 import com.c241ps220.centingapps.views.History.HistoryActivityViewModel
 
-class ViewModelFactory (private val mApplication: Application) : ViewModelProvider.NewInstanceFactory() {
+class ViewModelFactory(private val mApplication: Application) : ViewModelProvider.NewInstanceFactory() {
     companion object {
         @Volatile
         private var INSTANCE: ViewModelFactory? = null

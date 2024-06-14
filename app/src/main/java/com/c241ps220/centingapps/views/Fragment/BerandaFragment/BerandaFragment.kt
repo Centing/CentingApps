@@ -7,8 +7,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.c241ps220.centingapps.R
+import com.c241ps220.centingapps.data.pref.UserPreference
 import com.c241ps220.centingapps.databinding.FragmentBerandaBinding
 import com.c241ps220.centingapps.utils.CustomFunction
 import com.c241ps220.centingapps.views.Deteksi.Guest.DetectionGuestActivity
@@ -22,18 +24,20 @@ import com.denzcoskun.imageslider.constants.ActionTypes
 import com.denzcoskun.imageslider.interfaces.ItemClickListener
 import com.denzcoskun.imageslider.interfaces.TouchListener
 import com.denzcoskun.imageslider.models.SlideModel
-
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
 
 class BerandaFragment : Fragment() {
 
     private var _binding: FragmentBerandaBinding? = null
     private val binding get() = _binding!!
+    private lateinit var userPreference: UserPreference
 
     private val list = ArrayList<Article>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        userPreference = UserPreference.getInstance(requireContext())
     }
 
     override fun onCreateView(
@@ -73,17 +77,39 @@ class BerandaFragment : Fragment() {
 
             divTop.requestFocus()
 
-
             rvArticle.setNestedScrollingEnabled(false)
             rvArticle.setFocusable(false)
             rvArticle.setFocusableInTouchMode(false)
             rvArticle.setHasFixedSize(true)
-            list.addAll(getListActicle())
+            list.addAll(getListArticle())
             showRecyclerList()
+
+            lifecycleScope.launch {
+                val userSession = userPreference.getSession().first()
+                val initials = when {
+                    userSession.name.split(" ").size == 1 -> {
+                        // Single word name, use first two characters
+                        if (userSession.name.length >= 2) {
+                            userSession.name.substring(0, 2).toUpperCase()
+                        } else {
+                            userSession.name.toUpperCase()
+                        }
+                    }
+                    else -> {
+                        val names = userSession.name.split(" ")
+                        val firstInitial = names.firstOrNull()?.substring(0, 1) ?: ""
+                        val lastInitial = names.lastOrNull()?.substring(0, 1) ?: ""
+                        "$firstInitial$lastInitial".toUpperCase()
+                    }
+                }
+
+                tvInisial.text = initials
+                tvName.text = userSession.name
+            }
         }
     }
 
-    private fun getListActicle(): ArrayList<Article> {
+    private fun getListArticle(): ArrayList<Article> {
         val listService = ArrayList<Article>()
         listService.addAll(articleData)
         return listService
@@ -146,12 +172,10 @@ class BerandaFragment : Fragment() {
                 }
             })
         }
-
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null // Membersihkan binding
     }
-
 }

@@ -18,6 +18,16 @@
             android:layout_height="200dp"
             android:src="@drawable/centing_logo_green"/>
     </RelativeLayout>
+    <ProgressBar
+        android:id="@+id/loadingProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <LinearLayout
         android:id="@+id/divBottom"
         android:layout_width="match_parent"
