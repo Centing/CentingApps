@@ -46,10 +46,10 @@ class SelectAnakActivity : AppCompatActivity() {
             selectAnakViewModel.getAllChild().observe(this@SelectAnakActivity) { childList ->
                 if (childList.size > 0) {
                     adapter.setListChild(childList)
-                    rvListAnak.visibility = View.VISIBLE
+                    rvChild.visibility = View.VISIBLE
                     tvEmpty.visibility = View.GONE
                 }else {
-                    rvListAnak.visibility = View.GONE
+                    rvChild.visibility = View.GONE
                     tvEmpty.visibility = View.VISIBLE
                 }
             }

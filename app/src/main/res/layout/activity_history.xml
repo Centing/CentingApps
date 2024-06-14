@@ -163,7 +163,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:layout_marginHorizontal="30dp"
-                    android:text="@string/null_data_child"
+                    android:text="@string/null_data_history"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="12dp"
                     android:textStyle="bold"
