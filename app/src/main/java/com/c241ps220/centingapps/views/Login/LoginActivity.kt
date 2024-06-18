@@ -8,31 +8,24 @@ import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
-import androidx.activity.viewModels
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.c241ps220.centingapps.MainActivity
-import com.c241ps220.centingapps.ViewModelFactory.UserViewModelFactory
 import com.c241ps220.centingapps.ViewModelFactory.ViewModelFactory
-import com.c241ps220.centingapps.data.pref.LoginResponse
 import com.c241ps220.centingapps.data.pref.UserModel
 import com.c241ps220.centingapps.data.pref.UserPreference
 import com.c241ps220.centingapps.data.retrofit.ApiConfig
-import com.c241ps220.centingapps.data.retrofit.ApiService
-import com.c241ps220.centingapps.data.retrofit.UserAuth.UserRequest
-import com.c241ps220.centingapps.data.retrofit.UserAuth.UserResponse
+import com.c241ps220.centingapps.data.retrofit.UserLoginAuth.UserLoginRequest
+import com.c241ps220.centingapps.data.retrofit.UserLoginAuth.UserLoginResponse
 import com.c241ps220.centingapps.databinding.ActivityLoginBinding
-import com.c241ps220.centingapps.utils.CustomFunction
 import com.c241ps220.centingapps.views.Register.RegisterActivity
-import com.c241ps220.centingapps.views.SplashScreen.SplashscreenViewModel
 import com.google.gson.Gson
 import com.google.gson.JsonObject
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import org.json.JSONObject
+import kotlinx.coroutines.withContext
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -49,6 +42,21 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         loginViewModel = obtainViewModel(this@LoginActivity)
+
+        lifecycleScope.launch {
+            delay(2000L)
+            withContext(Dispatchers.Main) {
+                with(binding){
+                    tvGuestMode.visibility = View.VISIBLE
+                    tvGuestMode.setOnClickListener {
+                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                        startActivity(intent)
+                        finish()
+                    }
+                }
+            }
+        }
 
         setupView()
         setupAction()
@@ -94,20 +102,23 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun obtainViewModel(activity: AppCompatActivity): LoginViewModel {
-        val factory = ViewModelFactory.getInstance(activity.application, UserPreference.getInstance(application))
+        val factory = ViewModelFactory.getInstance(
+            activity.application,
+            UserPreference.getInstance(application)
+        )
         return ViewModelProvider(activity, factory).get(LoginViewModel::class.java)
     }
 
     private fun loginRequest(email: String, password: String) {
         // Buat objek LoginRequest
-        val loginRequest = UserRequest(email, password)
+        val loginRequest = UserLoginRequest(email, password)
 
         // Panggil fungsi login dari ApiService
         ApiConfig.createApiService().loginUser(loginRequest)
-            .enqueue(object : Callback<UserResponse> {
+            .enqueue(object : Callback<UserLoginResponse> {
                 override fun onResponse(
-                    call: Call<UserResponse>,
-                    response: Response<UserResponse>
+                    call: Call<UserLoginResponse>,
+                    response: Response<UserLoginResponse>
                 ) {
                     if (response.isSuccessful) {
                         val loginResponse = response.body()
@@ -121,7 +132,7 @@ class LoginActivity : AppCompatActivity() {
                             val user = UserModel(
                                 it.name,
                                 it.email,
-                                "Laki - Laki",
+                                "Perempuan",
                                 "29-03-2003"
                             )
                             loginViewModel.saveSession(user)
@@ -143,7 +154,7 @@ class LoginActivity : AppCompatActivity() {
                     }
                 }
 
-                override fun onFailure(call: Call<UserResponse>, t: Throwable) {
+                override fun onFailure(call: Call<UserLoginResponse>, t: Throwable) {
                     // Koneksi gagal atau error lainnya
                     binding.loadingProgressBar.visibility = View.GONE
                     Toast.makeText(this@LoginActivity, "Error: ${t.message}", Toast.LENGTH_SHORT)

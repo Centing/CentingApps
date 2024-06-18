@@ -9,15 +9,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import com.c241ps220.centingapps.MainActivity
 import com.c241ps220.centingapps.R
+import com.c241ps220.centingapps.ViewModelFactory.ViewModelFactory
 import com.c241ps220.centingapps.data.pref.UserPreference
 import com.c241ps220.centingapps.databinding.FragmentProfileBinding
 import com.c241ps220.centingapps.utils.CustomFunction
 import com.c241ps220.centingapps.views.AnakSection.ListAnak.ListAnakActivity
+import com.c241ps220.centingapps.views.Fragment.HistoryFragment.HistoryViewModel
 import com.c241ps220.centingapps.views.ResetPassword.ResetPasswordActivity
 import com.c241ps220.centingapps.views.Profile.ProfileActivity
 import com.c241ps220.centingapps.views.Login.LoginActivity
+import com.c241ps220.centingapps.views.Onboarding.OnBoardingActivity
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
@@ -26,6 +32,8 @@ class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
     private lateinit var userPreference: UserPreference
+
+    private lateinit var viewModel: ProfileViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,68 +52,81 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         with(binding) {
-            tvInisial.text = CustomFunction.getInitials(getString(R.string.dummy_name))
+            viewModel = obtainViewModel(this@ProfileFragment.requireActivity() as AppCompatActivity)
 
-            divProfile.setOnClickListener {
-                startActivity(
-                    Intent(
-                        requireContext(),
-                        ProfileActivity::class.java
-                    )
-                )
+            viewModel.getSession().observe(viewLifecycleOwner) { user ->
+                if (!user.isLogin) {
+                    tvNameProfile.text = getString(R.string.please_login)
+                    tvNameProfile.setOnClickListener {
+                        startActivity(
+                            Intent(
+                                this@ProfileFragment.requireContext() as AppCompatActivity,
+                                LoginActivity::class.java
+                            ))
+                    }
+                    tvEmail.visibility = View.GONE
+                    divName.visibility = View.GONE
+
+                    divProfile.setOnClickListener {
+                        (requireActivity() as MainActivity).isLoggin(true)
+                    }
+                    divDataAnak.setOnClickListener {
+                        (requireActivity() as MainActivity).isLoggin(true)
+                    }
+                    divChangePassword.setOnClickListener {
+                        (requireActivity() as MainActivity).isLoggin(true)
+                    }
+                }
+                else{
+                    tvNameProfile.text = user.name
+                    tvEmail.visibility = View.VISIBLE
+                    divName.visibility = View.VISIBLE
+                    tvInisial.text = CustomFunction.getInitials(user.name)
+
+                    divProfile.setOnClickListener {
+                        startActivity(
+                            Intent(
+                                requireContext(),
+                                ProfileActivity::class.java
+                            )
+                        )
+                    }
+
+                    divDataAnak.setOnClickListener {
+                        startActivity(
+                            Intent(
+                                requireContext(),
+                                ListAnakActivity::class.java
+                            )
+                        )
+                    }
+
+                    divChangePassword.setOnClickListener {
+                        startActivity(
+                            Intent(
+                                requireContext(),
+                                ResetPasswordActivity::class.java
+                            )
+                        )
+                    }
+                }
             }
 
-            divDataAnak.setOnClickListener {
-                startActivity(
-                    Intent(
-                        requireContext(),
-                        ListAnakActivity::class.java
-                    )
-                )
-            }
 
-            divChangePassword.setOnClickListener {
-                startActivity(
-                    Intent(
-                        requireContext(),
-                        ResetPasswordActivity::class.java
-                    )
-                )
-            }
+
 
             divLanguage.setOnClickListener {
                 showConfirmationSettingDialog()
             }
-
-            divLogout.setOnClickListener {
-                showLogoutConfirmationDialog()
-            }
-
-            lifecycleScope.launch {
-                val userSession = userPreference.getSession().first()
-
-                val initials = when {
-                    userSession.name.split(" ").size == 1 -> {
-                        if (userSession.name.length >= 2) {
-                            userSession.name.substring(0, 2).toUpperCase()
-                        } else {
-                            userSession.name.toUpperCase()
-                        }
-                    }
-                    else -> {
-                        val names = userSession.name.split(" ")
-                        val firstInitial = names.firstOrNull()?.substring(0, 1) ?: ""
-                        val lastInitial = names.lastOrNull()?.substring(0, 1) ?: ""
-                        "$firstInitial$lastInitial".toUpperCase()
-                    }
-                }
-
-                tvInisial.text = initials
-
-                tvNameProfile.text = userSession.name
-                tvEmail.text = userSession.email
-            }
         }
+    }
+
+    private fun obtainViewModel(activity: AppCompatActivity): ProfileViewModel {
+        val factory = ViewModelFactory.getInstance(
+            activity.application,
+            UserPreference.getInstance(activity.application)
+        )
+        return ViewModelProvider(activity, factory).get(ProfileViewModel::class.java)
     }
 
     private fun showConfirmationSettingDialog() {
@@ -125,36 +146,6 @@ class ProfileFragment : Fragment() {
         dialog.show()
     }
 
-    private fun showLogoutConfirmationDialog() {
-        val builder = AlertDialog.Builder(requireContext())
-        builder.setTitle(R.string.konfirmasi_logout)
-        builder.setMessage(R.string.dialog_logout_message)
-
-        builder.setPositiveButton(R.string.ya) { dialog: DialogInterface, which: Int ->
-            logoutUser()
-        }
-
-        builder.setNegativeButton(R.string.tidak) { dialog: DialogInterface, which: Int ->
-            dialog.dismiss()
-        }
-
-        val dialog = builder.create()
-        dialog.show()
-    }
-
-    private fun logoutUser() {
-        lifecycleScope.launch {
-            userPreference.logout()
-            navigateToLogin()
-        }
-    }
-
-    private fun navigateToLogin() {
-        val intent = Intent(requireContext(), LoginActivity::class.java)
-        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        startActivity(intent)
-        requireActivity().finish()
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()

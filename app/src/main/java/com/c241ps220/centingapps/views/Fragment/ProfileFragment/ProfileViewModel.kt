@@ -1,4 +1,4 @@
-package com.c241ps220.centingapps.views.Fragment.HistoryFragment
+package com.c241ps220.centingapps.views.Fragment.ProfileFragment
 
 import android.app.Application
 import androidx.lifecycle.LiveData
@@ -9,10 +9,7 @@ import com.c241ps220.centingapps.data.database.child.Child
 import com.c241ps220.centingapps.data.pref.UserModel
 import com.c241ps220.centingapps.data.pref.UserPreference
 
-class HistoryViewModel(application: Application, private val pref: UserPreference) : ViewModel() {
-    private val mChildRepository: ChildRepository = ChildRepository(application)
-
-    fun getAllChild(): LiveData<List<Child>> = mChildRepository.getAllChild()
+class ProfileViewModel(application: Application, private val pref: UserPreference) : ViewModel() {
     fun getSession(): LiveData<UserModel> {
         return pref.getSession().asLiveData()
     }

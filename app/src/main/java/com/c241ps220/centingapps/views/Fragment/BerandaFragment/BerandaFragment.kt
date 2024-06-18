@@ -23,6 +23,7 @@ import com.c241ps220.centingapps.views.Fragment.BerandaFragment.Article.Article
 import com.c241ps220.centingapps.views.Fragment.BerandaFragment.Article.ArticleAdapter
 import com.c241ps220.centingapps.views.Fragment.BerandaFragment.Article.articleData
 import com.c241ps220.centingapps.views.Fragment.HistoryFragment.HistoryViewModel
+import com.c241ps220.centingapps.views.Login.LoginActivity
 import com.c241ps220.centingapps.views.Onboarding.OnBoardingActivity
 import com.c241ps220.centingapps.views.ZoomImage.ZoomImageActivity
 import com.c241ps220.centingapps.views.Profile.ProfileActivity
@@ -83,7 +84,7 @@ class BerandaFragment : Fragment() {
                         startActivity(
                             Intent(
                                 this@BerandaFragment.requireContext() as AppCompatActivity,
-                                OnBoardingActivity::class.java
+                                LoginActivity::class.java
                             ))
                     }
                     divName.visibility = View.GONE

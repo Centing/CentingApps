@@ -22,4 +22,8 @@
         android:layout_alignParentBottom="true"
         app:sbb_backgroundColor="@color/white"
         app:sbb_activeColor="@color/colorPrimaryDark"/>
+
+    <include layout="@layout/layout_false_login"
+        android:id="@+id/divStateLogin"
+        android:visibility="gone"/>
 </RelativeLayout>

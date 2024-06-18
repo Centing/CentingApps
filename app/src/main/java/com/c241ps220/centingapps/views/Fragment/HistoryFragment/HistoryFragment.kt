@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.c241ps220.centingapps.MainActivity
 import com.c241ps220.centingapps.R
 import com.c241ps220.centingapps.ViewModelFactory.ViewModelFactory
 import com.c241ps220.centingapps.data.database.child.Child
@@ -46,7 +47,7 @@ class HistoryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        with(binding){
+        with(binding) {
             adapter = HistoryAdapter()
             rvChild.layoutManager = LinearLayoutManager(this@HistoryFragment.requireContext())
             rvChild.setHasFixedSize(true)
@@ -54,16 +55,22 @@ class HistoryFragment : Fragment() {
 
             viewModel = obtainViewModel(this@HistoryFragment.requireActivity() as AppCompatActivity)
 
-            viewModel.getAllChild().observe(this@HistoryFragment.requireActivity() as AppCompatActivity) { childList ->
+            viewModel.getAllChild().observe(viewLifecycleOwner) { childList ->
                 if (childList.size > 0) {
                     adapter.setListChild(childList)
                     rvChild.visibility = View.VISIBLE
                     tvEmpty.visibility = View.GONE
-                }else {
+                } else {
                     rvChild.visibility = View.GONE
                     tvEmpty.visibility = View.VISIBLE
                 }
             }
+
+//            viewModel.getSession().observe(viewLifecycleOwner) { user ->
+//                if (!user.isLogin) {
+//                    (requireActivity() as MainActivity).isLoggin(true)
+//                }
+//            }
 
             adapter.setOnItemClickCallback(object : HistoryAdapter.OnItemClickCallback {
                 override fun onItemClicked(data: Child) {
@@ -79,7 +86,10 @@ class HistoryFragment : Fragment() {
     }
 
     private fun obtainViewModel(activity: AppCompatActivity): HistoryViewModel {
-        val factory = ViewModelFactory.getInstance(activity.application, UserPreference.getInstance(activity.application))
+        val factory = ViewModelFactory.getInstance(
+            activity.application,
+            UserPreference.getInstance(activity.application)
+        )
         return ViewModelProvider(activity, factory).get(HistoryViewModel::class.java)
     }
 

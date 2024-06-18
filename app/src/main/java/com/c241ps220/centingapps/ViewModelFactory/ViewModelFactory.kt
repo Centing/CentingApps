@@ -3,6 +3,7 @@ package com.c241ps220.centingapps.ViewModelFactory
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.c241ps220.centingapps.MainActivityViewModel
 import com.c241ps220.centingapps.Repository.UserRepository
 import com.c241ps220.centingapps.data.pref.UserPreference
 import com.c241ps220.centingapps.views.AnakSection.AddAnak.AddAnakViewModel
@@ -12,6 +13,7 @@ import com.c241ps220.centingapps.views.Deteksi.Result.ByUser.ResultDetectByUserV
 import com.c241ps220.centingapps.views.Deteksi.SelectChild.SelectAnakViewModel
 import com.c241ps220.centingapps.views.Fragment.BerandaFragment.BerandaViewModel
 import com.c241ps220.centingapps.views.Fragment.HistoryFragment.HistoryViewModel
+import com.c241ps220.centingapps.views.Fragment.ProfileFragment.ProfileViewModel
 import com.c241ps220.centingapps.views.History.HistoryActivityViewModel
 import com.c241ps220.centingapps.views.Login.LoginViewModel
 import com.c241ps220.centingapps.views.SplashScreen.SplashscreenViewModel
@@ -46,7 +48,7 @@ class ViewModelFactory(private val mApplication: Application, private val pref: 
             return DetailAnakViewModel(mApplication) as T
         }
         if (modelClass.isAssignableFrom(HistoryViewModel::class.java)) {
-            return HistoryViewModel(mApplication) as T
+            return HistoryViewModel(mApplication, pref) as T
         }
         if (modelClass.isAssignableFrom(ResultDetectByUserViewModel::class.java)) {
             return ResultDetectByUserViewModel(mApplication) as T
@@ -62,6 +64,12 @@ class ViewModelFactory(private val mApplication: Application, private val pref: 
         }
         if (modelClass.isAssignableFrom(BerandaViewModel::class.java)) {
             return BerandaViewModel(pref) as T
+        }
+        if (modelClass.isAssignableFrom(MainActivityViewModel::class.java)) {
+            return MainActivityViewModel(pref) as T
+        }
+        if (modelClass.isAssignableFrom(ProfileViewModel::class.java)) {
+            return ProfileViewModel(mApplication, pref) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
     }

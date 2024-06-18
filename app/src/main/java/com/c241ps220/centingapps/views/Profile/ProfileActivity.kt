@@ -1,7 +1,9 @@
 package com.c241ps220.centingapps.views.Profile
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.c241ps220.centingapps.R
 import com.c241ps220.centingapps.databinding.ActivityProfileBinding
@@ -34,7 +36,7 @@ class ProfileActivity : AppCompatActivity() {
         }
 
         binding.logoutbutton.setOnClickListener {
-            logout()
+            showLogoutConfirmationDialog()
         }
     }
 
@@ -43,6 +45,23 @@ class ProfileActivity : AppCompatActivity() {
             ivBack.setOnClickListener { finish() }
             tvTitleToolbar.text = getString(R.string.profile_title)
         }
+    }
+
+    private fun showLogoutConfirmationDialog() {
+        val builder = AlertDialog.Builder(this@ProfileActivity)
+        builder.setTitle(R.string.konfirmasi_logout)
+        builder.setMessage(R.string.dialog_logout_message)
+
+        builder.setPositiveButton(R.string.ya) { dialog: DialogInterface, which: Int ->
+            logout()
+        }
+
+        builder.setNegativeButton(R.string.tidak) { dialog: DialogInterface, which: Int ->
+            dialog.dismiss()
+        }
+
+        val dialog = builder.create()
+        dialog.show()
     }
 
     private fun logout() {

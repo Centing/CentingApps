@@ -2,8 +2,8 @@ package com.c241ps220.centingapps.data.retrofit
 
 import com.c241ps220.centingapps.data.pref.LoginResponse
 import com.c241ps220.centingapps.data.pref.RegisterResponse
-import com.c241ps220.centingapps.data.retrofit.UserAuth.UserRequest
-import com.c241ps220.centingapps.data.retrofit.UserAuth.UserResponse
+import com.c241ps220.centingapps.data.retrofit.UserLoginAuth.UserLoginRequest
+import com.c241ps220.centingapps.data.retrofit.UserLoginAuth.UserLoginResponse
 import retrofit2.Call
 
 import retrofit2.http.*
@@ -25,5 +25,5 @@ interface ApiService {
     ): LoginResponse
 
     @POST("auth/login")
-    fun loginUser(@Body userRequest: UserRequest): Call<UserResponse>
+    fun loginUser(@Body userLoginRequest: UserLoginRequest): Call<UserLoginResponse>
 }

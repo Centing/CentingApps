@@ -186,5 +186,12 @@
     <string name="profile_title">Profil</string>
     <string name="konfirmasi_logout">Keluar?</string>
 
+    <string name="state_off_login">Opps, Anda Belum Login</string>
+    <string name="state_off_login_message">Untuk dapat menggunakan fitur lengkap pada aplikasi ini, silahkan login terlebih dahulu</string>
+    <string name="state_off_login_now">Masuk Sekarang</string>
+    <string name="state_off_login_not_now">Tidak Sekarang</string>
+
+
+
 
 </resources>

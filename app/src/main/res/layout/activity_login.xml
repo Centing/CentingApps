@@ -142,6 +142,20 @@
                 android:textSize="12sp"/>
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/tvGuestMode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:text="@string/guest_mode"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@font/poppins_bold"
+            android:visibility="gone"/>
+
     </LinearLayout>
 
 </RelativeLayout>
