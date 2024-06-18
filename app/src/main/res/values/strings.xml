@@ -186,4 +186,7 @@
     <string name="state_off_login_not_now">Not Now</string>
 
     <string name="complete_field">Please complete the provided fields</string>
+
+    <string name="title_reminder">Weekly Reminder</string>
+    <string name="message_reminder">Lets check your routine stunting detection history every week to find out your childs progress</string>
 </resources>

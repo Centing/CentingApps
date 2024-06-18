@@ -124,4 +124,7 @@ dependencies {
     debugImplementation ("com.github.chuckerteam.chucker:library:4.0.0")
     releaseImplementation ("com.github.chuckerteam.chucker:library-no-op:4.0.0")
 
+//    Weekly Reminder
+    implementation("androidx.work:work-runtime-ktx:2.7.1")
+
 }

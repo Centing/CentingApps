@@ -194,6 +194,11 @@
     <string name="complete_field">Harap lengkapi isian yang tersedia</string>
 
 
+    <string name="title_reminder">Pengingat Mingguan</string>
+    <string name="message_reminder">Yuk cek riwayat deteksi stunting rutin setiap minggunya untuk mengetahui perkembangan anak anda</string>
+
+
+
 
 
 </resources>
