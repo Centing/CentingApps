@@ -1,5 +1,6 @@
 package com.c241ps220.centingapps.data.retrofit
 
+import com.c241ps220.centingapps.utils.CustomFunction
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -12,7 +13,7 @@ object ApiConfig {
             .addInterceptor(loggingInterceptor)
             .build()
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://story-api.dicoding.dev/v1/")
+            .baseUrl(CustomFunction.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()

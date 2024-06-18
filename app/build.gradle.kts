@@ -118,7 +118,10 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
 
 //    FAN
-    implementation("com.amitshekhar.android:android-networking:1.0.2")
-    implementation("com.amitshekhar.android:jackson-android-networking:1.0.2")
+//    implementation("com.amitshekhar.android:android-networking:1.0.2")
+//    implementation("com.amitshekhar.android:jackson-android-networking:1.0.2")
+
+    debugImplementation ("com.github.chuckerteam.chucker:library:4.0.0")
+    releaseImplementation ("com.github.chuckerteam.chucker:library-no-op:4.0.0")
 
 }

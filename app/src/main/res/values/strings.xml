@@ -17,6 +17,7 @@
 
     <string name="title_login_page">Welcome,</string>
     <string name="message_login_page">Sign in to continue!</string>
+    <string name="please_login">Sign in for the full feature!</string>
 
     <!--    Bottom Navbar-->
     <string name="bn_home">Home</string>
@@ -106,8 +107,8 @@
     <string name="milk">Type of Milk</string>
     <string name="asi_ibu">ASI</string>
     <string name="asi_formula">Formula</string>
-    <string name="height_birth">Birth Height (Cm)</string>
-    <string name="height_latest">Latest Height (Cm)</string>
+    <string name="height_birth">Birth Height\n(Cm)</string>
+    <string name="height_latest">Latest Height\n(Cm)</string>
     <string name="height_latest2">Latest Height (Cm)</string>
     <string name="weight_birth">Birth Weight</string>">
     <string name="weight_latest">Latest Weight</string>

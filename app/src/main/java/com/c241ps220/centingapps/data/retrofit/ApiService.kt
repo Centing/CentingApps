@@ -2,6 +2,9 @@ package com.c241ps220.centingapps.data.retrofit
 
 import com.c241ps220.centingapps.data.pref.LoginResponse
 import com.c241ps220.centingapps.data.pref.RegisterResponse
+import com.c241ps220.centingapps.data.retrofit.UserAuth.UserRequest
+import com.c241ps220.centingapps.data.retrofit.UserAuth.UserResponse
+import retrofit2.Call
 
 import retrofit2.http.*
 
@@ -20,4 +23,7 @@ interface ApiService {
         @Field("email") email: String,
         @Field("password") password: String
     ): LoginResponse
+
+    @POST("auth/login")
+    fun loginUser(@Body userRequest: UserRequest): Call<UserResponse>
 }

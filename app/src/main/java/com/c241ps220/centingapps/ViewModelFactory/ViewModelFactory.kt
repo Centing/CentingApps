@@ -10,8 +10,10 @@ import com.c241ps220.centingapps.views.AnakSection.DetailAnak.DetailAnakViewMode
 import com.c241ps220.centingapps.views.AnakSection.ListAnak.ListAnakViewModel
 import com.c241ps220.centingapps.views.Deteksi.Result.ByUser.ResultDetectByUserViewModel
 import com.c241ps220.centingapps.views.Deteksi.SelectChild.SelectAnakViewModel
+import com.c241ps220.centingapps.views.Fragment.BerandaFragment.BerandaViewModel
 import com.c241ps220.centingapps.views.Fragment.HistoryFragment.HistoryViewModel
 import com.c241ps220.centingapps.views.History.HistoryActivityViewModel
+import com.c241ps220.centingapps.views.Login.LoginViewModel
 import com.c241ps220.centingapps.views.SplashScreen.SplashscreenViewModel
 
 class ViewModelFactory(private val mApplication: Application, private val pref: UserPreference) : ViewModelProvider.NewInstanceFactory() {
@@ -54,6 +56,12 @@ class ViewModelFactory(private val mApplication: Application, private val pref: 
         }
         if (modelClass.isAssignableFrom(SplashscreenViewModel::class.java)) {
             return SplashscreenViewModel(pref) as T
+        }
+        if (modelClass.isAssignableFrom(LoginViewModel::class.java)) {
+            return LoginViewModel(pref) as T
+        }
+        if (modelClass.isAssignableFrom(BerandaViewModel::class.java)) {
+            return BerandaViewModel(pref) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
     }

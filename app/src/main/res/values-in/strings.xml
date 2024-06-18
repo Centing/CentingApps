@@ -18,7 +18,8 @@
 
 
     <string name="title_login_page">Selamat datang,</string>
-    <string name="message_login_page">Log in untuk melanjutkan!</string>
+    <string name="message_login_page">Masuk untuk melanjutkan!</string>
+    <string name="please_login">Masuk untuk fitur lengkap!</string>
 
     <!--    BottomNavbar -->
     <string name="bn_home">Beranda</string>
@@ -109,8 +110,8 @@
     <string name="milk">Jenis Air Susu</string>
     <string name="asi_ibu">ASI</string>
     <string name="asi_formula">Formula</string>
-    <string name="height_birth">Tinggi Lahir (Cm)</string>
-    <string name="height_latest">Tinggi Sekarang (Cm)</string>
+    <string name="height_birth">Tinggi Lahir\n(Cm)</string>
+    <string name="height_latest">Tinggi Sekarang\n(Cm)</string>
     <string name="height_latest2">Tinggi Terakhir (Cm)</string>
     <string name="weight_birth">Berat Lahir</string>
     <string name="weight_latest">Berat Sekarang</string>

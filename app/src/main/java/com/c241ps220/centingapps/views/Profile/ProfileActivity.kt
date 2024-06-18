@@ -48,6 +48,7 @@ class ProfileActivity : AppCompatActivity() {
     private fun logout() {
         CoroutineScope(Dispatchers.Main).launch {
             userPreference.logout()
+//            finish()
             navigateToLogin()
         }
     }

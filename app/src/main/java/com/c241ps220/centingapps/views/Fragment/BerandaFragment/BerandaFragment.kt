@@ -7,9 +7,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.c241ps220.centingapps.MainActivity
 import com.c241ps220.centingapps.R
+import com.c241ps220.centingapps.ViewModelFactory.ViewModelFactory
 import com.c241ps220.centingapps.data.pref.UserPreference
 import com.c241ps220.centingapps.databinding.FragmentBerandaBinding
 import com.c241ps220.centingapps.utils.CustomFunction
@@ -18,6 +22,8 @@ import com.c241ps220.centingapps.views.Deteksi.User.DetectionUserActivity
 import com.c241ps220.centingapps.views.Fragment.BerandaFragment.Article.Article
 import com.c241ps220.centingapps.views.Fragment.BerandaFragment.Article.ArticleAdapter
 import com.c241ps220.centingapps.views.Fragment.BerandaFragment.Article.articleData
+import com.c241ps220.centingapps.views.Fragment.HistoryFragment.HistoryViewModel
+import com.c241ps220.centingapps.views.Onboarding.OnBoardingActivity
 import com.c241ps220.centingapps.views.ZoomImage.ZoomImageActivity
 import com.c241ps220.centingapps.views.Profile.ProfileActivity
 import com.denzcoskun.imageslider.constants.ActionTypes
@@ -31,13 +37,16 @@ class BerandaFragment : Fragment() {
 
     private var _binding: FragmentBerandaBinding? = null
     private val binding get() = _binding!!
-    private lateinit var userPreference: UserPreference
+
+    //    private lateinit var userPreference: UserPreference
+    private lateinit var viewModel: BerandaViewModel
+
 
     private val list = ArrayList<Article>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        userPreference = UserPreference.getInstance(requireContext())
+//        userPreference = UserPreference.getInstance(requireContext())
     }
 
     override fun onCreateView(
@@ -50,30 +59,13 @@ class BerandaFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel = obtainViewModel(this@BerandaFragment.requireActivity() as AppCompatActivity)
 
         with(binding) {
-            tvInisial.text = CustomFunction.getInitials(getString(R.string.dummy_name))
 
             setupSlider()
 
-            divName.setOnClickListener {
-                startActivity(
-                    Intent(
-                        this@BerandaFragment.requireContext(),
-                        ProfileActivity::class.java
-                    )
-                )
-            }
 
-            // Cek kondisi kalau ada data user yang tersimpan ke DetectionUserActivity, kalau tidak ada data kesimpan ke DetectionGuestActivity
-            btDetect.setOnClickListener {
-                startActivity(
-                    Intent(
-                        this@BerandaFragment.requireContext(),
-                        DetectionUserActivity::class.java
-                    )
-                )
-            }
 
             divTop.requestFocus()
 
@@ -84,29 +76,54 @@ class BerandaFragment : Fragment() {
             list.addAll(getListArticle())
             showRecyclerList()
 
-            lifecycleScope.launch {
-                val userSession = userPreference.getSession().first()
-                val initials = when {
-                    userSession.name.split(" ").size == 1 -> {
-                        // Single word name, use first two characters
-                        if (userSession.name.length >= 2) {
-                            userSession.name.substring(0, 2).toUpperCase()
-                        } else {
-                            userSession.name.toUpperCase()
-                        }
+            viewModel.getSession().observe(viewLifecycleOwner) { user ->
+                if (!user.isLogin) {
+                    tvName.text = getString(R.string.please_login)
+                    tvName.setOnClickListener {
+                        startActivity(
+                            Intent(
+                                this@BerandaFragment.requireContext() as AppCompatActivity,
+                                OnBoardingActivity::class.java
+                            ))
                     }
-                    else -> {
-                        val names = userSession.name.split(" ")
-                        val firstInitial = names.firstOrNull()?.substring(0, 1) ?: ""
-                        val lastInitial = names.lastOrNull()?.substring(0, 1) ?: ""
-                        "$firstInitial$lastInitial".toUpperCase()
+                    divName.visibility = View.GONE
+                    btDetect.setOnClickListener {
+                        startActivity(
+                            Intent(
+                                this@BerandaFragment.requireContext()as AppCompatActivity,
+                                DetectionGuestActivity::class.java
+                            )
+                        )
+                    }
+                } else {
+                    tvName.text = user.name
+                    divName.visibility = View.VISIBLE
+                    tvInisial.text = CustomFunction.getInitials(user.name)
+                    btDetect.setOnClickListener {
+                        startActivity(
+                            Intent(
+                                this@BerandaFragment.requireContext()as AppCompatActivity,
+                                DetectionUserActivity::class.java
+                            )
+                        )
+                    }
+
+                    divName.setOnClickListener {
+                        startActivity(
+                            Intent(
+                                this@BerandaFragment.requireContext()as AppCompatActivity,
+                                ProfileActivity::class.java
+                            )
+                        )
                     }
                 }
-
-                tvInisial.text = initials
-                tvName.text = userSession.name
             }
         }
+    }
+
+    private fun obtainViewModel(activity: AppCompatActivity): BerandaViewModel {
+        val factory = ViewModelFactory.getInstance(activity.application, UserPreference.getInstance(activity.application))
+        return ViewModelProvider(activity, factory).get(BerandaViewModel::class.java)
     }
 
     private fun getListArticle(): ArrayList<Article> {
