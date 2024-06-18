@@ -489,6 +489,10 @@
                 </LinearLayout>
             </RelativeLayout>
         </androidx.core.widget.NestedScrollView>
+
+        <include layout="@layout/layout_development"
+            android:id="@+id/divDevelopment"
+            android:visibility="gone"/>
     </RelativeLayout>
 
 

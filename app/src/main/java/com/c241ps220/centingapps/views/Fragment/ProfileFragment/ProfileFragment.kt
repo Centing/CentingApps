@@ -119,6 +119,9 @@ class ProfileFragment : Fragment() {
             divLanguage.setOnClickListener {
                 showConfirmationSettingDialog()
             }
+
+            divTermCondition.setOnClickListener { isDevelopment(true) }
+            divPrivacy.setOnClickListener { isDevelopment(true) }
         }
     }
 
@@ -151,5 +154,19 @@ class ProfileFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null // Clean up binding
+    }
+
+    fun isDevelopment(state: Boolean) {
+        with(binding) {
+            if (state) {
+                divDevelopment.root.visibility = View.VISIBLE
+            } else {
+                divDevelopment.root.visibility = View.GONE
+            }
+
+            divDevelopment.btDismiss.setOnClickListener {
+                isDevelopment(false)
+            }
+        }
     }
 }

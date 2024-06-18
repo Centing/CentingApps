@@ -3,6 +3,7 @@ package com.c241ps220.centingapps.views.Profile
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.c241ps220.centingapps.R
@@ -40,6 +41,8 @@ class ProfileActivity : AppCompatActivity() {
         binding.logoutbutton.setOnClickListener {
             showLogoutConfirmationDialog()
         }
+
+        binding.btEditProfile.setOnClickListener { isDevelopment(true) }
     }
 
     private fun setupToolbar(){
@@ -78,5 +81,19 @@ class ProfileActivity : AppCompatActivity() {
         startActivity(Intent(this, LoginActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         })
+    }
+
+    fun isDevelopment(state: Boolean) {
+        with(binding) {
+            if (state) {
+                divDevelopment.root.visibility = View.VISIBLE
+            } else {
+                divDevelopment.root.visibility = View.GONE
+            }
+
+            divDevelopment.btDismiss.setOnClickListener {
+                isDevelopment(false)
+            }
+        }
     }
 }

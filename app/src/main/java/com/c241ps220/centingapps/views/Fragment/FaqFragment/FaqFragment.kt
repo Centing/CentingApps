@@ -1,5 +1,6 @@
 package com.c241ps220.centingapps.views.Fragment.FaqFragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import com.c241ps220.centingapps.R
 import com.c241ps220.centingapps.databinding.FragmentBerandaBinding
 import com.c241ps220.centingapps.databinding.FragmentFaqBinding
 import com.c241ps220.centingapps.utils.CustomFunction
+import com.c241ps220.centingapps.views.Login.LoginActivity
 
 class FaqFragment : Fragment() {
 
@@ -33,6 +35,7 @@ class FaqFragment : Fragment() {
 
         with(binding){
             setupFAQ()
+            btAskNow.setOnClickListener { isDevelopment(true) }
         }
     }
 
@@ -83,6 +86,20 @@ class FaqFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null // Membersihkan binding
+    }
+
+    fun isDevelopment(state: Boolean) {
+        with(binding) {
+            if (state) {
+                divDevelopment.root.visibility = View.VISIBLE
+            } else {
+                divDevelopment.root.visibility = View.GONE
+            }
+
+            divDevelopment.btDismiss.setOnClickListener {
+                isDevelopment(false)
+            }
+        }
     }
 
 }

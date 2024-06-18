@@ -250,6 +250,7 @@
                         android:layout_toLeftOf="@id/ivExpand2"/>
 
                     <Button
+                        android:id="@+id/btAskNow"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/colorPrimaryDark"
@@ -307,6 +308,10 @@
 
             </RelativeLayout>
         </androidx.core.widget.NestedScrollView>
+
+        <include layout="@layout/layout_development"
+            android:id="@+id/divDevelopment"
+            android:visibility="gone"/>
     </RelativeLayout>
 
 </FrameLayout>
