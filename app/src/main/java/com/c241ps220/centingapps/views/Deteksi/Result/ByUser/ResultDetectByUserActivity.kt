@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.c241ps220.centingapps.R
 import com.c241ps220.centingapps.ViewModelFactory.ViewModelFactory
 import com.c241ps220.centingapps.data.database.result.DetectionResult
+import com.c241ps220.centingapps.data.pref.UserPreference
 import com.c241ps220.centingapps.databinding.ActivityResultDetectByUserBinding
 import com.c241ps220.centingapps.utils.CustomFunction
 
@@ -128,7 +129,7 @@ class ResultDetectByUserActivity : AppCompatActivity() {
     }
 
     private fun obtainViewModel(activity: AppCompatActivity): ResultDetectByUserViewModel {
-        val factory = ViewModelFactory.getInstance(activity.application)
+        val factory = ViewModelFactory.getInstance(activity.application, UserPreference.getInstance(application))
         return ViewModelProvider(activity, factory).get(ResultDetectByUserViewModel::class.java)
     }
 

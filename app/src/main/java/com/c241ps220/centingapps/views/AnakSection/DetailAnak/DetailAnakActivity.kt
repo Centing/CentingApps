@@ -17,6 +17,7 @@ import com.c241ps220.centingapps.ViewModelFactory.ViewModelFactory
 import com.c241ps220.centingapps.data.database.AppDatabase
 import com.c241ps220.centingapps.data.database.child.Child
 import com.c241ps220.centingapps.data.database.child.ChildDao
+import com.c241ps220.centingapps.data.pref.UserPreference
 import com.c241ps220.centingapps.databinding.ActivityDetailAnakBinding
 import kotlinx.coroutines.launch
 import java.lang.String
@@ -132,7 +133,7 @@ class DetailAnakActivity : AppCompatActivity() {
     }
 
     private fun obtainViewModel(activity: AppCompatActivity): DetailAnakViewModel {
-        val factory = ViewModelFactory.getInstance(activity.application)
+        val factory = ViewModelFactory.getInstance(activity.application, UserPreference.getInstance(application))
         return ViewModelProvider(activity, factory).get(DetailAnakViewModel::class.java)
     }
 

@@ -13,6 +13,7 @@ import com.c241ps220.centingapps.R
 import com.c241ps220.centingapps.ViewModelFactory.ViewModelFactory
 import com.c241ps220.centingapps.data.database.child.Child
 import com.c241ps220.centingapps.data.database.result.DetectionResult
+import com.c241ps220.centingapps.data.pref.UserPreference
 import com.c241ps220.centingapps.databinding.ActivityDetectionUserBinding
 import com.c241ps220.centingapps.databinding.ActivityHistoryBinding
 import com.c241ps220.centingapps.utils.CustomFunction
@@ -79,7 +80,7 @@ class HistoryActivity : AppCompatActivity() {
     }
 
     private fun obtainViewModel(activity: AppCompatActivity): HistoryActivityViewModel {
-        val factory = ViewModelFactory.getInstance(activity.application)
+        val factory = ViewModelFactory.getInstance(activity.application, UserPreference.getInstance(application))
         return ViewModelProvider(activity, factory).get(HistoryActivityViewModel::class.java)
     }
 

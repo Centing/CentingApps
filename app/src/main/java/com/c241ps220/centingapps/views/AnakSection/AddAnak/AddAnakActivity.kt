@@ -7,8 +7,11 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.c241ps220.centingapps.R
+import com.c241ps220.centingapps.Repository.UserRepository
 import com.c241ps220.centingapps.ViewModelFactory.ViewModelFactory
 import com.c241ps220.centingapps.data.database.child.Child
+import com.c241ps220.centingapps.data.pref.UserPreference
+import com.c241ps220.centingapps.data.pref.dataStore
 import com.c241ps220.centingapps.databinding.ActivityAddAnakBinding
 import java.text.SimpleDateFormat
 import java.util.*
@@ -56,7 +59,7 @@ class AddAnakActivity : AppCompatActivity() {
     }
 
     private fun obtainViewModel(activity: AppCompatActivity): AddAnakViewModel {
-        val factory = ViewModelFactory.getInstance(activity.application)
+        val factory = ViewModelFactory.getInstance(activity.application, UserPreference.getInstance(application))
         return ViewModelProvider(activity, factory).get(AddAnakViewModel::class.java)
     }
 

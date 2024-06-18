@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- kalo jalanin di local, cleartextTrafficPermitted dibuat "true" -->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">ngrok.io</domain>
+        <domain includeSubdomains="true">192.168.0.118</domain>
+        <domain includeSubdomains="true">192.168.1.9</domain>
+        <domain includeSubdomains="true">139.180.211.195</domain>
+        <domain includeSubdomains="true">pundis.com</domain>
+    </domain-config>
+
+    <debug-overrides>
+        <trust-anchors>
+            <certificates src="user" />
+        </trust-anchors>
+    </debug-overrides>
+</network-security-config>

@@ -3,6 +3,8 @@ package com.c241ps220.centingapps.ViewModelFactory
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.c241ps220.centingapps.Repository.UserRepository
+import com.c241ps220.centingapps.data.pref.UserPreference
 import com.c241ps220.centingapps.views.AnakSection.AddAnak.AddAnakViewModel
 import com.c241ps220.centingapps.views.AnakSection.DetailAnak.DetailAnakViewModel
 import com.c241ps220.centingapps.views.AnakSection.ListAnak.ListAnakViewModel
@@ -10,16 +12,17 @@ import com.c241ps220.centingapps.views.Deteksi.Result.ByUser.ResultDetectByUserV
 import com.c241ps220.centingapps.views.Deteksi.SelectChild.SelectAnakViewModel
 import com.c241ps220.centingapps.views.Fragment.HistoryFragment.HistoryViewModel
 import com.c241ps220.centingapps.views.History.HistoryActivityViewModel
+import com.c241ps220.centingapps.views.SplashScreen.SplashscreenViewModel
 
-class ViewModelFactory(private val mApplication: Application) : ViewModelProvider.NewInstanceFactory() {
+class ViewModelFactory(private val mApplication: Application, private val pref: UserPreference) : ViewModelProvider.NewInstanceFactory() {
     companion object {
         @Volatile
         private var INSTANCE: ViewModelFactory? = null
         @JvmStatic
-        fun getInstance(application: Application): ViewModelFactory {
+        fun getInstance(application: Application, pref: UserPreference): ViewModelFactory {
             if (INSTANCE == null) {
                 synchronized(ViewModelFactory::class.java) {
-                    INSTANCE = ViewModelFactory(application)
+                    INSTANCE = ViewModelFactory(application, pref)
                 }
             }
             return INSTANCE as ViewModelFactory
@@ -48,6 +51,9 @@ class ViewModelFactory(private val mApplication: Application) : ViewModelProvide
         }
         if (modelClass.isAssignableFrom(HistoryActivityViewModel::class.java)) {
             return HistoryActivityViewModel(mApplication) as T
+        }
+        if (modelClass.isAssignableFrom(SplashscreenViewModel::class.java)) {
+            return SplashscreenViewModel(pref) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
     }

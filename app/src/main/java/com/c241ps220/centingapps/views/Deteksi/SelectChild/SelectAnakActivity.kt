@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.c241ps220.centingapps.R
 import com.c241ps220.centingapps.ViewModelFactory.ViewModelFactory
 import com.c241ps220.centingapps.data.database.child.Child
+import com.c241ps220.centingapps.data.pref.UserPreference
 import com.c241ps220.centingapps.databinding.ActivitySelectAnakBinding
 import com.c241ps220.centingapps.views.AnakSection.AddAnak.AddAnakActivity
 
@@ -81,7 +82,7 @@ class SelectAnakActivity : AppCompatActivity() {
     }
 
     private fun obtainViewModel(activity: AppCompatActivity): SelectAnakViewModel {
-        val factory = ViewModelFactory.getInstance(activity.application)
+        val factory = ViewModelFactory.getInstance(activity.application, UserPreference.getInstance(application))
         return ViewModelProvider(activity, factory).get(SelectAnakViewModel::class.java)
     }
 
