@@ -11,13 +11,13 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.lifecycleScope
 import com.c241ps220.centingapps.R
-import com.c241ps220.centingapps.data.pref.UserModel
 import com.c241ps220.centingapps.data.pref.UserPreference
 import com.c241ps220.centingapps.databinding.FragmentProfileBinding
 import com.c241ps220.centingapps.utils.CustomFunction
 import com.c241ps220.centingapps.views.AnakSection.ListAnak.ListAnakActivity
 import com.c241ps220.centingapps.views.ResetPassword.ResetPasswordActivity
 import com.c241ps220.centingapps.views.Profile.ProfileActivity
+import com.c241ps220.centingapps.views.Login.LoginActivity
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
@@ -145,8 +145,15 @@ class ProfileFragment : Fragment() {
     private fun logoutUser() {
         lifecycleScope.launch {
             userPreference.logout()
+            navigateToLogin()
         }
-        // Handle any additional logout logic here, such as navigating to the login screen
+    }
+
+    private fun navigateToLogin() {
+        val intent = Intent(requireContext(), LoginActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+        requireActivity().finish()
     }
 
     override fun onDestroyView() {

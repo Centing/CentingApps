@@ -182,8 +182,8 @@
 
     <string name="null_data_child">Data Anak Belum Ada\nSilahkan Tambahkan Data Anak</string>
     <string name="null_data_history">Data History Belum Ada\nSilahkan Lakukan Deteksi Stunting Terlebih Dahulu</string>
-
-
+    <string name="profile_title">Profil</string>
+    <string name="konfirmasi_logout">Keluar?</string>
 
 
 </resources>
