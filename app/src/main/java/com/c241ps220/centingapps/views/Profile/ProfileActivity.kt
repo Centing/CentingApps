@@ -32,6 +32,8 @@ class ProfileActivity : AppCompatActivity() {
                 binding.tvInisial.text = initials
                 binding.tvName.text = user.name
                 binding.tvEmail.text = user.email
+                binding.tvJenisKelamin.text = user.gender
+                binding.tvTanggalLahir.text = user.birthDate
             }
         }
 

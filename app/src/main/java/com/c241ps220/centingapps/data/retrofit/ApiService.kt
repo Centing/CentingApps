@@ -4,9 +4,11 @@ import com.c241ps220.centingapps.data.pref.LoginResponse
 import com.c241ps220.centingapps.data.pref.RegisterResponse
 import com.c241ps220.centingapps.data.retrofit.UserLoginAuth.UserLoginRequest
 import com.c241ps220.centingapps.data.retrofit.UserLoginAuth.UserLoginResponse
+import com.c241ps220.centingapps.data.retrofit.UserRegisterAuth.UserRegisterRequest
+import com.c241ps220.centingapps.data.retrofit.UserRegisterAuth.UserRegisterResponse
 import retrofit2.Call
-
 import retrofit2.http.*
+
 
 interface ApiService {
     @FormUrlEncoded
@@ -26,4 +28,7 @@ interface ApiService {
 
     @POST("auth/login")
     fun loginUser(@Body userLoginRequest: UserLoginRequest): Call<UserLoginResponse>
+
+    @POST("auth/register")
+    fun registerUser(@Body userRegisterRequest: UserRegisterRequest): Call<UserRegisterResponse>
 }

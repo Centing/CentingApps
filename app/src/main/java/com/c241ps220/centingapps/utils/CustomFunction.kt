@@ -8,7 +8,7 @@ import java.time.temporal.ChronoUnit
 
 object CustomFunction {
 
-    val BASE_URL: String = "https://3eb5-140-213-169-145.ngrok-free.app/"
+    val BASE_URL: String = "https://44bf-114-10-124-18.ngrok-free.app/"
 
     fun getCurrentDateTimeFormatted(): String {
         // Mendapatkan tanggal dan waktu saat ini

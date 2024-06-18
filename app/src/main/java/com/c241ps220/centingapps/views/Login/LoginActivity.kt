@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.c241ps220.centingapps.MainActivity
+import com.c241ps220.centingapps.R
 import com.c241ps220.centingapps.ViewModelFactory.ViewModelFactory
 import com.c241ps220.centingapps.data.pref.UserModel
 import com.c241ps220.centingapps.data.pref.UserPreference
@@ -96,6 +97,8 @@ class LoginActivity : AppCompatActivity() {
                 if (!email.isEmpty() || !password.isEmpty()) {
                     binding.loadingProgressBar.visibility = View.VISIBLE
                     loginRequest(email, password)
+                }else{
+                    Toast.makeText(this@LoginActivity, getString(R.string.complete_field), Toast.LENGTH_SHORT).show()
                 }
             }
         }

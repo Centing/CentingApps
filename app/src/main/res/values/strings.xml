@@ -184,4 +184,6 @@
     <string name="state_off_login_message">To be able to use the full features of this application, please log in first</string>
     <string name="state_off_login_now">Login Now</string>
     <string name="state_off_login_not_now">Not Now</string>
+
+    <string name="complete_field">Please complete the provided fields</string>
 </resources>

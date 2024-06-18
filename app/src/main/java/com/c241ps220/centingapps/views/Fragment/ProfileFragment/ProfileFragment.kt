@@ -79,6 +79,7 @@ class ProfileFragment : Fragment() {
                 }
                 else{
                     tvNameProfile.text = user.name
+                    tvEmail.text = user.email
                     tvEmail.visibility = View.VISIBLE
                     divName.visibility = View.VISIBLE
                     tvInisial.text = CustomFunction.getInitials(user.name)
