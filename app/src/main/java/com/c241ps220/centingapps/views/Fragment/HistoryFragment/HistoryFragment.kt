@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.c241ps220.centingapps.R
 import com.c241ps220.centingapps.ViewModelFactory.ViewModelFactory
 import com.c241ps220.centingapps.data.database.child.Child
+import com.c241ps220.centingapps.data.pref.UserPreference
 import com.c241ps220.centingapps.databinding.FragmentHistoryBinding
 import com.c241ps220.centingapps.databinding.FragmentProfileBinding
 import com.c241ps220.centingapps.views.AnakSection.DetailAnak.DetailAnakActivity
@@ -78,7 +79,7 @@ class HistoryFragment : Fragment() {
     }
 
     private fun obtainViewModel(activity: AppCompatActivity): HistoryViewModel {
-        val factory = ViewModelFactory.getInstance(activity.application)
+        val factory = ViewModelFactory.getInstance(activity.application, UserPreference.getInstance(activity.application))
         return ViewModelProvider(activity, factory).get(HistoryViewModel::class.java)
     }
 
