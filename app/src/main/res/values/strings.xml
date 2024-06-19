@@ -189,4 +189,13 @@
 
     <string name="title_reminder">Weekly Reminder</string>
     <string name="message_reminder">Lets check your routine stunting detection history every week to find out your childs progress</string>
+
+    <string name="p_name">Name</string>
+    <string name="p_email">Email</string>
+    <string name="p_number">Phone Number</string>
+    <string name="p_address">Address</string>
+    <string name="p_gender">Gender</string>
+    <string name="p_birthdate">Birth Date</string>
+    <string name="title_confirm_update_profile">Update Profile ?</string>
+    <string name="message_confirm_update_profile">Are you sure to save the profile changes?</string>
 </resources>

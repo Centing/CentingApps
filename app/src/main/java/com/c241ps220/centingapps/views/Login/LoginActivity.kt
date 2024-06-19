@@ -20,6 +20,7 @@ import com.c241ps220.centingapps.data.retrofit.ApiConfig
 import com.c241ps220.centingapps.data.retrofit.UserLoginAuth.UserLoginRequest
 import com.c241ps220.centingapps.data.retrofit.UserLoginAuth.UserLoginResponse
 import com.c241ps220.centingapps.databinding.ActivityLoginBinding
+import com.c241ps220.centingapps.utils.CustomFunction
 import com.c241ps220.centingapps.views.Register.RegisterActivity
 import com.google.gson.Gson
 import com.google.gson.JsonObject
@@ -130,9 +131,9 @@ class LoginActivity : AppCompatActivity() {
                             binding.loadingProgressBar.visibility = View.GONE
                             Log.d("API", "Email: ${it.email}")
                             Log.d("API", "Name: ${it.name}")
-                            // Tambahkan logika sesuai kebutuhan setelah login berhasil
-//                            JANGAN LUPA YANG STRING HARDCODE DIBAWAH NUNGGU UPDATE DARI CC
+
                             val user = UserModel(
+                                it.id,
                                 it.name,
                                 it.email,
                                 it.phone ?: "-",

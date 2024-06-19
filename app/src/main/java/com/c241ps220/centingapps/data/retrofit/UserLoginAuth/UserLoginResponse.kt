@@ -3,6 +3,9 @@ package com.c241ps220.centingapps.data.retrofit.UserLoginAuth
 import com.google.gson.annotations.SerializedName
 
 data class UserLoginResponse(
+    @SerializedName("id")
+    val id: String,
+
     @SerializedName("email")
     val email: String,
 

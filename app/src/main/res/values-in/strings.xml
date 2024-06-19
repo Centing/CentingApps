@@ -198,6 +198,16 @@
     <string name="message_reminder">Yuk cek riwayat deteksi stunting rutin setiap minggunya untuk mengetahui perkembangan anak anda</string>
 
 
+    <string name="p_name">Nama</string>
+    <string name="p_email">Email</string>
+    <string name="p_number">Nomor Telepon</string>
+    <string name="p_address">Alamat</string>
+    <string name="p_gender">Jenis Kelamin</string>
+    <string name="p_birthdate">Tanggal Lahir</string>
+    <string name="title_confirm_update_profile">Update Profile ?</string>
+    <string name="message_confirm_update_profile">Apakah anda yakin untuk menyimpan perubahan profile?</string>
+
+
 
 
 
