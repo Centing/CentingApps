@@ -13,5 +13,11 @@ data class UserLoginResponse(
     val phone: String?,
 
     @SerializedName("address")
-    val address: String?
+    val address: String?,
+
+    @SerializedName("gender")
+    val gender: String?,
+
+    @SerializedName("birth_date")
+    val birth_date: String?
 )

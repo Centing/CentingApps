@@ -135,8 +135,10 @@ class LoginActivity : AppCompatActivity() {
                             val user = UserModel(
                                 it.name,
                                 it.email,
-                                "Perempuan",
-                                "29-03-2003"
+                                it.phone ?: "-",
+                                it.address ?: "-",
+                                it.gender ?: "-",
+                                it.birth_date ?: "-",
                             )
                             loginViewModel.saveSession(user)
                         }
