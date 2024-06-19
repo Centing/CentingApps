@@ -207,6 +207,11 @@
     <string name="title_confirm_update_profile">Update Profile ?</string>
     <string name="message_confirm_update_profile">Apakah anda yakin untuk menyimpan perubahan profile?</string>
 
+    <string name="title_confirm_update_password">Update Password ?</string>
+    <string name="message_confirm_update_password">Apakah anda yakin untuk mengubah password?, apabila berhasil maka anda harus login kembali untuk dapat menggunakan aplikasi ini</string>
+
+
+
 
 
 

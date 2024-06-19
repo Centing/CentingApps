@@ -17,6 +17,7 @@ import com.c241ps220.centingapps.views.Fragment.ProfileFragment.ProfileViewModel
 import com.c241ps220.centingapps.views.History.HistoryActivityViewModel
 import com.c241ps220.centingapps.views.Login.LoginViewModel
 import com.c241ps220.centingapps.views.Profile.ProfileActivityViewModel
+import com.c241ps220.centingapps.views.ResetPassword.ResetPasswordViewModel
 import com.c241ps220.centingapps.views.SplashScreen.SplashscreenViewModel
 
 class ViewModelFactory(private val mApplication: Application, private val pref: UserPreference) : ViewModelProvider.NewInstanceFactory() {
@@ -74,6 +75,9 @@ class ViewModelFactory(private val mApplication: Application, private val pref: 
         }
         if (modelClass.isAssignableFrom(ProfileActivityViewModel::class.java)) {
             return ProfileActivityViewModel(pref) as T
+        }
+        if (modelClass.isAssignableFrom(ResetPasswordViewModel::class.java)) {
+            return ResetPasswordViewModel(pref) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
     }

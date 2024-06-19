@@ -49,7 +49,7 @@ class ProfileActivity : AppCompatActivity() {
 
         profileActivityViewModel.getSession().observe(this) { user ->
             if (user.isLogin == true) {
-                with(binding){
+                with(binding) {
                     val initials = CustomFunction.getInitials(user.name)
                     id = user.id
                     tvInisial.text = initials
@@ -96,7 +96,7 @@ class ProfileActivity : AppCompatActivity() {
                     }
 
                 }
-            }else{
+            } else {
                 finish()
             }
         }
@@ -115,7 +115,7 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     private fun genderMale() {
-        with(binding){
+        with(binding) {
             isSelectedGender = "Laki-Laki"
             divGenderLaki.setBackgroundResource(R.drawable.rectangle_stroke2)
             divGenderPerempuan.setBackgroundResource(R.drawable.rectangle_stroke_transparent)
@@ -210,24 +210,33 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     private fun updateProfile() {
-        with(binding){
+        with(binding) {
             val phone = etPhone.text.toString()
             val address = etAddress.text.toString()
             val gender = isSelectedGender
             val birthDate = etBirthDate.text.toString()
 
-            val updateProfileRequest = UserUpdateProfileRequest(id_user = id, phone = phone, address = address, gender = gender, birth_date = birthDate)
+            val updateProfileRequest = UserUpdateProfileRequest(
+                id_user = id,
+                phone = phone,
+                address = address,
+                gender = gender,
+                birth_date = birthDate
+            )
 
+            binding.loadingProgressBar.visibility = View.VISIBLE
             ApiConfig.createApiService().updateProfile(updateProfileRequest)
                 .enqueue(object : Callback<UserUpdateProfileResponse> {
                     override fun onResponse(
                         call: Call<UserUpdateProfileResponse>,
                         response: Response<UserUpdateProfileResponse>
                     ) {
+                        binding.loadingProgressBar.visibility = View.GONE
                         if (response.isSuccessful) {
                             val updateProfileResponse = response.body()
                             updateProfileResponse?.let {
-                                Toast.makeText(this@ProfileActivity, it.message, Toast.LENGTH_LONG).show()
+                                Toast.makeText(this@ProfileActivity, it.message, Toast.LENGTH_LONG)
+                                    .show()
                                 divEdit.visibility = View.GONE
                                 divButtonStateEdit.visibility = View.GONE
                                 divAwal.visibility = View.VISIBLE
@@ -251,22 +260,35 @@ class ProfileActivity : AppCompatActivity() {
                             }
                         } else {
                             if (response.code() == 404) {
-                                Toast.makeText(this@ProfileActivity, "User not found", Toast.LENGTH_LONG).show()
+                                Toast.makeText(
+                                    this@ProfileActivity,
+                                    "User not found",
+                                    Toast.LENGTH_LONG
+                                ).show()
                             } else {
-                                Toast.makeText(this@ProfileActivity, "Update failed: ${response.message()}", Toast.LENGTH_LONG).show()
+                                Toast.makeText(
+                                    this@ProfileActivity,
+                                    "Update failed: ${response.message()}",
+                                    Toast.LENGTH_LONG
+                                ).show()
                             }
                         }
                     }
 
                     override fun onFailure(call: Call<UserUpdateProfileResponse>, t: Throwable) {
-                        Toast.makeText(this@ProfileActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+                        binding.loadingProgressBar.visibility = View.GONE
+                        Toast.makeText(
+                            this@ProfileActivity,
+                            "Error: ${t.message}",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 })
 
         }
     }
 
-            private fun logout() {
+    private fun logout() {
         CoroutineScope(Dispatchers.Main).launch {
             userPreference.logout()
 //            finish()

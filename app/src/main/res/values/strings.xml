@@ -198,4 +198,7 @@
     <string name="p_birthdate">Birth Date</string>
     <string name="title_confirm_update_profile">Update Profile ?</string>
     <string name="message_confirm_update_profile">Are you sure to save the profile changes?</string>
+
+    <string name="title_confirm_update_password">Update Password ?</string>
+    <string name="message_confirm_update_password">Are you sure you want to change your password? If successful, you have to log in again to be able to use this application</string>
 </resources>

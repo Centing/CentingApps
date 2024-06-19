@@ -6,6 +6,8 @@ import com.c241ps220.centingapps.data.retrofit.UserLoginAuth.UserLoginRequest
 import com.c241ps220.centingapps.data.retrofit.UserLoginAuth.UserLoginResponse
 import com.c241ps220.centingapps.data.retrofit.UserRegisterAuth.UserRegisterRequest
 import com.c241ps220.centingapps.data.retrofit.UserRegisterAuth.UserRegisterResponse
+import com.c241ps220.centingapps.data.retrofit.UserUpdatePasswordAuth.UserUpdatePasswordRequest
+import com.c241ps220.centingapps.data.retrofit.UserUpdatePasswordAuth.UserUpdatePasswordResponse
 import com.c241ps220.centingapps.data.retrofit.UserUpdateProfileAuth.UserUpdateProfileRequest
 import com.c241ps220.centingapps.data.retrofit.UserUpdateProfileAuth.UserUpdateProfileResponse
 import retrofit2.Call
@@ -36,4 +38,7 @@ interface ApiService {
 
     @POST("auth/update/profile")
     fun updateProfile(@Body userUpdateProfileRequest: UserUpdateProfileRequest): Call<UserUpdateProfileResponse>
+
+    @POST("auth/update/password")
+    fun updatePassword(@Body userUpdatePasswordRequest: UserUpdatePasswordRequest): Call<UserUpdatePasswordResponse>
 }
