@@ -105,9 +105,13 @@ class RegisterActivity : AppCompatActivity() {
                             startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
                         }
                     } else {
-                        // Login gagal
+                        // Registrasi gagal
                         binding.loadingProgressBar.visibility = View.GONE
-                        Toast.makeText(this@RegisterActivity, "Registration failed", Toast.LENGTH_LONG).show()
+                        if (response.code() == 400) {
+                            Toast.makeText(this@RegisterActivity, "Email already registered", Toast.LENGTH_LONG).show()
+                        } else {
+                            Toast.makeText(this@RegisterActivity, "Registration failed: ${response.message()}", Toast.LENGTH_LONG).show()
+                        }
                     }
                 }
 
