@@ -26,6 +26,8 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField("String", "BASE_URL", "\"https://capstone-stunting.et.r.appspot.com/\"")
+            buildConfigField("String", "BASE_URL_PRIVATE", "\"https://centingapi.remons.my.id/\"")
         }
 
         debug {
@@ -34,6 +36,8 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField("String", "BASE_URL", "\"https://capstone-stunting.et.r.appspot.com/\"")
+            buildConfigField("String", "BASE_URL_PRIVATE", "\"https://centingapi.remons.my.id/\"")
         }
     }
     compileOptions {

@@ -1,5 +1,6 @@
 package com.c241ps220.centingapps.data.retrofit
 
+import com.c241ps220.centingapps.BuildConfig
 import com.c241ps220.centingapps.utils.CustomFunction
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -13,7 +14,7 @@ object ApiConfig {
             .addInterceptor(loggingInterceptor)
             .build()
         val retrofit = Retrofit.Builder()
-            .baseUrl(CustomFunction.BASE_URL)
+            .baseUrl(BuildConfig.BASE_URL_PRIVATE)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()

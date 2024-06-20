@@ -10,7 +10,7 @@ interface DetectionResultDao {
     @Insert
     fun insertDetectionResult(result: DetectionResult)
 
-    @Query("SELECT * FROM detection_results WHERE id = :childId")
+    @Query("SELECT * FROM detection_results WHERE childId = :childId")
     fun getResultsByChildId(childId: Int): LiveData<List<DetectionResult>>
 
     @Query("SELECT * FROM detection_results")

@@ -12,8 +12,6 @@ import java.util.Locale
 
 object CustomFunction {
 
-    val BASE_URL: String = "https://4b4c-45-126-187-3.ngrok-free.app/"
-
     fun convertApiDateToLocalDate(apiDateString: String): String {
         // Format tanggal dan waktu dari API
         val apiDateTimeFormatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME
